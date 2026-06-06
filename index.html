@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM Agent Security Survey</title>
+    <meta
+      name="description"
+      content="A data-driven companion site for the survey Toward Secure LLM Agents."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top">LLM Agent Security Survey</a>
+        <nav class="top-nav">
+          <a href="#overview">Overview</a>
+          <a href="#questions">Findings</a>
+          <a href="#outlook">Outlook</a>
+          <a href="#literature">Literature</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Survey Showcase</p>
+            <h1 id="survey-title">Loading survey title...</h1>
+            <p id="survey-subtitle" class="hero-subtitle"></p>
+            <div class="hero-actions">
+              <a id="paper-link" class="button button-primary" href="#" target="_blank" rel="noreferrer">
+                Paper Link
+              </a>
+              <a id="code-link" class="button button-secondary" href="#" target="_blank" rel="noreferrer">
+                Project Link
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="authors panel">
+          <div class="section-heading">
+            <p class="eyebrow">Authors</p>
+            <h2>Authors and Affiliations</h2>
+          </div>
+          <div id="authors-grid" class="authors-grid"></div>
+        </section>
+
+        <section id="overview" class="panel">
+          <div class="section-heading">
+            <p class="eyebrow">Overview</p>
+            <h2>Research Background</h2>
+          </div>
+          <div id="background-copy" class="copy-grid"></div>
+
+          <div class="section-heading section-heading-tight">
+            <p class="eyebrow">At A Glance</p>
+            <h2>Abstract Snapshot</h2>
+          </div>
+          <p id="abstract-copy" class="abstract-copy"></p>
+        </section>
+
+        <section id="questions" class="panel">
+          <div class="section-heading">
+            <p class="eyebrow">Research Questions</p>
+            <h2>Main Questions and Conclusions</h2>
+          </div>
+          <div id="questions-grid" class="question-grid"></div>
+        </section>
+
+        <section id="outlook" class="panel">
+          <div class="section-heading">
+            <p class="eyebrow">Looking Ahead</p>
+            <h2>Future Outlook</h2>
+          </div>
+          <p id="outlook-intro" class="section-intro"></p>
+          <div id="outlook-grid" class="outlook-grid"></div>
+        </section>
+
+        <section id="literature" class="panel literature-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Literature Browser</p>
+            <h2>Collected Literature</h2>
+          </div>
+
+          <div class="controls-card">
+            <div class="search-row">
+              <label class="field">
+                <span>Search</span>
+                <input id="search-input" type="search" placeholder="Search title, author, venue, DOI..." />
+              </label>
+
+              <label class="field">
+                <span>Field</span>
+                <select id="search-field">
+                  <option value="all">All fields</option>
+                  <option value="title">Title</option>
+                  <option value="authors">Authors</option>
+                  <option value="venue">Venue</option>
+                  <option value="year">Year</option>
+                  <option value="doi">DOI</option>
+                  <option value="typeTag">Type tag</option>
+                  <option value="multiAgentLabel">Multi-agent</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Paper Type</span>
+                <select id="type-filter">
+                  <option value="all">All types</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Multi-agent</span>
+                <select id="multi-agent-filter">
+                  <option value="all">All</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Year</span>
+                <select id="year-filter">
+                  <option value="all">All years</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="results-bar">
+              <p id="results-summary" class="results-summary"></p>
+              <button id="reset-filters" class="button button-secondary button-small" type="button">
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <div id="literature-grid" class="literature-grid"></div>
+
+          <div class="pagination-bar">
+            <button id="prev-page" class="button button-secondary button-small" type="button">Previous</button>
+            <div id="page-numbers" class="page-numbers"></div>
+            <button id="next-page" class="button button-secondary button-small" type="button">Next</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

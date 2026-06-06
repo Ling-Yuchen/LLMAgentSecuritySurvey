@@ -1,0 +1,131 @@
+{
+  "title": "Toward Secure LLM Agents: A Survey of Threat Surfaces, Attacks, Defenses, and Evaluation",
+  "subtitle": "A curated, data-driven companion site for the survey on LLM agent security.",
+  "paperUrl": "https://example.com/llm-agent-security-survey.pdf",
+  "codeUrl": "https://example.com/llm-agent-security-survey-repo",
+  "authors": [
+    {
+      "name": "Yuchen Ling",
+      "institution": "State Key Laboratory for Novel Software Technology, Nanjing University",
+      "city": "Nanjing",
+      "country": "China",
+      "email": "yuchenling@smail.nju.edu.cn"
+    },
+    {
+      "name": "Shengcheng Yu",
+      "institution": "Technical University of Munich",
+      "city": "Heilbronn",
+      "country": "Germany",
+      "email": "shengcheng.yu@tum.de"
+    },
+    {
+      "name": "Chunrong Fang",
+      "institution": "State Key Laboratory for Novel Software Technology, Nanjing University",
+      "city": "Nanjing",
+      "country": "China",
+      "email": "fangchunrong@nju.edu.cn"
+    },
+    {
+      "name": "Zhenyu Chen",
+      "institution": "State Key Laboratory for Novel Software Technology, Nanjing University",
+      "city": "Nanjing",
+      "country": "China",
+      "email": "zychen@nju.edu.cn"
+    }
+  ],
+  "abstract": "Large language model (LLM) agents are rapidly moving from conversational interfaces to software components that plan, invoke tools, maintain memory, and act on external environments. This transition changes the nature of security risk. In agentic settings, failures are no longer limited to unsafe text generation. Untrusted content may redirect control flow, misuse tool privileges, corrupt persistent state, leak sensitive information, or trigger harmful external actions. At the same time, research on LLM agent security is expanding quickly but remains fragmented across attack families, defense layers, application domains, and evaluation settings. This survey synthesizes 247 papers through a lifecycle-based, systems-oriented framework that models agent security around the interaction of information flow, delegated authority, and persistent state. We organize the literature around four questions: how LLM agent security should be modeled, which threat surfaces and attack families dominate, what defenses have been proposed and with what tradeoffs, and how security claims are evaluated. We find that prompt injection and tool-mediated control-flow hijacking still dominate the field, while persistent state corruption and multi-agent propagation are becoming central emerging concerns. We further find that current defenses provide useful building blocks but remain weakly compositional, and that existing benchmarks still underrepresent long-horizon, stateful, and deployment-sensitive risks. We argue that secure LLM agents require explicit trust boundaries, principled privilege control, provenance-aware state management, and evaluation practices aligned with realistic operational settings.",
+  "background": [
+    "Recent advances in large language models (LLMs) have shifted research attention from passive text generation toward action-oriented systems that can reason, use tools, access external environments, and pursue multi-step goals . Early work on reasoning-acting integration and tool use already showed that LLMs can serve not only as conversational interfaces but also as decision-making components in interactive software systems . That shift has since accelerated through the emergence of web agents, coding agents, memory-augmented assistants, embodied agents, and multi-agent workflows, where LLMs are used to interpret instructions, plan actions, execute tasks, revise intermediate results, and coordinate subtasks .",
+    "LLM agent security should therefore be understood as a systems problem. It arises when language-mediated reasoning is coupled with action selection, state management, and externally consequential execution. Unlike content-level safety, which is primarily concerned with prompts and responses, agent security concerns how user instructions, retrieved content, tool outputs, memory updates, and inter-agent messages can alter control flow, misuse privileges, corrupt state, or trigger harmful operations."
+  ],
+  "methodologyNote": [
+    "Figure~fig:survey-framework provides a compact map of how this survey is constructed and how the remainder of the manuscript is organized. The top band summarizes the review-design logic: we begin from a rapidly growing literature on LLM agent security, construct a curated corpus of 247 papers, and combine retrieval, LLM-assisted expansion, snowballing, manual screening, and structured coding into one hybrid review pipeline. The center of the figure then introduces the lifecycle-based and systems-oriented analytical lens used throughout the survey. Rather than treating agent security as a collection of isolated attacks, we analyze how risk emerges across the agentic loop from input, planning, decision, and tool execution to output, while also accounting for memory/state and coordination as cross-cutting components shaped by information flow, delegated authority, and persistence.",
+    "This framing is placed before the detailed methodological subsections because the review protocol and the analytical framework are tightly coupled. The lower half of the figure shows how that shared lens is operationalized through RQ1--RQ4, which respectively address scope and modeling, threat surfaces and attack families, defense strategies and tradeoffs, and evaluation practices and benchmark gaps. The bottom synthesis layer then makes explicit the broader engineering themes that recur across the corpus, namely trust boundaries, privilege control, state management, and deployment assurance. In this sense, is not only a visual summary of the paper, but also the bridge between corpus construction and the thematic synthesis developed in the later sections."
+  ],
+  "keyFindings": [
+    "LLM agent security has emerged as a distinct research area because agents transform language into decisions, tool invocations, persistent state, and coordinated action. Based on a corpus of 247 papers, this survey argues that the field is best understood through a lifecycle-based and surface-aware framework that connects information flow, delegated authority, and persistent state across the agentic loop.",
+    "Viewed through that framework, three descriptive conclusions are especially robust. First, prompt injection and tool-mediated control-flow hijacking still define the empirical center of the reviewed threat literature. Second, the clearest expansion visible in the corpus lies in persistence and propagation, especially through memory reuse and multi-agent coordination. Third, the current defense and evaluation ecosystems are less consolidated than the threat literature they respond to: defense research offers useful components but not yet a stable compositional stack, and evaluation research offers substantial activity but not yet a common basis for deployment assurance. Secure LLM agents will therefore require more than better prompts or stronger filters. They will require principled privilege control, provenance-aware state management, runtime oversight, and evaluation practices that reflect realistic operational conditions. More broadly, they will require a shift in mindset: from securing model outputs in isolation to engineering governable agentic systems whose authority, memory, and coordination structure are treated as first-class security design concerns in deployment."
+  ],
+  "futureOutlookIntro": "Overall, the discussion points to a consistent theme. The field will mature when secure LLM agents are treated as engineered systems with explicit trust boundaries, governable state, constrained authority, and deployment-specific assurance arguments, rather than as prompt-driven applications that can be secured by local patches alone in practice.",
+  "futurePriorities": [
+    {
+      "challenge": "Provenance-aware state management",
+      "direction": "Memory labeling, trust decay, revocation, and state provenance models"
+    },
+    {
+      "challenge": "Secure tool governance",
+      "direction": "Fine-grained capability scoping, confirmation policies, and safer tool APIs"
+    },
+    {
+      "challenge": "Multi-agent trust management",
+      "direction": "Role-scoped authority, message integrity controls, and topology-aware containment"
+    },
+    {
+      "challenge": "Lifecycle-wide evaluation",
+      "direction": "Longer-horizon suites with memory, coordination, and privilege-sensitive scenarios"
+    },
+    {
+      "challenge": "Deployment-oriented assurance",
+      "direction": "Assurance cases that combine threat modeling, runtime controls, and empirical evidence"
+    }
+  ],
+  "researchQuestions": [
+    {
+      "id": "RQ1",
+      "question": "How should LLM agent security be scoped and modeled as a software and systems problem?",
+      "shortTitle": "Scope and Modeling",
+      "answer": "LLM agent security should be modeled as the interaction of information flow, delegated authority, and persistent state across the agentic loop. This formulation is more specific than simply calling the problem ``system-level.'' It helps unify strands of the literature that might otherwise appear disconnected: prompt injection is often a planning and execution problem, memory poisoning is a delayed control-flow problem, and multi-agent coordination is also a trust and propagation problem."
+    },
+    {
+      "id": "RQ2",
+      "question": "Which threat surfaces and attack families dominate current research on LLM agent security?",
+      "shortTitle": "Threat Surfaces and Attacks",
+      "answer": "Current LLM agent security research is still dominated by prompt injection and indirect control-flow hijacking, but the field is already moving toward a broader threat model centered on persistence, authority abuse, and propagation. The most important conceptual shift is from thinking in terms of isolated malicious inputs to thinking in terms of cross-stage compromise and concrete consequence realization."
+    },
+    {
+      "id": "RQ3",
+      "question": "What defense strategies have been proposed, and what tradeoffs remain unresolved?",
+      "shortTitle": "Defenses and Tradeoffs",
+      "answer": "The field does not lack defenses. Rather, it has many defense components but not yet a stable compositional logic. Current work offers meaningful building blocks, especially around access control, runtime monitoring, information-flow control, and containment. What remains missing is a principled answer to which layers are necessary for which agent architectures, threat environments, and deployment stakes."
+    },
+    {
+      "id": "RQ4",
+      "question": "How are security claims evaluated today, and where do current benchmarks still fall short?",
+      "shortTitle": "Evaluation and Gaps",
+      "answer": "The evaluation ecosystem is active but not yet sufficiently standardized for deployment assurance. A stronger agenda should satisfy at least five conditions. It should cover multiple threat surfaces rather than only prompt-level compromise. It should jointly report safety and utility rather than treat them as separate concerns. It should model longer horizons so that memory corruption and delayed activation become visible. It should include privilege-sensitive scenarios where external effects matter. It should also report latency, cost, and oversight burden more consistently across studies."
+    }
+  ],
+  "stats": {
+    "paperCount": 247,
+    "yearStart": 2023,
+    "yearEnd": 2026,
+    "multiAgentCount": 47,
+    "singleAgentCount": 200,
+    "paperTypes": [
+      {
+        "label": "Attack",
+        "count": 66
+      },
+      {
+        "label": "Defense",
+        "count": 64
+      },
+      {
+        "label": "Benchmark",
+        "count": 47
+      },
+      {
+        "label": "Survey",
+        "count": 32
+      },
+      {
+        "label": "Evaluation",
+        "count": 26
+      },
+      {
+        "label": "Report",
+        "count": 12
+      }
+    ]
+  }
+}
