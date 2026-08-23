@@ -1,4 +1,5 @@
 const PAGE_SIZE = 12;
+const DATA_VERSION = "260610749-email";
 
 const state = {
   siteData: null,
@@ -33,8 +34,8 @@ const els = {
 
 async function loadData() {
   const [siteRes, paperRes] = await Promise.all([
-    fetch("./data/site-data.json"),
-    fetch("./data/papers.json"),
+    fetch(`./data/site-data.json?v=${DATA_VERSION}`),
+    fetch(`./data/papers.json?v=${DATA_VERSION}`),
   ]);
 
   if (!siteRes.ok || !paperRes.ok) {
@@ -63,6 +64,11 @@ function renderAuthors() {
           <p>${escapeHtml(author.institution)}</p>
           <div class="author-meta">
             <span class="chip chip-muted">${escapeHtml(author.city)}, ${escapeHtml(author.country)}</span>
+            ${
+              author.email
+                ? `<a class="chip chip-email" href="mailto:${escapeAttribute(author.email)}">${escapeHtml(author.email)}</a>`
+                : ""
+            }
           </div>
         </article>
       `,

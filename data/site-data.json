@@ -1,7 +1,7 @@
 {
   "title": "Toward Secure LLM Agents: A Survey of Threat Surfaces, Attacks, Defenses, and Evaluation",
   "subtitle": "A curated, data-driven companion site for the survey on LLM agent security.",
-  "paperUrl": "https://example.com/llm-agent-security-survey.pdf",
+  "paperUrl": "https://arxiv.org/abs/2606.10749",
   "codeUrl": "https://example.com/llm-agent-security-survey-repo",
   "authors": [
     {

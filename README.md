@@ -17,13 +17,13 @@ Static showcase site for the survey:
 
 The site is generated from:
 
-- `/Users/yoson/workspace/projects/docs/AgentSafetySurvey/main.tex`
-- `/Users/yoson/workspace/projects/docs/AgentSafetySurvey/main.bib`
-- `/Users/yoson/workspace/projects/docs/AgentSafetySurvey/LLM_Agent_Security_Literature.xlsx`
+- `<survey-project>/main.tex`
+- `<survey-project>/main.bib`
+- `<survey-project>/LLM_Agent_Security_Literature.xlsx`
 
 ## Rebuild Data
 
-From `/Users/yoson/workspace/projects/docs/AgentSafetySurvey` run:
+From the survey project root, run:
 
 ```bash
 python3 web/LLMAgentSecuritySurvey/scripts/build_site_data.py
@@ -31,7 +31,7 @@ python3 web/LLMAgentSecuritySurvey/scripts/build_site_data.py
 
 ## Preview Locally
 
-From `/Users/yoson/workspace/projects/docs/AgentSafetySurvey/web/LLMAgentSecuritySurvey` run:
+From this web directory, run:
 
 ```bash
 python3 -m http.server 8000
