@@ -1,11 +1,11 @@
 const PAGE_SIZE = 12;
-const DATA_VERSION = "20261117-annotations";
+const DATA_VERSION = "20261117-compact";
 const ANNOTATION_FIELDS = [
   ["lifecycleStage", "Lifecycle stages"],
-  ["benchmark", "Benchmarks / datasets"],
-  ["evaluationMetrics", "Evaluation metrics"],
-  ["attackMethods", "Attack methods"],
-  ["defenseMethods", "Defense methods"],
+  ["benchmark", "Benchmarks"],
+  ["evaluationMetrics", "Metrics"],
+  ["attackMethods", "Attacks"],
+  ["defenseMethods", "Defenses"],
 ];
 
 const state = {
@@ -223,7 +223,7 @@ function renderLiterature() {
                 <div class="annotation-row">
                   <dt>${label}</dt>
                   <dd>${paper[key]?.length
-                    ? paper[key].map(escapeHtml).join("; ")
+                    ? paper[key].map(escapeHtml).join(" · ")
                     : '<span class="empty-annotation">Not specified</span>'}</dd>
                 </div>
               `).join("")}

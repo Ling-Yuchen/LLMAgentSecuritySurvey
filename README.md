@@ -34,7 +34,12 @@ python3 web/LLMAgentSecuritySurvey/scripts/build_site_data.py
 The public `data/papers.json` includes `lifecycleStage`, `benchmark`,
 `evaluationMetrics`, `attackMethods`, and `defenseMethods` as arrays. All five
 appear on each literature card and support both all-field and field-specific
-search. Empty arrays display “Not specified”, without treating missing annotations
+search. The four benchmark, metric, attack, and defense fields contain up to two
+representative short labels per paper. They are editorial summaries for browsing.
+Lifecycle labels use the survey's terminology and retain the distinction between
+planning, decision, tool execution, memory, and coordination. The page provides a
+collapsible lifecycle glossary. ASR denotes attack success rate.
+Empty arrays display “Not specified”, without treating missing annotations
 as evidence that a method or benchmark is absent. Local source files are not
 included in the website publication.
 

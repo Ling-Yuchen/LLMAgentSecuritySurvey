@@ -394,6 +394,28 @@ h2 {
   line-height: 1.5;
 }
 
+.annotation-note,
+.lifecycle-guide {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.lifecycle-guide summary {
+  cursor: pointer;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.lifecycle-guide dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.65rem 1rem;
+}
+
+.lifecycle-guide dt { font-weight: 700; color: var(--ink); }
+.lifecycle-guide dd { margin: 0; }
+
 .annotation-row + .annotation-row {
   margin-top: 0.55rem;
 }
