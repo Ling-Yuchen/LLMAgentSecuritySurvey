@@ -11,6 +11,7 @@ Static showcase site for the survey:
 - `app.js`: client-side rendering, filtering, and pagination
 - `data/site-data.json`: survey metadata and section content
 - `data/papers.json`: literature records for the browser
+- `labeling-guide.html`: public field definitions, decision boundaries, and summary conventions
 - `scripts/build_site_data.py`: rebuilds the JSON data from the project sources
 
 ## Data Sources
@@ -30,6 +31,10 @@ python3 web/LLMAgentSecuritySurvey/scripts/build_site_data.py
 ```
 
 ## Technical annotations
+
+The [labeling guide](./labeling-guide.html) documents every public field, primary
+paper types, system setting, lifecycle labels, topic and threat conventions,
+open-vocabulary fields, multi-label counting, missing values, and compact summaries.
 
 The public `data/papers.json` includes `lifecycleStage`, `benchmark`,
 `evaluationMetrics`, `attackMethods`, and `defenseMethods` as arrays. All five

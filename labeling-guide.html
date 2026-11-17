@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Field definitions, label boundaries, and annotation rules for the LLM Agent Security Survey." />
+  <title>Labeling Guide | LLM Agent Security Survey</title>
+  <link rel="stylesheet" href="./styles.css?v=20261117-codebook" />
+</head>
+<body>
+<div class="page-shell guide-shell">
+  <header class="site-header">
+    <a class="brand" href="./">LLM Agent Security Survey</a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="./#literature">Literature</a>
+      <a href="./data/papers.json">Public annotations</a>
+    </nav>
+  </header>
+  <main>
+    <section class="panel guide-intro">
+      <p class="eyebrow">Annotation reference · Version 1.0 · 17 November 2026</p>
+      <h1>Labeling guide</h1>
+      <p>This guide defines the public annotation fields, their decision boundaries, and the compact labels shown in the literature browser. It brings together the survey’s annotation scheme, lifecycle definitions, and existing label conventions.</p>
+      <p>Each record describes one retained literature entry. Paper type and system setting have one assignment; technical fields allow multiple labels. Labels describe the contribution, setting, or evidence discussed in the source. For quantitative comparisons, use the source’s stated threat model, experiment, and metric denominator.</p>
+      <nav class="guide-toc" aria-label="Guide contents">
+        <a href="#fields">Fields</a><a href="#classification">Paper type &amp; setting</a>
+        <a href="#context">Topics &amp; context</a><a href="#lifecycle">Lifecycle</a>
+        <a href="#threats">Threats &amp; surfaces</a><a href="#methods">Methods &amp; evaluation</a>
+        <a href="#encoding">Encoding &amp; summaries</a><a href="#examples">Boundary examples</a>
+      </nav>
+    </section>
+
+    <section id="fields" class="panel guide-section">
+      <h2>1. Field reference</h2>
+      <p>Identify the paper’s main contribution first, then its agent setting and security concern. Assign technical labels to substantively treated mechanisms, settings, or evaluation resources. Preserve distinct concepts when a paper combines them.</p>
+      <div class="guide-table-wrap"><table>
+        <caption>All fields in the public literature records</caption>
+        <thead><tr><th scope="col">Field</th><th scope="col">Meaning and encoding</th></tr></thead>
+        <tbody>
+          <tr><td><code>id</code></td><td>Stable S-ID joining a record to its annotations. An identifier is distinct from a DOI or publication version.</td></tr>
+          <tr><td><code>title</code>, <code>authors</code></td><td>Bibliographic title and compact author display. The author string may use “et al.”.</td></tr>
+          <tr><td><code>year</code>, <code>venue</code></td><td>Publication year and normalized outlet. Year follows first public availability where known; a confirmed venue replaces the preprint venue. Publication year is separate from retrieval date.</td></tr>
+          <tr><td><code>doi</code>, <code>doiUrl</code></td><td>Recorded DOI and its resolver URL. Empty strings indicate no DOI supplied in the released record.</td></tr>
+          <tr><td><code>typeTag</code></td><td>One primary research function, using the six classes below.</td></tr>
+          <tr><td><code>multiAgent</code>, <code>multiAgentLabel</code></td><td>One Boolean assignment and its equivalent Yes/No display. These encode the same decision.</td></tr>
+          <tr><td><code>researchTopic</code></td><td>Security research themes. Multiple substantive themes may coexist.</td></tr>
+          <tr><td><code>keywords</code></td><td>Short topical or technical descriptors retained for discovery. These are open vocabulary, rather than an additional exclusive taxonomy.</td></tr>
+          <tr><td><code>agentType</code></td><td>Agent architecture, interface, modality, or role studied.</td></tr>
+          <tr><td><code>taskScenario</code></td><td>Application or task environment in which the agent operates.</td></tr>
+          <tr><td><code>threatModel</code></td><td>Compact tags for adversarial control, failure source, or security concern. Full access assumptions and budgets remain in the cited work.</td></tr>
+          <tr><td><code>attackSurface</code></td><td>The entry channel, interface, or asset exposed to manipulation or compromise.</td></tr>
+          <tr><td><code>lifecycleStage</code></td><td>The affected agent process, using the nine labels in Section 4.</td></tr>
+          <tr><td><code>benchmark</code></td><td>Named benchmarks, datasets, or study-specific testbeds used or discussed as evaluation resources.</td></tr>
+          <tr><td><code>evaluationMetrics</code></td><td>Reported outcome measures, resource measures, or qualitative evaluation criteria.</td></tr>
+          <tr><td><code>attackMethods</code></td><td>Concrete manipulations or exploit mechanisms studied, evaluated, or synthesized.</td></tr>
+          <tr><td><code>defenseMethods</code></td><td>Protection mechanisms proposed, evaluated, or synthesized.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="classification" class="panel guide-section">
+      <h2>2. Paper type and system setting</h2>
+      <dl class="guide-definitions">
+        <div><dt>Attack</dt><dd>The main contribution develops or demonstrates a compromise mechanism or adversarial method.</dd></div>
+        <div><dt>Defense</dt><dd>The main contribution develops or assesses a protection mechanism.</dd></div>
+        <div><dt>Benchmark</dt><dd>The main contribution is a reusable task collection, dataset, testbed, or evaluation protocol.</dd></div>
+        <div><dt>Evaluation</dt><dd>The main contribution measures or diagnoses existing agents, risks, or controls, rather than introducing a benchmark as its central output.</dd></div>
+        <div><dt>Survey</dt><dd>The work primarily synthesizes existing literature, taxonomies, or research directions.</dd></div>
+        <div><dt>Report</dt><dd>A system card, deployment report, security advisory, or comparable technical report. The website groups Report, System Card, and Advisory under this label.</dd></div>
+      </dl>
+      <p><strong>Mixed contributions.</strong> Use the paper’s central objective and principal output to distinguish Attack, Defense, Benchmark, and Evaluation. A benchmark paper can contain attacks and defenses without receiving multiple primary types. Venue and preprint status are separate bibliographic attributes. Report identifies the document’s role, not the strength of every claim within it.</p>
+      <p><strong>Multi-agent = Yes</strong> when agent-to-agent communication, coordination, collaboration, interoperability, topology, or cross-agent influence is a central security concern. <strong>No</strong> indicates that this criterion is not met. A passing discussion of multi-agent risks can support a topic tag without making the entire paper multi-agent-focused.</p>
+    </section>
+
+    <section id="context" class="panel guide-section">
+      <h2>3. Research topics and agent context</h2>
+      <details open><summary>Recurring research-topic labels</summary>
+        <dl class="guide-definitions">
+          <div><dt>Security Taxonomy</dt><dd>Organization or synthesis of security concepts and literature.</dd></div>
+          <div><dt>Safety Benchmarking</dt><dd>Measurement tasks, datasets, risk assessment, or evaluation protocols.</dd></div>
+          <div><dt>Runtime Defense</dt><dd>Protection or monitoring during agent operation.</dd></div>
+          <div><dt>Formal Safety Verification</dt><dd>Formal specifications, logical constraints, or verification.</dd></div>
+          <div><dt>Prompt Injection Security</dt><dd>Instruction manipulation and separation of instructions from untrusted data.</dd></div>
+          <div><dt>Tool-use Security</dt><dd>Security of tool selection, invocation, interfaces, and results.</dd></div>
+          <div><dt>Web Agent Security</dt><dd>Security of browsing and website interaction.</dd></div>
+          <div><dt>Embodied Agent Safety</dt><dd>Physical or simulated action and environmental safety.</dd></div>
+          <div><dt>Memory Safety</dt><dd>Integrity, confidentiality, and safe reuse of agent state.</dd></div>
+          <div><dt>Multi-agent Security</dt><dd>Security concerns involving interactions among agents.</dd></div>
+          <div><dt>Agent Privacy</dt><dd>Disclosure, inference, or protection of sensitive information.</dd></div>
+          <div><dt>Access Control</dt><dd>Authorization, permissions, and capability restrictions.</dd></div>
+          <div><dt>Autonomous Exploitation</dt><dd>Agents performing vulnerability discovery or exploitation.</dd></div>
+          <div><dt>Secure Agent Architecture</dt><dd>System organization, isolation, and trust boundaries.</dd></div>
+          <div><dt>Agent Red Teaming</dt><dd>Adversarial testing and risk discovery.</dd></div>
+          <div><dt>Code Agent Security</dt><dd>Security of coding and software-development agents.</dd></div>
+          <div><dt>RAG Security</dt><dd>Security of retrieval-augmented workflows and retrieved knowledge.</dd></div>
+        </dl>
+      </details>
+      <p>Topic labels can overlap. A paper about poisoned retrieval memory can receive both Memory Safety and RAG Security. Additional source-specific topic phrases retain their literal research focus, such as Post-Training Local LLM Agents.</p>
+      <p><strong>Agent type is open vocabulary.</strong> Tool-using, planning, memory-augmented, and RAG agents describe capabilities or architecture; web, GUI, computer-use, coding, and embodied agents describe interfaces or operational settings. Role labels such as email assistant or healthcare agent describe the intended service. Record multiple applicable characteristics. Coding Agent and Code Agent, or RAG Agent and Retrieval-Augmented Agent, express closely related descriptions rather than mutually exclusive classes.</p>
+      <p><strong>Task scenario is open vocabulary.</strong> Use the application and task actually studied, such as Web Browsing, Computer Use, Software Engineering, Email Workflows, Finance Tools, Healthcare Assistance, Embodied Robotics, Plugin Ecosystem, Cloud Office Tools, Smart Home / IoT, Consumer App Automation, Personal Assistance, Critical Infrastructure, Cybersecurity Testing, or Multi-agent Collaboration. Preserve a short source-specific description when these general terms do not capture the task. A benchmark name alone does not establish every scenario it could support.</p>
+    </section>
+
+    <section id="lifecycle" class="panel guide-section">
+      <h2>4. Lifecycle stages</h2>
+      <p>Lifecycle labels identify <em>which agent process is affected</em>. Assign the processes substantively addressed in the work, including more than one stage when a mechanism crosses stages. Merely using an agent does not assign every stage.</p>
+      <dl class="guide-definitions">
+        <div><dt>Input</dt><dd>Inbound context and observations entering the agent.</dd></div>
+        <div><dt>Planning</dt><dd>Task decomposition, intermediate reasoning, or generation of candidate trajectories.</dd></div>
+        <div><dt>Decision</dt><dd>Commitment to one next action or delegation target.</dd></div>
+        <div><dt>Tool Execution</dt><dd>The privileged act performed through a tool or environment interface.</dd></div>
+        <div><dt>Memory</dt><dd>Transient or persistent state, including retention, updates, and later reuse.</dd></div>
+        <div><dt>Output</dt><dd>Externally visible responses, results, and side effects.</dd></div>
+        <div><dt>Monitoring</dt><dd>Observation and checking of agent behavior during operation.</dd></div>
+        <div><dt>Inter-agent Comms</dt><dd>Messages or information exchanged between agents.</dd></div>
+        <div><dt>Coordination</dt><dd>Organization of joint activity, roles, delegation, and cooperation across agents.</dd></div>
+      </dl>
+      <p><strong>Boundary rule.</strong> Forming a plan, choosing an action, and executing that action are separate assignments. A message exchange supports Inter-agent Comms; its effect on joint work can additionally support Coordination. Monitoring describes checking behavior, while Coordination describes organizing it.</p>
+      <p>The survey’s system tuple uses I, P, D, T, M, O, and C to model information, action, state, and coordination channels. The labels above provide the finer process categories used in its corpus discussion. Auxiliary descriptions of initialization, post-hoc auditing, or multi-turn interaction are not added as independent website lifecycle stages or automatically reassigned to these nine labels.</p>
+    </section>
+
+    <section id="threats" class="panel guide-section">
+      <h2>5. Threat models and attack surfaces</h2>
+      <details open><summary>Threat-model tags</summary>
+        <dl class="guide-definitions">
+          <div><dt>Prompt Injection</dt><dd>Instructions intended to redirect agent behavior. This broad tag can coexist with a more specific injection tag.</dd></div>
+          <div><dt>Indirect Prompt Injection</dt><dd>Attacker instructions carried by lower-trust content encountered during a task.</dd></div>
+          <div><dt>Jailbreak Prompts</dt><dd>Requests or prompt manipulations targeting behavioral safety restrictions.</dd></div>
+          <div><dt>Unsafe User Instructions</dt><dd>Harmful, malicious, or underspecified instructions from the user-facing input.</dd></div>
+          <div><dt>Untrusted External Content</dt><dd>External material that can influence the agent without trusted instruction authority.</dd></div>
+          <div><dt>Malicious Tools / Plugins / Apps</dt><dd>Adversarial or compromised tool, plugin, or application components. Retain the component-specific tag.</dd></div>
+          <div><dt>Memory Poisoning</dt><dd>Adversarial contamination of state that can influence subsequent behavior.</dd></div>
+          <div><dt>Backdoor Triggers</dt><dd>Trigger-conditioned activation of attacker-chosen behavior.</dd></div>
+          <div><dt>Privilege Abuse</dt><dd>Misuse of authority, credentials, or available capabilities.</dd></div>
+          <div><dt>Data Exfiltration</dt><dd>Unauthorized disclosure or transfer of information.</dd></div>
+          <div><dt>Agent Misbehavior</dt><dd>Unsafe behavior arising from agent errors or failure processes.</dd></div>
+          <div><dt>Agent as Attacker</dt><dd>An agent acts as the offensive actor rather than only as the victim.</dd></div>
+          <div><dt>Coordination Failures</dt><dd>Security-relevant failures in interactions or joint agent activity.</dd></div>
+          <div><dt>Environmental Injection</dt><dd>Manipulation carried through observations, interfaces, notifications, or environmental content.</dd></div>
+        </dl>
+      </details>
+      <p>Threat tags summarize a concern or failure source. Preserve distinctions between attacker-controlled components and non-adversarial failures; a shared outcome such as leakage does not imply identical attacker access.</p>
+      <details open><summary>Surface definitions and assignment boundaries</summary>
+        <dl class="guide-definitions">
+          <div><dt>User Prompts / System Prompts</dt><dd>User-supplied requests versus system instructions or templates. Preserve the instruction source and authority.</dd></div>
+          <div><dt>Web Content</dt><dd>Content encountered in browsing, including pages, DOM, links, and rendered web material.</dd></div>
+          <div><dt>Retrieved Content</dt><dd>Evidence returned by retrieval or search, including documents and knowledge-base material.</dd></div>
+          <div><dt>Tool Outputs</dt><dd>Results returned by an invoked tool or API.</dd></div>
+          <div><dt>Tool Inputs / Tool Metadata</dt><dd>Invocation arguments versus names, descriptions, schemas, or other tool-selection information.</dd></div>
+          <div><dt>Plugin / API Interfaces</dt><dd>Integration contracts and interfaces through which external components interact with the agent.</dd></div>
+          <div><dt>Files / Code</dt><dd>Local artifacts that may be read, executed, or modified.</dd></div>
+          <div><dt>Memory / Scratchpads</dt><dd>Agent-generated or retained state, including reusable working context.</dd></div>
+          <div><dt>Planning Loop / Action Selection / Action Generation</dt><dd>Reasoning, choice, or production of actions when that internal process is the manipulated asset.</dd></div>
+          <div><dt>Inter-agent Channels</dt><dd>Messages, shared communication structures, and routes between agents.</dd></div>
+          <div><dt>Execution Environment / Sandbox State</dt><dd>Runtime resources and state available to executed actions.</dd></div>
+          <div><dt>Auth / Permission Flows</dt><dd>Identity, authorization, confirmation, and permission handling.</dd></div>
+          <div><dt>Environment State / Mobile UI / Notifications</dt><dd>Physical, simulated, or graphical observations and interaction surfaces.</dd></div>
+          <div><dt>Agent Outputs / Model Responses</dt><dd>Generated content or responses exposed to manipulation or disclosure.</dd></div>
+        </dl>
+      </details>
+      <p>Detailed surface names remain open vocabulary. Retain the concrete asset or channel when it is more informative, for example an email subject, MCP registration metadata, or a skill script. A webpage returned by a browsing tool can involve both Web Content and Tool Outputs when both provenance and the return interface matter. Stage records when the risk acts; surface records where it enters or which asset it affects.</p>
+    </section>
+
+    <section id="methods" class="panel guide-section">
+      <h2>6. Attacks, defenses, benchmarks, and metrics</h2>
+      <h3>Attack methods</h3>
+      <p>Use a short mechanism label or the source’s named method. Direct injection enters through the direct instruction interface; indirect injection enters through task-time external content. Tool poisoning changes tool metadata or behavior; memory poisoning changes retained state; data exfiltration sends information to an unauthorized recipient; goal hijacking changes the objective; role spoofing impersonates an authority; message tampering alters inter-agent communication. Backdoors, visual perturbations, tool denial of service, and cost amplification retain their distinct mechanism names.</p>
+      <p>Multiple mechanisms can apply to one paper. Preserve a specific method name such as GCG, MINJA, or CORBA when it identifies the evaluated technique. A paper’s title or primary type alone does not determine all of its attack labels.</p>
+      <h3>Defense methods</h3>
+      <p>Label the intervention. Filtering or sanitization checks content; instruction hierarchy or trust delimiters separates instruction authority; isolation or sandboxing separates execution contexts; access control and least privilege constrain capabilities; monitoring observes runtime behavior; intent or plan verification checks alignment before action; provenance and authentication verify origins; memory controls govern retained state; safety training changes model behavior; human confirmation introduces a human decision.</p>
+      <p>Retain named defenses when available and assign several labels for genuinely combined controls. A defense label identifies a mechanism addressed by the paper, including evaluated baselines and survey discussions. Its effectiveness and deployment assumptions come from the associated evidence. Attack optimization constraints and experimental setup choices are not recast as protection mechanisms.</p>
+      <h3>Benchmarks and datasets</h3>
+      <p>Preserve resource names such as AgentDojo, InjecAgent, ASB, OSWorld, or MIMIC-III. Use a short descriptive label for study-specific resources, such as Web tasks, MCP testbed, or Custom scenarios. These entries can be security benchmarks, capability benchmarks, datasets, or bespoke evaluation environments. Resource use or discussion records research activity; security capability depends on the actual attacker interface, state, interaction horizon, and outcome criteria tested.</p>
+      <h3>Evaluation metrics</h3>
+      <p>Preserve the measured quantity. <strong>ASR</strong> means attack success rate; <strong>Task success</strong> denotes task completion; <strong>Accuracy, Precision, Recall, F1, AUROC</strong> describe prediction or detection quality; <strong>Utility</strong> describes retained task performance; <strong>Refusal Rate</strong> describes refusal frequency; <strong>Latency, Cost, Token Usage</strong> describe resource use. <strong>ELR</strong> and <strong>WLS</strong> denote exact leakage rate and weighted leakage score. Keep source-specific metrics by name when their definition differs.</p>
+      <p>Generic Success Rate remains generic unless its target is specified. A label alone does not harmonize denominators, attackers, repeated attempts, judges, or operating conditions across studies. Qualitative criteria remain qualitative labels rather than invented numeric scores.</p>
+    </section>
+
+    <section id="encoding" class="panel guide-section">
+      <h2>7. Multiple labels, missing values, and compact summaries</h2>
+      <ol>
+        <li><strong>Multiple labels.</strong> Technical arrays contain distinct applicable labels. For a full annotation table, count a paper at most once per label or label pair. Counts across overlapping labels need not sum to the corpus size.</li>
+        <li><strong>Missing values.</strong> Empty arrays display “Not specified”. They do not distinguish not applicable, not reported, and not assigned. Treat them as unspecified, not as an explicit negative observation. Legacy “Not-Specified” or availability-only topic messages likewise carry no topical assignment.</li>
+        <li><strong>Open vocabulary.</strong> Resource names, metrics, keywords, agent descriptions, scenarios, concrete surfaces, and named methods can extend beyond the recurring labels listed here. Keep a concise source-specific term instead of forcing an unrelated category.</li>
+        <li><strong>Compact publication.</strong> Benchmark, metric, attack, and defense summaries retain up to two distinct representative labels, with at most six English words per field. Descriptive sentences are condensed by meaning, specific names are retained where useful, and synonymous summaries are merged. The current release takes the first two distinct summaries in the retained annotation order; that order is not an effectiveness ranking.</li>
+        <li><strong>Lifecycle display.</strong> Retain all recorded labels that match the nine lifecycle categories and display them in the order listed in Section 4. This preserves the distinction between planning, decision, execution, state, and coordination.</li>
+        <li><strong>Evidence and counts.</strong> Use all document types for corpus-composition questions. Attribute empirical outcomes to the relevant primary studies or report evidence. Separate Survey and Report when a count is intended to characterize primary research. State the included types, missing-value treatment, and denominator for each analysis.</li>
+      </ol>
+      <p>The browser’s two-label summaries support exploration. Full multi-label frequency or co-occurrence calculations use the corresponding analysis annotations, because summarization can omit labels or combine synonymous descriptions.</p>
+      <p><strong>Boundary review.</strong> Resolve competing assignments against the source’s stated contribution, system setting, and described mechanism, using the same boundary across papers. Leave an unsupported assignment unspecified. For agreement analysis, a single-label field is categorical and each multi-label category is a separate binary decision. The survey reports agreement before harmonization; the browser summaries are a subsequent presentation layer.</p>
+    </section>
+
+    <section id="examples" class="panel guide-section">
+      <h2>8. Applying the boundaries</h2>
+      <dl class="guide-definitions">
+        <div><dt>A poisoned webpage redirects a tool call</dt><dd>Web Content identifies the entry surface; Indirect injection identifies the manipulation. Input, Decision, and Tool Execution apply when the work substantively follows those processes. Add Planning only when the mechanism or analysis addresses planning.</dd></div>
+        <div><dt>A malicious memory affects a later task</dt><dd>Memory / Scratchpads identifies the asset and Memory the lifecycle process. Memory poisoning names the attack. Label the later planning or decision effect when it is examined.</dd></div>
+        <div><dt>A paper introduces a benchmark and tests defenses</dt><dd>Use Benchmark as the primary type when the reusable evaluation resource is the main contribution. Record the studied defenses separately.</dd></div>
+        <div><dt>A survey discusses agent communication</dt><dd>Multi-agent Security can be a research topic. Set Multi-agent to Yes only if cross-agent security is central to the work’s focus.</dd></div>
+      </dl>
+      <p><strong>Basis.</strong> The survey’s Literature Annotation and Analysis subsection, LLM Agent Security Scope and Modeling section, and Annotation Encoding, Boundary Cases, and Reliability appendix supply the scheme and distinctions. This guide documents the public field meanings and current summary conventions.</p>
+      <p><a href="https://arxiv.org/abs/2606.10749">Read the survey</a> · <a href="./#literature">Explore the literature</a> · <a href="./data/papers.json">View public annotations</a></p>
+    </section>
+  </main>
+</div>
+</body>
+</html>
