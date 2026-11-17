@@ -29,6 +29,15 @@ From the survey project root, run:
 python3 web/LLMAgentSecuritySurvey/scripts/build_site_data.py
 ```
 
+## Technical annotations
+
+The public `data/papers.json` includes `lifecycleStage`, `benchmark`,
+`evaluationMetrics`, `attackMethods`, and `defenseMethods` as arrays. All five
+appear on each literature card and support both all-field and field-specific
+search. Empty arrays display “Not specified”, without treating missing annotations
+as evidence that a method or benchmark is absent. Local source files are not
+included in the website publication.
+
 ## Preview Locally
 
 From this web directory, run:

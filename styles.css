@@ -386,6 +386,32 @@ h2 {
   margin-top: 1.4rem;
 }
 
+.paper-annotations {
+  margin: 0.35rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.annotation-row + .annotation-row {
+  margin-top: 0.55rem;
+}
+
+.paper-annotations dt {
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.paper-annotations dd {
+  margin: 0.12rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.empty-annotation {
+  color: var(--muted);
+}
+
 .page-number {
   min-width: 2.4rem;
   min-height: 2.4rem;

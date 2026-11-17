@@ -1,5 +1,12 @@
 const PAGE_SIZE = 12;
-const DATA_VERSION = "260610749-email";
+const DATA_VERSION = "20261117-annotations";
+const ANNOTATION_FIELDS = [
+  ["lifecycleStage", "Lifecycle stages"],
+  ["benchmark", "Benchmarks / datasets"],
+  ["evaluationMetrics", "Evaluation metrics"],
+  ["attackMethods", "Attack methods"],
+  ["defenseMethods", "Defense methods"],
+];
 
 const state = {
   siteData: null,
@@ -142,6 +149,7 @@ function getSearchableValue(paper, field) {
       ...(paper.taskScenario || []),
       ...(paper.threatModel || []),
       ...(paper.attackSurface || []),
+      ...ANNOTATION_FIELDS.flatMap(([key]) => paper[key] || []),
     ]
       .join(" ")
       .toLowerCase();
@@ -210,6 +218,16 @@ function renderLiterature() {
                   : `<span class="empty-doi">Not available</span>`
               }
             </p>
+            <dl class="paper-annotations">
+              ${ANNOTATION_FIELDS.map(([key, label]) => `
+                <div class="annotation-row">
+                  <dt>${label}</dt>
+                  <dd>${paper[key]?.length
+                    ? paper[key].map(escapeHtml).join("; ")
+                    : '<span class="empty-annotation">Not specified</span>'}</dd>
+                </div>
+              `).join("")}
+            </dl>
           </article>
         `,
       )

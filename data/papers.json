@@ -39,6 +39,33 @@
       "User Prompts",
       "Environmental Observation",
       "Tool Metadata"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "ATBench",
+      "R-Judge"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "F1"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "Tool Description Injection"
+    ],
+    "defenseMethods": [
+      "Trajectory-Level Safety Monitoring",
+      "Taxonomy-Grounded Risk Diagnosis",
+      "Supervised Fine-Tuning on Annotated Agent Trajectories"
     ]
   },
   {
@@ -82,6 +109,33 @@
       "Tool Metadata",
       "Tool Outputs",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Custom 20-Tool Pool"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Latency",
+      "Tool Usage Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Tool-Description Attacks Through Manipulated Names and Descriptions",
+      "MCP Preference Manipulation Attacks"
+    ],
+    "defenseMethods": [
+      "Static Tool Extraction From Code",
+      "Trace-Based Tool Validation",
+      "Search and Discovery for Missing Tools"
     ]
   },
   {
@@ -118,6 +172,32 @@
       "MCP Tool Server",
       "Tool Response Text",
       "Argument Descriptions"
+    ],
+    "lifecycleStage": [
+      "Decision",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "ToolBench",
+      "BFCL"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Output Tokens Per Query",
+      "Latency"
+    ],
+    "attackMethods": [
+      "Tool-Layer Denial of Service via Malicious MCP Server Templating",
+      "Multi-Turn Cost Amplification Through Repeated Tool Calls",
+      "Verbose Calibration-Sequence Inflation At The Tool-Calling Step"
+    ],
+    "defenseMethods": [
+      "Prompt-Level Perplexity Filtering on Query and Tool Response",
+      "Generation-Level Self-Monitoring",
+      "Trajectory-Level Safety Judges"
     ]
   },
   {
@@ -159,6 +239,33 @@
       "Initialize Capability Declarations",
       "Sampling/CreateMessage",
       "Tool Response Payloads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms",
+      "Output"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Exfiltration Rate",
+      "Persistence Rate",
+      "Cascade Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Tool Response Manipulation",
+      "Cross-Server Propagation and Trust Exploitation"
+    ],
+    "defenseMethods": [
+      "Capability Attestation with Signed Certificates",
+      "Message Authentication with HMAC-SHA256",
+      "Origin Tagging for Sampling Messages"
     ]
   },
   {
@@ -198,6 +305,33 @@
       "Web Content",
       "DOM Elements",
       "Advertisement Banners"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "OSWorld",
+      "OSWorld Task Subsets Used for Planner Evaluation"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Pass@k",
+      "Pass@1",
+      "False Positive Rate"
+    ],
+    "attackMethods": [
+      "Branch Steering via Malicious Webpage or DOM Content That Forces A Valid But Harmful Branch in The Pre-Written Plan",
+      "Cookie Popup Mimicry Embedded in Advertisement Banners",
+      "Multi-Step and Long-Range Cookie Redirection Attacks Using A Hop Website"
+    ],
+    "defenseMethods": [
+      "Dual-LLM Architectural Isolation Between Planner and Perception",
+      "Single-Shot Planning with Pre-Approved Branching Execution Graph",
+      "Observe-Verify-Act Planning Discipline"
     ]
   },
   {
@@ -237,6 +371,32 @@
       "Tool Outputs",
       "Tool Result Content",
       "Large Text Returned by Tools"
+    ],
+    "lifecycleStage": [
+      "Tool Execution",
+      "Planning",
+      "Decision",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Success Rate",
+      "Average UA",
+      "Average Risk"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Ignore Previous Instructions Attack Embedded in Tool Output",
+      "Important Messages Attack Embedded in Tool Output"
+    ],
+    "defenseMethods": [
+      "Tool Output Parsing to Extract Only Needed Data",
+      "Format-Constrained Extraction",
+      "Logical Constraint Validation"
     ]
   },
   {
@@ -275,6 +435,32 @@
       "Tool Metadata",
       "Parameter Specifications",
       "MCP Registration Phase"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "MCPTox Dataset",
+      "Real-World MCP Servers and Tools From MCPTox"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Detection Rate",
+      "Ignored Rate",
+      "Direct Invocation Rate"
+    ],
+    "attackMethods": [
+      "Tool Poisoning",
+      "Tool-Selection Hijacking From A Benign Tool to A Legitimate High-Privilege Target Tool",
+      "Black-Box Iterative Optimization of Poisoned Tool Metadata"
+    ],
+    "defenseMethods": [
+      "Malicious Tool Detection with An LLM-Based Detector Used As An Optimization Constraint",
+      "Runtime Detection Simulation via LD"
     ]
   },
   {
@@ -313,6 +499,33 @@
       "Environment Variables",
       "Files / Code",
       "Stdout"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Tool Execution",
+      "Output",
+      "Monitoring",
+      "Auditing"
+    ],
+    "benchmark": [
+      "Three Case-Study Tools",
+      "Tool-Return Micro-Benchmark"
+    ],
+    "evaluationMetrics": [
+      "Exit Status",
+      "Bounded Stdout and Stderr",
+      "Counts of Extracted Sources",
+      "Counts of Extracted Sinks"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Runtime Data Leakage From Environment or Mounted Files",
+      "Filesystem Access Attempts Outside Preopened Capabilities"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "Least-Privilege Preopened-Directory Execution",
+      "Bounded Output Capture"
     ]
   },
   {
@@ -352,6 +565,33 @@
       "User Input Channel",
       "Memory / Scratchpads",
       "Few-Shot Context Construction"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MIMIC-III Clinical Data",
+      "EICU Prompt Collections"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Memory Append Acceptance Rate",
+      "Memory Rejection Rate"
+    ],
+    "attackMethods": [
+      "Memory Poisoning",
+      "MINJA-Style Bridging Steps, Indication Prompts, and Progressive Shortening",
+      "Patient ID Redirection / Aliasing Attack in EHR Memory"
+    ],
+    "defenseMethods": [
+      "Input Moderation with Keyword and Semantic Filtering",
+      "Output Moderation with Code-Safety and Relevance Checks",
+      "Composite Trust Scoring"
     ]
   },
   {
@@ -395,6 +635,33 @@
       "User Prompts",
       "Files / Code",
       "Issues and Pull Requests"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MCPSecBench",
+      "IDEsaster"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Defense Bypass Rate",
+      "Platform Vulnerability Level",
+      "Compromise Rate"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "Tool Poisoning"
+    ],
+    "defenseMethods": [
+      "Input Sanitization",
+      "Policy Enforcement",
+      "Instruction Hierarchy"
     ]
   },
   {
@@ -436,6 +703,33 @@
       "User Prompts",
       "Web Content",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Real-World Proof-of-Concept Attack Scenario",
+      "Untrusted Webpage or Document Payload"
+    ],
+    "evaluationMetrics": [
+      "Attack Feasibility",
+      "Successful Memory Persistence",
+      "Successful Data Exfiltration",
+      "Qualitative Observation of Repeated Requests"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Memory Poisoning",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Human-in-The-Loop Validation for Memory Updates",
+      "Content Security Policies Restricting External Communication",
+      "Automated Memory Scanning and Auditing"
     ]
   },
   {
@@ -479,6 +773,33 @@
       "User Prompts",
       "Tool Outputs",
       "RAG Retrieval"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Policy Activation Rate",
+      "False Positive Rate",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "RAG Poisoning via Retrieved Content"
+    ],
+    "defenseMethods": [
+      "Access Control",
+      "Information-Flow Graph Monitoring",
+      "Policy-Based Path Matching and Rule Evaluation"
     ]
   },
   {
@@ -518,6 +839,33 @@
       "User Prompts",
       "Retrieved Content",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Sandboxed Web Pages Reproducing Typical User Flows",
+      "Attacker-Controlled Endpoints for Reporting User Data"
+    ],
+    "evaluationMetrics": [
+      "Environment Constraint Bypass Rate",
+      "Commonsense Constraint Bypass Rate",
+      "Attack Success Rate",
+      "Pass Rate Across URL Variants"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "URL-Based Trust Probes Using Cybersquatting, Typosquatting, and Homograph Variants",
+      "Misinformation Injection Through Fabricated Promo or Booking Claims"
+    ],
+    "defenseMethods": [
+      "Allow / Deny Lists",
+      "Explicit Safety Requests From Users",
+      "URL Verification Heuristics"
     ]
   },
   {
@@ -561,6 +909,33 @@
       "User Prompts",
       "Tool Outputs",
       "External Environment Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "TS-Bench",
+      "AgentAlign-Traj"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "F1",
+      "Recall",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Malicious User Requests That Directly Induce Unsafe Tool Calls",
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Guardrails",
+      "Multi-Task Safety Classification with Interpretable Feedback",
+      "Reinforcement Learning with GRPO"
     ]
   },
   {
@@ -602,6 +977,32 @@
       "External Data Returned by Tools",
       "MCP Server Responses",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "IPI-3K",
+      "InjectAgent"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Transferability"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Adaptive Prompt Refinement for IPI",
+      "Task-Relevant Malicious Tool Selection to Evade Semantic Mismatch Detection"
+    ],
+    "defenseMethods": [
+      "MELON, A Training-Free IPI Defense",
+      "Prompt Injection Detection",
+      "Instruction Prevention and Sandwich-Style Input Defenses As Related Prior Work"
     ]
   },
   {
@@ -643,6 +1044,33 @@
       "SKILL.md Metadata",
       "SKILL.md Instructions",
       "Referenced Scripts"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AppWorld",
+      "OSWorld"
+    ],
+    "evaluationMetrics": [
+      "Task Goal Completion",
+      "Scenario Goal Completion",
+      "Success Rate",
+      "Token Usage"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Data Exfiltration",
+      "Privilege Escalation"
+    ],
+    "defenseMethods": [
+      "Static Analysis and Dependency Scanning",
+      "LLM-Based Semantic Classification of Skill Intent",
+      "Sandboxing"
     ]
   },
   {
@@ -686,6 +1114,31 @@
       "Web Content",
       "Retrieved Content",
       "Links and Attachments"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDyn",
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Success Rate",
+      "Trajectory-Length-Conditioned Utility"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Generic Important-Instructions Attack Using Importance Prefixes and Suffixes Around The Malicious Instruction"
+    ],
+    "defenseMethods": [
+      "Prompt Sandwiching",
+      "Spotlighting",
+      "Tool Filtering"
     ]
   },
   {
@@ -732,6 +1185,25 @@
       "Context Window",
       "Retrieved Content",
       "Databases"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Jailbreak",
+      "Knowledge Base Contamination in RAG"
+    ],
+    "defenseMethods": [
+      "Instruction Hierarchy",
+      "Intent Verification for User and Environment Inputs",
+      "Statistical Filtering for Poisoned Retrieval Content"
     ]
   },
   {
@@ -777,6 +1249,33 @@
       "User Prompts",
       "Web Content",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentLAB",
+      "WebShop"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Turn to Success",
+      "Frugality Score",
+      "Mean Purchase Price"
+    ],
+    "attackMethods": [
+      "Intent Hijacking Through Multi-Turn Adversarial Prompting",
+      "Tool Chaining That Composes Individually Benign Tool Calls Into A Malicious Sequence",
+      "Indirect Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Self-Reminder",
+      "Llama-Guard",
+      "Repeated Prompt"
     ]
   },
   {
@@ -820,6 +1319,33 @@
       "Discord Messages",
       "Email Messages",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Live Laboratory Deployment of OpenClaw Agents",
+      "Discord and Email Interaction Logs"
+    ],
+    "evaluationMetrics": [
+      "Qualitative Case-Study Outcomes",
+      "Task Completion or Failure",
+      "Whether Sensitive Information Was Disclosed",
+      "Whether Harmful Actions Were Executed"
+    ],
+    "attackMethods": [
+      "Non-Owner Compliance Exploitation",
+      "Indirect Prompt Injection",
+      "Identity Spoofing"
+    ],
+    "defenseMethods": [
+      "Refusal of Overtly Suspicious Requests",
+      "Checking Discord User IDs Within A Channel",
+      "Semantic Inspection of Obfuscated Payloads"
     ]
   },
   {
@@ -863,6 +1389,33 @@
       "Tool Outputs",
       "Retrieved Content",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "TRAVEL Suite"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Clean Utility",
+      "False Positive Rate"
+    ],
+    "attackMethods": [
+      "Important Instructions: Imperative or Urgency-Marked Directives Embedded in Tool-Return Text",
+      "Tool Knowledge: Procedural or Documentation-Style Guidance Embedded in Retrieved Content",
+      "InjecAgent: Concise Imperative Overrides Embedded in Structured Metadata Fields"
+    ],
+    "defenseMethods": [
+      "Boundary-Anchored Counterfactual Re-Execution",
+      "Temporal Causal Diagnostics",
+      "Context Purification of Mediator Content"
     ]
   },
   {
@@ -904,6 +1457,33 @@
       "Tool Outputs",
       "Web Content",
       "API Response"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "ASB"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attacked Utility",
+      "Attack Success Rate",
+      "Token Consumption"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Control-Flow Manipulation",
+      "Data-Flow Manipulation"
+    ],
+    "defenseMethods": [
+      "Context Isolation",
+      "Schema-Bounded Communication",
+      "JSON Parsing Gate for Return Values"
     ]
   },
   {
@@ -948,6 +1528,33 @@
       "Prompt Input",
       "Tool Invocation",
       "Retrieved Data"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "OWASP Top 10 for LLM Applications 2025",
+      "174 Test Cases Across 11 Attack Patterns"
+    ],
+    "evaluationMetrics": [
+      "Recall",
+      "False Positives",
+      "Attack Coverage",
+      "Latency"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Indirect Prompt Injection",
+      "Credential Exfiltration"
+    ],
+    "defenseMethods": [
+      "Cryptographic Signatures for Invocation Authenticity",
+      "Policy Binding to Prevent Substitution",
+      "Hierarchical Policy Intersection for Least Privilege"
     ]
   },
   {
@@ -988,6 +1595,31 @@
       "Prompt Injection Content",
       "Agent Chain-of-Thought",
       "Tool Call Arguments"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Slack Suite"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Model Transfer Success"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Agent-As-A-Proxy Attack, Where The Agent Becomes A Carrier for Adversarial Content Aimed At The Monitor",
+      "GCG-Optimized Attack Strings"
+    ],
+    "defenseMethods": [
+      "Hybrid Monitoring with AlignmentCheck",
+      "Input Filtering Plus Hybrid Monitoring Using PromptGuard 2 Plus AlignmentCheck",
+      "Extract-and-Evaluate Monitoring"
     ]
   },
   {
@@ -1024,7 +1656,30 @@
       "Files / Code",
       "Identifier Names",
       "Inserted Loops"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Cybench Python CTFs",
+      "Intercode Python CTFs"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Mean Solvability Score",
+      "Pairwise Relative Model Score",
+      "Mean Tool-Call Count"
+    ],
+    "attackMethods": [
+      "Semantics-Preserving Source-Code Obfuscation via Identifier Renaming",
+      "Redundant Code Insertion Through Loops, Conditionals, Functions, and Comments",
+      "Composed Transformation T5 Combining Multiple Insertion Types"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S166",
@@ -1068,6 +1723,32 @@
       "User Prompts",
       "External Web or Content-Hub Pages",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "PASB Scenarios",
+      "Controlled Web Range for External Content Hub Simulation"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Response Rate",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "Tool-Return Deception and Output-Carried Payloads"
+    ],
+    "defenseMethods": [
+      "Delimiter Defense",
+      "Sandwich Defense",
+      "Instruction Prevention Defense"
     ]
   },
   {
@@ -1108,6 +1789,33 @@
       "Retrieved Content",
       "External Observation Stream",
       "Compromised MCP Servers"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "TrojanTools",
+      "InjectAgent"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Detection Rate",
+      "Utility Recover Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Context-Aware Malicious Redirection Toward Unauthorized Tool Calls",
+      "Combined Attacks and Ignore-Instruction Style Payloads"
+    ],
+    "defenseMethods": [
+      "Latent-Space Probing Based on Attention Entropy and Focus Intensity",
+      "Runtime Detection of Anomalous Attention Collapse",
+      "Selective Attention Steering and Suppression"
     ]
   },
   {
@@ -1146,6 +1854,33 @@
       "Tool Code Implementation",
       "Tool Metadata",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Dataset I: 1,200 Standalone Malicious Tools Newly Constructed by The Authors",
+      "Dataset II: 5,287 Trojan Malicious Tools Newly Constructed by The Authors"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Structural Similarity",
+      "Average Number of Generation-Verification Iterations",
+      "False Negative Rate"
+    ],
+    "attackMethods": [
+      "Standalone Malicious Tool Generation",
+      "Trojan Tool Embedding Into Benign Tools",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Execution-Based Verifier for Malicious Behavior Correctness",
+      "AST-Based Structural Diversity Filtering",
+      "Commercial Malware Scanning"
     ]
   },
   {
@@ -1183,6 +1918,31 @@
       "Tool Registry Metadata",
       "Tool Metadata",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "ToolRet Sampled Tool Corpus",
+      "AIME2025"
+    ],
+    "evaluationMetrics": [
+      "Token Consumption",
+      "Token Amplification Factor",
+      "Runtime",
+      "Runtime Amplification Factor"
+    ],
+    "attackMethods": [
+      "Text Repetition Attack via Recursive Marker Repetition",
+      "Iterative Refinement Loop That Redirects The Agent Through Analysis, Validation, Refinement, Verification, and Finalization",
+      "Distraction Attack That Expands The Task with Unrelated Subtasks and Restarts The Cycle"
+    ],
+    "defenseMethods": [
+      "NoWait Decoding-Time Token Masking"
     ]
   },
   {
@@ -1223,6 +1983,33 @@
       "User Prompts",
       "Retrieved Content",
       "API-Connected Banking Data"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Synthetic Banking Query Dataset Created by The Authors",
+      "Finance-Instruct-500k"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "F1"
+    ],
+    "attackMethods": [
+      "Malicious Financial Prompts",
+      "Prompt Injection",
+      "Tax Evasion Requests"
+    ],
+    "defenseMethods": [
+      "Semantic Firewall",
+      "Input Filtering",
+      "Pattern Detection"
     ]
   },
   {
@@ -1263,6 +2050,33 @@
       "URL Preview Content",
       "HTML Title Tags",
       "Meta Descriptions"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Local Synthetic Web-Page Attack Testbed",
+      "480 Experimental Runs Across 16 Configurations"
+    ],
+    "evaluationMetrics": [
+      "P(tool)",
+      "P(egress)",
+      "Leak@k",
+      "CompletionRate"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Indirect Instruction Injection Through Page Body, Title, Meta Tags, and Anchor Text",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "System Prompt Hardening Against Web-Derived Instructions",
+      "Delimiter Tags Marking External Content As Untrusted",
+      "Domain Allowlisting"
     ]
   },
   {
@@ -1304,6 +2118,33 @@
       "Skill Body",
       "Skill Scripts Directory",
       "Skill YAML Description"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "SKILL-INJECT Benchmark",
+      "23 Skill Files"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Injection Execution Rate",
+      "Task Completion Rate",
+      "Skills Recommended Rate"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Contextual Dual-Use Injection Hidden in Legitimate-Looking Instructions",
+      "Script-Based Injection via Auxiliary Skill Scripts"
+    ],
+    "defenseMethods": [
+      "Warning Security Policy Appended to The System Prompt",
+      "Legitimizing Security Policy Appended to The System Prompt",
+      "LLM-As-A-Judge Skill Screening"
     ]
   },
   {
@@ -1345,6 +2186,33 @@
       "Skill Registry",
       "Retrieved Content",
       "Auxiliary Scripts and Resources"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "A Curated Benchmark of 50 Diverse Agent Skills Introduced by The Paper",
+      "Task Batches Derived From Realistic Software-Engineering Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Invocation Check",
+      "Consequence Check"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Malicious Payload Hiding in Auxiliary Scripts Such As .sh or .py Files",
+      "Inducement Prompts That Steer The Agent to Execute Helper Scripts"
+    ],
+    "defenseMethods": [
+      "SkillScan Static Analysis",
+      "SkillScan LLM-Based Semantic Audit",
+      "Sandboxing"
     ]
   },
   {
@@ -1389,6 +2257,33 @@
       "Skill Metadata",
       "Skill Policy Text",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "SkillsBench",
+      "WebArena"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Pass Rate",
+      "Correctness",
+      "Robustness"
+    ],
+    "attackMethods": [
+      "Metadata Poisoning to Manipulate Skill Retrieval",
+      "Malicious Skill Payloads in Code or Natural-Language Instructions",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Metadata Schema Validation",
+      "Human Review for High-Privilege Skills",
+      "Sandboxing"
     ]
   },
   {
@@ -1428,6 +2323,33 @@
       "MQTT Envelope and Broker",
       "Per-Agent Inbox Topics",
       "Shared Coordination State"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Real-World Three-Node Home-Automation Testbed",
+      "MQTT Pub/Sub Coordination Workload"
+    ],
+    "evaluationMetrics": [
+      "Actuation-to-Audit Delay",
+      "Provenance Chain Completeness",
+      "Spoofed Message Acceptance Rate",
+      "Divergent Context Copies"
+    ],
+    "attackMethods": [
+      "Agent Impersonation Through Unauthenticated MQTT Messages",
+      "Command Replay on MQTT",
+      "Direct Publish to Safety-Critical Topics Bypassing Supervision"
+    ],
+    "defenseMethods": [
+      "Per-Agent Signing Keys with Broker-Side Verification",
+      "Nonce-Based Replay Protection",
+      "Topic-Level ACLs"
     ]
   },
   {
@@ -1471,6 +2393,33 @@
       "User Prompts",
       "Multimodal Input",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "RLBench",
+      "EIRAD"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Safety Violation Rate",
+      "Physical Risk Awareness"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Jailbreak",
+      "Backdoor Triggering"
+    ],
+    "defenseMethods": [
+      "Syntax Checking for Executable Jailbreak Evaluation",
+      "Guardrails",
+      "Formal Verification"
     ]
   },
   {
@@ -1515,6 +2464,33 @@
       "Web Content",
       "Tool Outputs",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Data-for-Agents/Insta-150k-V1",
+      "Author-Curated Bait Tasks"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Sliding Window Persistence Metric",
+      "Injection Count",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Memory Poisoning",
+      "Recursive Self-Replication to Survive Sliding-Window Truncation"
+    ],
+    "defenseMethods": [
+      "Sandwich Defense",
+      "Instructional Defense",
+      "Spotlight Defense"
     ]
   },
   {
@@ -1559,6 +2535,33 @@
       "User Prompts",
       "Tool Outputs",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "WASP"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Success Rate",
+      "Defense Effectiveness As Discussed in Prior Work"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Direct Prompt Injection",
+      "Jailbreak"
+    ],
+    "defenseMethods": [
+      "Prompt Engineering and Delimiters",
+      "Instruction Hierarchy",
+      "Training-Based Defenses"
     ]
   },
   {
@@ -1600,6 +2603,33 @@
       "Tool Metadata",
       "MCP Server Metadata",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Locally Deployed Malicious MCP Servers",
+      "Four Crafted Tool-Poisoning Attack Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Attack Outcome Classified As Unsafe, Partial, or Safe",
+      "Time to Detect",
+      "Number of User Confirmations Required",
+      "Log Completeness and Detail Level"
+    ],
+    "attackMethods": [
+      "Tool-description Poisoning",
+      "Logging Tool Invocation Activities for Surveillance",
+      "Phishing Link Injection"
+    ],
+    "defenseMethods": [
+      "Static Validation of Tool Descriptions",
+      "Pattern-Based Injection Detection",
+      "Model-Level Refusal Behavior"
     ]
   },
   {
@@ -1642,6 +2672,33 @@
       "Tool Outputs",
       "Web Content",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Agent Security Benchmark"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Latency",
+      "Input Tokens"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Prompt Injection",
+      "IMPORTANTMESSAGES Workflow-Framed Injection"
+    ],
+    "defenseMethods": [
+      "Runtime Counterfactual Verification of Tool Calls",
+      "Teacher-Forced Shadow Replay",
+      "Hierarchical Control Attenuation of Untrusted Observations"
     ]
   },
   {
@@ -1682,6 +2739,33 @@
       "Memory / Scratchpads",
       "Planning Loop",
       "AgentRunner"
+    ],
+    "lifecycleStage": [
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "MEMFLOW Scenarios",
+      "LangChain Community Tools Sample"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Attack Success Rate",
+      "Override Rate",
+      "Order Shift Rate"
+    ],
+    "attackMethods": [
+      "Memory Poisoning",
+      "Tool-Choice Override",
+      "Workflow Reordering"
+    ],
+    "defenseMethods": [
+      "Context Isolation",
+      "Role-Based Memory Segregation with Dual-Channel Storage",
+      "Hierarchical Prompt Instruction That System Rules Override User Preferences"
     ]
   },
   {
@@ -1727,6 +2811,33 @@
       "Perception/Input Stream",
       "Web Pages",
       "Emails"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AdvBench",
+      "Do-Not-Answer"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Benchmark Score",
+      "Perplexity",
+      "Accuracy"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Jailbreak",
+      "Memory Corruption Through RAG Poisoning and Context Pollution"
+    ],
+    "defenseMethods": [
+      "Instruction Boundary Reinforcement",
+      "Architectural Isolation and Structured Queries",
+      "Adversarial Training"
     ]
   },
   {
@@ -1770,7 +2881,30 @@
       "Tool Outputs",
       "Files / Code",
       "Web Content"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Indirect Prompt Injection Arena Scenarios",
+      "Curated Benchmark of 2,679 Successful Attacks"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Coverage of Behaviors with At Least One Success",
+      "Tool Judge Pass Rate",
+      "Prompt Judge Pass Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Concealment-Aware Attacks That Hide Compromise in The Final Response",
+      "Fake Chain of Thought"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S185",
@@ -1813,6 +2947,33 @@
       "User Prompts",
       "Fetched Web Content",
       "Prompt Construction"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Memory"
+    ],
+    "benchmark": [
+      "Attack-Corpus and Benign-Corpus Benchmark Directories",
+      "110-Case Preliminary Corpus"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "F1"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "Credential Exfiltration"
+    ],
+    "defenseMethods": [
+      "Lifecycle-Wide Interception Across Ten Hooks",
+      "Heuristic Canonicalization and Suspiciousness Scoring",
+      "LLM-Assisted Scanning for Suspicious Tool Results"
     ]
   },
   {
@@ -1850,6 +3011,33 @@
       "Shell Command Output",
       "Files / Code",
       "Cron Jobs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "12-Scenario Linux Privilege-Escalation Benchmark From Happe Et Al. 2026",
+      "Procedural Training and Validation Environments with 10 Generator Families"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Confidence Interval",
+      "Cost",
+      "Training Loss"
+    ],
+    "attackMethods": [
+      "Privilege Escalation",
+      "Cron Wildcard Injection",
+      "Credential Reuse and Weak-Password Guessing"
+    ],
+    "defenseMethods": [
+      "Procedural Generation with Benchmark Exclusions to Prevent Memorization",
+      "Seed Disjointness and Collision Checks to Reduce Leakage",
+      "Trace Filtering for Quality and Leakage"
     ]
   },
   {
@@ -1895,6 +3083,33 @@
       "User Prompts",
       "Web Content",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Original Datasets and Task Suites From The Surveyed Papers",
+      "Multi-Model and Multi-Task Evaluations Reported in The Cited Studies"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Accuracy",
+      "False-Positive Rate",
+      "Computational Resource Consumption"
+    ],
+    "attackMethods": [
+      "Data Extraction Attacks",
+      "Model Extraction",
+      "Membership Inference"
+    ],
+    "defenseMethods": [
+      "Semantic Consistency Assurance for Perception Inputs",
+      "Perception Algorithm Synergy",
+      "Trusted Retrieval and Anomaly Filtering for Memory"
     ]
   },
   {
@@ -1939,6 +3154,33 @@
       "Plugin Ecosystem",
       "Files / Code",
       "External Web Content"
+    ],
+    "lifecycleStage": [
+      "Initialization",
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision"
+    ],
+    "benchmark": [
+      "OpenClaw Case-Study Scenarios",
+      "Session.jsonl Logs"
+    ],
+    "evaluationMetrics": [
+      "Qualitative Attack Success",
+      "Behavioral Deviation",
+      "Task Hijacking",
+      "Persistent Compromise"
+    ],
+    "attackMethods": [
+      "Skill Poisoning via Malicious Plugin or Skill Metadata Manipulation",
+      "Indirect Prompt Injection",
+      "System Prompt Extraction"
+    ],
+    "defenseMethods": [
+      "Plugin Vetting via Static and Dynamic Analysis",
+      "Cryptographic Signatures and SBOM-Based Skill Verification",
+      "Policy-Driven Configuration Validation"
     ]
   },
   {
@@ -1983,6 +3225,33 @@
       "User Prompts",
       "Inter-agent Channels",
       "Message Channels"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "300 Synthesized MAS Workflows Generated with EvoAgentX",
+      "Four Official AG2 MAS Examples"
+    ],
+    "evaluationMetrics": [
+      "Pass Rate",
+      "Per-Agent Pass Rate",
+      "Per-Channel Pass Rate",
+      "Per-Trajectory Pass Rate"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Jailbreak",
+      "Sensitive Information Disclosure"
+    ],
+    "defenseMethods": [
+      "Runtime Monitoring",
+      "Structured Logging",
+      "Message Hooks"
     ]
   },
   {
@@ -2023,6 +3292,31 @@
       "User Prompts",
       "Scenario Context",
       "LLM Decision Module"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Newly Introduced 40-Instruction Multi-Scenario Dangerous Instruction Dataset",
+      "Autonomous Driving Scenario Set"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "OMI, An Obvious Malicious Instruction Baseline",
+      "GCG, Greedy Coordinate Gradient Adversarial Suffix Attack",
+      "I-GCG, Improved GCG Baseline"
+    ],
+    "defenseMethods": [
+      "Input Perturbation Defense Using Synonym Replacement and Character Noise",
+      "Structured Self-Inspection with Forced Reasoning and Attack Indicators",
+      "Safety Prefix Prompting to Warn Against Malicious Instructions"
     ]
   },
   {
@@ -2065,6 +3359,33 @@
       "External Inputs",
       "Files / Code",
       "Inter-agent Channels"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "ACIARENA",
+      "GSM8K"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Success Rate",
+      "Propagation Vulnerability Index",
+      "Pass@1"
+    ],
+    "attackMethods": [
+      "Tool-description Poisoning",
+      "Malicious Agent Profile Injection",
+      "Message Poisoning During Inter-Agent Transmission"
+    ],
+    "defenseMethods": [
+      "Prompt Injection Detection",
+      "Delimiter-Based Input Separation",
+      "Sandwich Prompting Defense"
     ]
   },
   {
@@ -2108,6 +3429,33 @@
       "Files / Code",
       "Email Inbox Content",
       "Web Pages"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "CLAWSAFETY",
+      "Five-Domain Workspace Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Harmful Action Completion Rate",
+      "Action Trace Analysis",
+      "Majority Outcome Over Three Trials"
+    ],
+    "attackMethods": [
+      "Skill Injection via Malicious Workspace Instructions",
+      "Email Injection via Spoofed Trusted Sender Messages",
+      "Web Injection via Adversarial Webpages"
+    ],
+    "defenseMethods": [
+      "Cross-Source Corroboration",
+      "Multi-Source Verification",
+      "Import Chain Inspection"
     ]
   },
   {
@@ -2145,6 +3493,33 @@
       "Memory / Scratchpads",
       "Conversation History",
       "Retrieved Solution Code"
+    ],
+    "lifecycleStage": [
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "MIMIC-III",
+      "EICU"
+    ],
+    "evaluationMetrics": [
+      "Contamination Rate",
+      "Wrong-Answer Rate",
+      "No-Answer Rate",
+      "LLM-As-A-Judge Judgment for Slack"
+    ],
+    "attackMethods": [
+      "Unintentional Cross-User Contamination Through Benign Shared-State Reuse",
+      "Semantic Contamination",
+      "Transformation Contamination"
+    ],
+    "defenseMethods": [
+      "Write-Time Sanitization",
+      "Sanitized Shared Interaction (SSI)",
+      "Text-Level Removal of Scope-Bound Clauses Before Persistence"
     ]
   },
   {
@@ -2189,6 +3564,33 @@
       "User Prompts",
       "Planning Loop",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "27 Documented Leakage Scenarios From Recent Peer-Reviewed Literature and Technical Reports",
+      "AgentPoison"
+    ],
+    "evaluationMetrics": [
+      "Coverage of Documented Leakage Scenarios",
+      "Attack Success Rate",
+      "Cross-Session Contamination Rate",
+      "Leakage Persistence Duration"
+    ],
+    "attackMethods": [
+      "Memory Poisoning",
+      "Cross-Session Data Reuse",
+      "Indirect Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Memory Segregation",
+      "Regulated Persistence",
+      "Ephemeral or Task-Scoped Memory"
     ]
   },
   {
@@ -2232,6 +3634,33 @@
       "SKILL.md Instructions Body",
       "Skill Metadata and Description",
       "Marketplace Search and Ranking"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Tool Execution",
+      "Memory",
+      "Output"
+    ],
+    "benchmark": [
+      "Five Confirmed Real-World Incidents",
+      "42,447 Skills Empirical Study Cited From Prior Work"
+    ],
+    "evaluationMetrics": [
+      "Taxonomy Coverage",
+      "Incident-to-Category Mapping",
+      "Reported Prevalence From Prior Studies",
+      "Reported Scale of Compromised Skills"
+    ],
+    "attackMethods": [
+      "Typosquatting of Skill Names",
+      "Ranking Manipulation in Marketplaces",
+      "Repository Hijacking"
+    ],
+    "defenseMethods": [
+      "Mandatory Marketplace Security Review",
+      "Cryptographic Provenance Verification",
+      "Verified Publisher Namespaces"
     ]
   },
   {
@@ -2272,6 +3701,33 @@
       "Tool Outputs",
       "Retrieved Content",
       "Tool-Call Return Text"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Paired Aligned and Hijacked Trajectories Collected From Baseline Runs"
+    ],
+    "evaluationMetrics": [
+      "Hijack Rate",
+      "Utility Preservation",
+      "Immediate Compliance Rate",
+      "Action Divergence Rate"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Ignore Previous Instructions Style Injection",
+      "Task-Modification Injection"
+    ],
+    "defenseMethods": [
+      "Prompt Warning",
+      "Sandwich Prompting",
+      "Paraphrasing"
     ]
   },
   {
@@ -2313,6 +3769,33 @@
       "Semantic Trigger in User Input",
       "Memory / Scratchpads",
       "Tool-Call Arguments"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Synthetic Domain Corpora for Streaming, Medical, and Education Triggers",
+      "Alpaca General-Purpose Queries for False-Positive Testing"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "False Positive Rate",
+      "Success Rate",
+      "Delivery-Through-Stack Rate"
+    ],
+    "attackMethods": [
+      "Backdoor Triggering",
+      "Data Exfiltration",
+      "Retrieval-Disguised HTTP Exfiltration via URL Parameters"
+    ],
+    "defenseMethods": [
+      "Reranker-Based Filtering",
+      "Guardrails",
+      "LLM Guard Retrieval-Stage Filtering"
     ]
   },
   {
@@ -2354,6 +3837,33 @@
       "User/Application-Level Message Injection",
       "Inter-agent Channels",
       "Shared Context Reuse"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "QUANT",
+      "RIGID"
+    ],
+    "evaluationMetrics": [
+      "System-Level Error Coverage S(t)",
+      "Adoption Probability Si(t)",
+      "Spectral Risk Criterion R",
+      "Mean Squared Error"
+    ],
+    "attackMethods": [
+      "Single Atomic Falsehood Seed Injection",
+      "Direct Application-Level Malicious Claim Insertion",
+      "Compliance-Style Intent Hiding"
+    ],
+    "defenseMethods": [
+      "Atomic Claim Decomposition",
+      "Lineage Graph Provenance Tracking",
+      "Tri-State Screening of Claims"
     ]
   },
   {
@@ -2395,6 +3905,27 @@
       "User Prompts",
       "Tool Outputs",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [
+      "Perplexity"
+    ],
+    "attackMethods": [
+      "Environment Poisoning",
+      "Memory Poisoning",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "Access Control",
+      "Input and Output Validation"
     ]
   },
   {
@@ -2434,6 +3965,33 @@
       "User Prompts",
       "Tool Inputs",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentLeak Benchmark",
+      "1,000 Scenario Corpus Across Healthcare, Finance, Legal, and Corporate Domains"
+    ],
+    "evaluationMetrics": [
+      "Exact Leakage Rate (ELR)",
+      "Weighted Leakage Score (WLS)",
+      "Channel Leakage Rate (CLR)",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Prompt and Instruction Attacks",
+      "Indirect and Tool-Surface Attacks",
+      "Memory and Persistence Attacks"
+    ],
+    "defenseMethods": [
+      "Output Filtering",
+      "Guardrails",
+      "Privacy-Focused Prompts"
     ]
   },
   {
@@ -2476,6 +4034,32 @@
       "Databases",
       "SQL Agent Context",
       "Orchestrator Delegation"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "Employees Database Benchmark with Toy, Medium, and Big Versions",
+      "OMNI-LEAK Benchmark"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Expected Number of Queries for A Successful Attack",
+      "Attack Success Under Exact String Matching"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Blocking-Style Exfiltration Prompts",
+      "Compliance-Framing Exfiltration Prompts"
+    ],
+    "defenseMethods": [
+      "Access Control",
+      "Monitoring and Filtering At Each Agent Interaction, Suggested in The Impact Statement",
+      "Human Alerting for Suspicious Activity, Suggested in The Impact Statement"
     ]
   },
   {
@@ -2521,6 +4105,33 @@
       "User Prompts",
       "Web Content",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "10 High-Fidelity Simulation Scenarios Built in LangGraph",
+      "OWASP Agentic AI Top 10 Attack Surface Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Precision",
+      "Recall",
+      "F1",
+      "True Positives"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Goal Hijacking",
+      "Tool Misuse and Exploitation"
+    ],
+    "defenseMethods": [
+      "Dual-Layer Log Collection From Application and Kernel Layers",
+      "Hierarchical Sensitive Entity Extraction Constraints",
+      "Semantic Flow Reconstruction"
     ]
   },
   {
@@ -2564,6 +4175,33 @@
       "User Prompts",
       "Web Content",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "193-Item Agentic AI Threat Taxonomy",
+      "Nine-Category Risk Taxonomy"
+    ],
+    "evaluationMetrics": [
+      "Three-Point Coverage Score",
+      "Coverage Percentage",
+      "Mean Category Score",
+      "Composite Maturity Score"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Memory Poisoning",
+      "RAG and Knowledge-Base Poisoning"
+    ],
+    "defenseMethods": [
+      "Cryptographic Provenance and Signing",
+      "Access Control",
+      "Sandboxing"
     ]
   },
   {
@@ -2604,6 +4242,33 @@
       "Tool Orchestration",
       "Memory / Scratchpads",
       "Agent-to-Agent Communication"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Table 3 Coverage Matrix",
+      "Table 4 Representative Attack Paths"
+    ],
+    "evaluationMetrics": [
+      "Coverage of Attack Vectors by Defensive Principles",
+      "Attack Chain Interception Point",
+      "Residual Risk",
+      "Trust Boundary Reduction Percentage"
+    ],
+    "attackMethods": [
+      "Unauthorized Access",
+      "Context Contamination",
+      "Lateral Compromise"
+    ],
+    "defenseMethods": [
+      "Authorized Interface with Signed Manifests and Admin-Approved Catalogs",
+      "Capability Scoping and Least Privilege",
+      "Verified Execution with Consensus Validation"
     ]
   },
   {
@@ -2643,6 +4308,32 @@
       "Intermediate Representations",
       "Sequential Agent Outputs",
       "Shared Pipeline Messages"
+    ],
+    "lifecycleStage": [
+      "Memory",
+      "Planning",
+      "Inter-agent Comms",
+      "Coordination",
+      "Output"
+    ],
+    "benchmark": [
+      "MedQA",
+      "FinQA"
+    ],
+    "evaluationMetrics": [
+      "Cross-Entropy Loss",
+      "Estimated Mutual Information",
+      "MIavg",
+      "Accuracy"
+    ],
+    "attackMethods": [
+      "Representation-Level Privacy Leakage Through Sequential Composition",
+      "Adversarial Inference of Sensitive Variables From Agent Outputs"
+    ],
+    "defenseMethods": [
+      "Mutual-Information Regularization of Intermediate Representations",
+      "MINE-Based Privacy Penalty During Training",
+      "Selective or Full Agent Regularization As Studied in Ablations"
     ]
   },
   {
@@ -2681,6 +4372,33 @@
       "Inter-agent Channels",
       "Dialogue History",
       "Sender Identity Leakage in Messages"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Inter-agent Comms",
+      "Planning",
+      "Decision",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "CSQA",
+      "GSM8K"
+    ],
+    "evaluationMetrics": [
+      "Precision",
+      "Recall",
+      "F1",
+      "Mean Reciprocal Rank"
+    ],
+    "attackMethods": [
+      "Context-Based Sender Prediction From Dialogue Content",
+      "Jailbreak",
+      "Topology Inference Under Keyword-Based Filtering Defenses"
+    ],
+    "defenseMethods": [
+      "Keyword-Based Defense That Rejects Requests Revealing Adjacent Agent IDs",
+      "Safety Classifiers",
+      "Adaptive Prompt Filtering As An Evaluated Obstacle Rather Than A Proposed Defense"
     ]
   },
   {
@@ -2720,7 +4438,30 @@
       "User Query",
       "Final System Output",
       "Planning Loop"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Inter-agent Comms",
+      "Output",
+      "Auditing"
+    ],
+    "benchmark": [
+      "MMLU",
+      "GSM8K"
+    ],
+    "evaluationMetrics": [
+      "AUC",
+      "ACC",
+      "F1",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Black-Box Communication Topology Inference",
+      "Adversarial Query Design to Elicit Intermediate Reasoning Outputs",
+      "Semantic-Correlation-Based Edge Inference"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S228",
@@ -2760,6 +4501,31 @@
       "Retrieved External Context",
       "Tool-Call Generation",
       "Tool Parameters"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "Direct Harm Subset"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "False Positive Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Unauthorized Tool Invocation",
+      "Argument Hijacking or Intent Deviation"
+    ],
+    "defenseMethods": [
+      "Instruction-Data Isolation",
+      "Isolated Planning",
+      "Hard Rule Matching for Tool Authorization"
     ]
   },
   {
@@ -2800,6 +4566,33 @@
       "User Request",
       "Orchestrator Plan Generation",
       "Subtask Decomposition"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "16 Enterprise Attack Scenarios Across Financial, Security, and HR Domains",
+      "14 Generated-Track Attack Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Fragmentation Score",
+      "Attack Success Rate",
+      "False Positive Rate",
+      "Policy Rubric Score"
+    ],
+    "attackMethods": [
+      "Semantic Intent Fragmentation, A Single-Shot Compositional Attack Where Individually Benign Subtasks Jointly Violate Policy",
+      "Bulk Scope Escalation",
+      "Silent Exfiltration"
+    ],
+    "defenseMethods": [
+      "Input Filtering",
+      "Per-Subtask Classifier Batteries",
+      "AlignmentCheck-Style Per-Subtask Goal Alignment Checking"
     ]
   },
   {
@@ -2844,6 +4637,33 @@
       "Retrieved Content",
       "MCP Server Responses",
       "Tool Metadata"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "SkillInject"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Refusal Rate",
+      "Implicit Resistance Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "MCP Server Injection Through Returned Payloads or Poisoned Tool Metadata",
+      "Skill File Injection with Semantically Embedded Malicious Instructions"
+    ],
+    "defenseMethods": [
+      "Content Sanitization of Tool-Call Arguments and Tool Outputs",
+      "Rule-Based Authorization Over Tools, File Paths, and Network Destinations",
+      "Skill Inspection with LLM Judge Plus Mandatory User Confirmation"
     ]
   },
   {
@@ -2878,6 +4698,30 @@
       "User Prompts",
       "Conversation History",
       "Structured Input Wrappers"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Output"
+    ],
+    "benchmark": [
+      "AttackEval-250, A Newly Introduced Dataset of 250 Manually Crafted Prompt Injection Prompts"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Confidence Interval",
+      "Stealth Score",
+      "Composite Attack Boost"
+    ],
+    "attackMethods": [
+      "Direct Override: Explicit Ignore or Override Commands",
+      "Role Impersonation: Persona Assignment Such As DAN-Style Prompts",
+      "Obfuscation: Base64, Unicode Homoglyphs, Leetspeak, ROT13, Hex Encoding"
+    ],
+    "defenseMethods": [
+      "Keyword and Regex Blocklist Filtering",
+      "Anomaly Detection",
+      "Intent-Aware Semantic Reasoning Defense Modeled After PromptSleuth"
     ]
   },
   {
@@ -2916,7 +4760,29 @@
       "User Prompts",
       "Files / Code",
       "Skill Scripts"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Auditing"
+    ],
+    "benchmark": [
+      "SKILL-INJECT Benchmark, 71 Adversarial Skills, Including 30 Obvious Injections and 41 Contextual Injections",
+      "ClawHub Top 100 Real-World Skills"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Distribution of First Successful Attack Round",
+      "Judge-Based Success Classification From Execution Trajectories, Artifacts, and Final Response"
+    ],
+    "attackMethods": [
+      "Prompt-Only Exploit of Latent Skill Vulnerabilities",
+      "Surface-Parallel Attack Path Generation",
+      "Feedback-Driven Iterative Attack Refinement"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S233",
@@ -2962,6 +4828,33 @@
       "User Prompts",
       "Tool Outputs",
       "Connector Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Production Benchmarks with Challenging Prompts",
+      "Deidentified Production-Like ChatGPT Traffic Resampling"
+    ],
+    "evaluationMetrics": [
+      "Not_unsafe",
+      "Length-Adjusted Score",
+      "Extrapolated Prevalence of Unsafe Model-Level Outputs",
+      "Destructive Action Avoidance"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "Prompt Injection",
+      "Destructive-Action Scenarios in Deletion-Inducing Tasks"
+    ],
+    "defenseMethods": [
+      "Model Safety Training and Refusals",
+      "Layered Runtime Conversation Monitoring for Cyber Content",
+      "Policy-Based Confirmation Handling During Computer Use"
     ]
   },
   {
@@ -2999,6 +4892,33 @@
       "Inter-agent Channels",
       "Communication Graph Topology",
       "Semantic Flow Between Agents"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Inter-agent Comms",
+      "Coordination",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Approximately 2,000 Normal Trajectories and 2,000 Risk Trajectories",
+      "Synthetic Multi-Agent Interaction Trajectories Aligned with AEGIS 2.0 Risk Taxonomy"
+    ],
+    "evaluationMetrics": [
+      "AUROC",
+      "AUPRC",
+      "F1",
+      "Detection Lead Time"
+    ],
+    "attackMethods": [
+      "Cascading-Risk Induction in Multi-Agent Interaction Trajectories",
+      "Echo-Chamber Formation",
+      "Hallucination Cascade Propagation"
+    ],
+    "defenseMethods": [
+      "Semantic-Geometric Consistency Auditing",
+      "Runtime Monitoring",
+      "Curvature-Gated Attention to Suppress Unstable or Redundant Interactions"
     ]
   },
   {
@@ -3035,6 +4955,33 @@
       "Inter-agent Channels",
       "Dialogue Prompts",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "Newly Introduced NYC Navigation Simulation Environment",
+      "Iterative Rollout Dataset Across 10 Generations"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Susceptibility Rate",
+      "Blue-Red Resistance",
+      "Blue-Blue Trust Efficacy"
+    ],
+    "attackMethods": [
+      "Persuasive Steering Toward Billboard Locations",
+      "Repeated Steering",
+      "Misleading Helpful Advice"
+    ],
+    "defenseMethods": [
+      "KTO-Based Alignment on Desirable and Undesirable Trajectories",
+      "Destination-Anchor Reasoning",
+      "Route-Logic Override"
     ]
   },
   {
@@ -3069,6 +5016,27 @@
       "Visual Input",
       "Planning Loop",
       "Hazard Identification"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Output"
+    ],
+    "benchmark": [
+      "Gemini 3.0 Training Datasets",
+      "Additional Embodied Reasoning Datasets"
+    ],
+    "evaluationMetrics": [
+      "Not-Specified"
+    ],
+    "attackMethods": [
+      "Adversarial Spatial Reasoning Tasks"
+    ],
+    "defenseMethods": [
+      "Adherence to Physical Safety Constraints",
+      "Safety Policy Compliance",
+      "Usage Restrictions for Safety-Critical Settings"
     ]
   },
   {
@@ -3106,6 +5074,33 @@
       "Files / Code",
       "Executable Skill Scripts",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "EHR SQL Benchmark",
+      "SWE-Bench Verified"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Attack Success Rate",
+      "Correctness",
+      "Tool-Call Count Distribution"
+    ],
+    "attackMethods": [
+      "Backdoor Triggering",
+      "Payload Reconstruction Through Normal Skill Composition and Verification",
+      "Prompt-Centric and Context-Centric Baselines Adapted to The Same Agent Setting"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "Permissioned Resources",
+      "Execution-Trajectory Auditing"
     ]
   },
   {
@@ -3146,6 +5141,33 @@
       "Request JSON",
       "Response JSON",
       "Tool-Call Arguments"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Tool Execution",
+      "Output",
+      "Monitoring",
+      "Auditing"
+    ],
+    "benchmark": [
+      "28 Paid Routers From Taobao, Xianyu, and Shopify-Hosted Storefronts",
+      "400 Free Routers From Public Communities Using Sub2api and New-API Templates"
+    ],
+    "evaluationMetrics": [
+      "Malicious-Router Count",
+      "Adaptive Evasion Count",
+      "Credential Abuse Count",
+      "Wallet Drain Count"
+    ],
+    "attackMethods": [
+      "AC-1 Response-Side Payload Injection: Rewrite Tool-Call Arguments Before Delivery",
+      "AC-2 Passive Secret Exfiltration: Scan Plaintext Traffic and Leak Credentials Without Modifying Responses",
+      "AC-1.a Dependency-Targeted Injection: Substitute Package Names in Install Commands to Evade Domain-Based Policy Gates"
+    ],
+    "defenseMethods": [
+      "High-Risk Tool Policy Gate That Blocks Non-Allowlisted Domains and Package Names",
+      "Response-Side Anomaly Screening Using Locally Observable Features",
+      "Append-Only Transparency Logging of Request and Response Metadata"
     ]
   },
   {
@@ -3173,7 +5195,14 @@
     "threatModel": [],
     "attackSurface": [
       "Network Connection"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [],
+    "attackMethods": [],
+    "defenseMethods": []
   },
   {
     "id": "S248",
@@ -3193,7 +5222,12 @@
     "agentType": [],
     "taskScenario": [],
     "threatModel": [],
-    "attackSurface": []
+    "attackSurface": [],
+    "lifecycleStage": [],
+    "benchmark": [],
+    "evaluationMetrics": [],
+    "attackMethods": [],
+    "defenseMethods": []
   },
   {
     "id": "S249",
@@ -3220,7 +5254,14 @@
     "threatModel": [],
     "attackSurface": [
       "Web Content"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [],
+    "attackMethods": [],
+    "defenseMethods": []
   },
   {
     "id": "S250",
@@ -3240,7 +5281,12 @@
     "agentType": [],
     "taskScenario": [],
     "threatModel": [],
-    "attackSurface": []
+    "attackSurface": [],
+    "lifecycleStage": [],
+    "benchmark": [],
+    "evaluationMetrics": [],
+    "attackMethods": [],
+    "defenseMethods": []
   },
   {
     "id": "S041",
@@ -3278,6 +5324,32 @@
       "Mobile UI / Notifications",
       "Planning Loop",
       "Action Selection"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AndroidWorld",
+      "AppAgent"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Attack Success Rate",
+      "Step Count",
+      "Reasoning-gap Duration"
+    ],
+    "attackMethods": [
+      "Notification Injection",
+      "UI Occlusion",
+      "Reasoning-gap Attack"
+    ],
+    "defenseMethods": [
+      "Prompt-based Filtering",
+      "Multi-agent Oversight",
+      "Self-reflection"
     ]
   },
   {
@@ -3318,6 +5390,32 @@
       "Orchestrator Prompt and Role Assignment",
       "Planning Loop",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring",
+      "Auditing"
+    ],
+    "benchmark": [
+      "Not-Specified"
+    ],
+    "evaluationMetrics": [
+      "Validation Success of Unsafe Workflows",
+      "Successful Execution of Generated Test Cases",
+      "Perplexity",
+      "End-to-End Pipeline Completion Rate"
+    ],
+    "attackMethods": [
+      "Unsafe Tool Orchestration Workflows",
+      "Goal Hijacking",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "Safety Constraint Generation",
+      "Runtime Re-Validation of Constraints"
     ]
   },
   {
@@ -3359,6 +5457,31 @@
       "Retrieved Content",
       "Web Content",
       "Prompt Composition"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Open-Prompt-Injection"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "ASV",
+      "Average Score Curves During Training"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Goal Hijacking",
+      "Black-Box LLM-As-Optimizer Attack Generation"
+    ],
+    "defenseMethods": [
+      "Spotlighting with Delimiting",
+      "Repeat User Prompt",
+      "Tool Filter"
     ]
   },
   {
@@ -3402,6 +5525,33 @@
       "Search Results",
       "Trusted Platform Posts",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Synthetic Reddit-Style Posts and Malicious Websites Created by The Authors",
+      "Chemistry Document Corpus"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Trial Success Count",
+      "Retrieval Frequency of Malicious Documents",
+      "Whether The Agent Downloaded or Executed Files"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Redirection From Trusted Sites to Malicious Webpages",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Whitelisting Trusted Domains",
+      "Robust URL Validation",
+      "Explicit User Confirmation Before New Domains or Downloads"
     ]
   },
   {
@@ -3442,6 +5592,33 @@
       "Agent Messages",
       "Structured Conversion",
       "Free-text Fields"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "ConVerse Benchmark",
+      "Benign Conversation Corpora"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Task Utility Rating",
+      "Coverage Rate",
+      "LLM-Judge-Based Evaluation"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Social Engineering to Elicit Unnecessary Personal Data",
+      "Preference Manipulation and Upselling"
+    ],
+    "defenseMethods": [
+      "Structured Protocol Enforcement",
+      "Deterministic Verification",
+      "Closed Vocabulary Restriction"
     ]
   },
   {
@@ -3483,6 +5660,32 @@
       "System Prompts",
       "Memory / Scratchpads",
       "External Tools"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Tool Execution",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "CSQA",
+      "MMLU"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Accuracy",
+      "Performance Recovery"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Tool Attack via Malicious Tool Observations and Hidden Instructions",
+      "Memory Poisoning"
+    ],
+    "defenseMethods": [
+      "Anomaly Detection",
+      "Edge-Featured GNN Node Classification for Attacker Identification",
+      "Topological Intervention by Pruning Outgoing Edges From Detected Risky Agents"
     ]
   },
   {
@@ -3522,6 +5725,33 @@
       "Tool Outputs",
       "Web Content",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "VWA-Adv"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Success Rate",
+      "False Positive Rate",
+      "False Negative Rate"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Ignore Previous Instructions Attack",
+      "System Message Style Injection"
+    ],
+    "defenseMethods": [
+      "Masked Re-Execution with Task-Neutral Prompt",
+      "Tool-Call Similarity Comparison",
+      "Tool-Call Cache Across Steps"
     ]
   },
   {
@@ -3563,6 +5793,33 @@
       "User or Attacker Prompt to One Agent",
       "Inter-agent Channels",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Simulated Chemical Lab",
+      "Jailbreak Prompt Set"
+    ],
+    "evaluationMetrics": [
+      "System Robustness",
+      "Agent Cooperation Rate",
+      "Success Rate",
+      "Behavioral Response Categories Over Steps"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Infectious Malicious Prompt Spread",
+      "Jailbreak"
+    ],
+    "defenseMethods": [
+      "Passive Safety Instructions That Warn Agents to Beware Suspicious Messages",
+      "Active Safety Instructions That Tell Agents to Resist and Counteract Malicious Spread",
+      "Passive Memory Vaccines That Insert A Fake Memory of Safely Refusing Malicious Input"
     ]
   },
   {
@@ -3598,6 +5855,29 @@
       "Screen Content",
       "UI Layout",
       "Current App State"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "OS-Kairos Curated Complex-Scenario Dataset",
+      "AITZ Benchmark"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Success Rate",
+      "Precision",
+      "Relative Efficiency"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Runtime Monitoring",
+      "Human-in-The-Loop Intervention Triggering",
+      "Step-Level Confidence Scoring"
     ]
   },
   {
@@ -3636,6 +5916,29 @@
       "Inter-agent Channels",
       "Received Messages",
       "Message Routing"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Inter-agent Comms",
+      "Coordination",
+      "Output"
+    ],
+    "benchmark": [
+      "MMLU Biology",
+      "MMLU Physics"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Agent-in-The-Middle Communication Interception and Message Manipulation",
+      "Targeted Behavior Induction by Shifting Answers or Injecting Harmful Code-Related Behavior",
+      "Denial-of-Service by Persuading Agents to Refuse Assistance"
+    ],
+    "defenseMethods": [
+      "Not-Specified"
     ]
   },
   {
@@ -3678,6 +5981,33 @@
       "Tool Outputs",
       "Web Content",
       "Transaction Descriptions"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Accidental Leakage Benchmark Introduced by The Paper"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Integrity",
+      "Attack Success Rate",
+      "False Positive Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Prompt Injection",
+      "Privacy Leakage Through Accidental or Induced Use of Private Context in Tool Calls"
+    ],
+    "defenseMethods": [
+      "Information-flow Control",
+      "Selective Taint Propagation",
+      "Dependency Screening"
     ]
   },
   {
@@ -3721,6 +6051,33 @@
       "User Prompts",
       "Environment Observation",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "WebShop"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Average Optimization Iterations",
+      "Query Time Per Iteration",
+      "Optimization Time Per Iteration"
+    ],
+    "attackMethods": [
+      "Dynamic Reasoning Hijacking via Adversarial String Optimization",
+      "Indirect Prompt Injection",
+      "Jailbreak"
+    ],
+    "defenseMethods": [
+      "Restrict Access to Internal Reasoning",
+      "Sanitized or Condensed Reasoning Summaries",
+      "Guardrails"
     ]
   },
   {
@@ -3767,6 +6124,33 @@
       "User Prompts",
       "Retrieved Content",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Precision",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "Prompt Injection",
+      "Backdoor Triggering"
+    ],
+    "defenseMethods": [
+      "Alignment and Reward-Based Alignment",
+      "Single-Model Filtering for Harmful Inputs or Outputs",
+      "Guardrails"
     ]
   },
   {
@@ -3808,6 +6192,29 @@
       "Execution Environment",
       "State Change Events",
       "Agent Finish Events"
+    ],
+    "lifecycleStage": [
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "RedCode-Exec",
+      "SafeAgentBench"
+    ],
+    "evaluationMetrics": [
+      "Number of Risky Calls Invoked",
+      "Number of Violations Detected",
+      "Number of Cases Allowed by User Inspection",
+      "Percentage of Successful Instruction Fulfillment"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Runtime Monitoring",
+      "User Inspection Before Execution",
+      "Action Termination or Stopping"
     ]
   },
   {
@@ -3852,6 +6259,33 @@
       "User Prompts",
       "Tool Outputs",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Workspace Suite"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Attack Success Rate",
+      "Number of Successful Attacks",
+      "Policy Triggering Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Tool-output Injection",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Dual-LLM Isolation Between Planning and Untrusted Parsing",
+      "Access Control",
+      "Information-flow Control"
     ]
   },
   {
@@ -3895,6 +6329,33 @@
       "User Query",
       "Agent Output",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "MIMIC-III",
+      "EICU"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Attack Success Rate",
+      "Utility Drop",
+      "Standard Deviation Across Repeated Runs"
+    ],
+    "attackMethods": [
+      "Query-Only Memory Injection Attack",
+      "Memory Poisoning",
+      "Bridging-Step Attack to Connect Benign Victim Queries to Malicious Target Reasoning"
+    ],
+    "defenseMethods": [
+      "Adversarial Training",
+      "Embedding-Level Memory Sanitization",
+      "Prompt-Level Detection"
     ]
   },
   {
@@ -3940,6 +6401,33 @@
       "Server Metadata and Namespace",
       "Tool Metadata",
       "Installer Packages and Auto-Installers"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Manual Ecosystem Dataset of MCP Adopters and Server Collections",
+      "Proof-of-Concept MCP Server Examples"
+    ],
+    "evaluationMetrics": [
+      "Descriptive Ecosystem Counts",
+      "Qualitative Security Analysis",
+      "Proof-of-Concept Feasibility",
+      "Manual Inspection Results"
+    ],
+    "attackMethods": [
+      "Namespace Typosquatting",
+      "Tool Name Conflict",
+      "Tool-description Poisoning"
+    ],
+    "defenseMethods": [
+      "Signed Manifests and Cryptographically Verifiable Identities",
+      "Centralized or Federated Namespace Governance",
+      "Publisher Provenance Display and Verification Labels"
     ]
   },
   {
@@ -3982,6 +6470,33 @@
       "Web Content",
       "Files / Code",
       "Email Attachments"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "The Authors’ MAS Hijacking Attack Scenarios",
+      "Benign Local File and Webpage Control Tasks"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Refusal Rate",
+      "Success Rate",
+      "Unsafe Code Execution Rate"
+    ],
+    "attackMethods": [
+      "MAS Hijacking via Malicious Local File That Returns A False Access Error and Instructs Execution of A Payload",
+      "MAS Hijacking via Malicious Webpage That Redirects The Agent to Download and Run A Payload",
+      "MAS Hijacking via Web Image or Audio Content That Conveys The Same Malicious Instructions"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "Tool-Call Validation",
+      "Agent Tagging"
     ]
   },
   {
@@ -4027,6 +6542,33 @@
       "User Prompts",
       "Tool Outputs",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "AgentBench OS"
+    ],
+    "evaluationMetrics": [
+      "Secure Utility Rate",
+      "Success Rate",
+      "Attacked Task Rate",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Data Injection via Unsafe Data Flow Into Privileged Tool Arguments or Final Answers",
+      "Data Injection via Unsafe Control Flow Where Untrusted Data Becomes A Prompt"
+    ],
+    "defenseMethods": [
+      "Agent Isolation",
+      "Least-Privilege Access Tokens",
+      "Data ID Masking and Decoding"
     ]
   },
   {
@@ -4072,6 +6614,32 @@
       "User Prompts",
       "External Data Feeds",
       "Conversation History"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "CrAIBench",
+      "APIGen Function-Calling Datasets"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Memory Injection via Shared Persistent Memory",
+      "Indirect Memory Injection Through Fabricated User-Agent History",
+      "Direct Memory Injection Through Backend Write Access"
+    ],
+    "defenseMethods": [
+      "Prompt Hardening with Security-Aware System Prompts",
+      "Spotlighting and Delimiting of Retrieved Content",
+      "Model-Based Prompt-Injection Detection Using PromptGuard 2"
     ]
   },
   {
@@ -4113,7 +6681,30 @@
       "User Prompts",
       "Multi-Turn Instruction Sequence",
       "Environment State"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "SAFEARENA",
+      "WebArena-Derived Forum Environment"
+    ],
+    "evaluationMetrics": [
+      "Task Completion Rate",
+      "Refusal Rate",
+      "Normalized Safety Score",
+      "ARIA Risk Level"
+    ],
+    "attackMethods": [
+      "Direct Prompting of Harmful Intents",
+      "Task Decomposition Attack That Breaks A Harmful Request Into Benign-Looking Substeps",
+      "Jailbreak"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S062",
@@ -4157,6 +6748,33 @@
       "Screenshots",
       "DOM",
       "Mobile UI / Notifications"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "ARE",
+      "MM-SafetyBench"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Task Degradation",
+      "Safety Score",
+      "Refusal Rate"
+    ],
+    "attackMethods": [
+      "Visual Perturbation Attacks on Screenshots",
+      "Structural Injection Attacks via DOM or HTML Hidden Instructions",
+      "Environmental and Overlay Attacks Using Pop-Ups or Fake System Dialogs"
+    ],
+    "defenseMethods": [
+      "Input Filtering",
+      "Cross-Modal Verification",
+      "Output Calibration"
     ]
   },
   {
@@ -4203,6 +6821,27 @@
       "Training Data",
       "Fine-Tuning Data",
       "Alignment Preference Data"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [
+      "Perplexity"
+    ],
+    "attackMethods": [
+      "Data Poisoning",
+      "Privacy Leakage and Data Extraction",
+      "Membership Inference"
+    ],
+    "defenseMethods": [
+      "Heuristic, Model-Based, and Black-Box Data Filtering",
+      "Data Deduplication",
+      "Safe Demonstration Augmentation"
     ]
   },
   {
@@ -4245,6 +6884,33 @@
       "Plugin / API Interfaces",
       "App Schemas",
       "App Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "Agent Security Bench"
+    ],
+    "evaluationMetrics": [
+      "Security Score",
+      "Utility Score",
+      "Matching Success",
+      "Execution Success"
+    ],
+    "attackMethods": [
+      "Execution Flow Disruption via Malicious App Output That Causes The Execution Manager to Halt or Abort The Workflow",
+      "Prompt Injection",
+      "Planner Manipulation via Malicious App Description That Suppresses A Benign App During Planning"
+    ],
+    "defenseMethods": [
+      "Abstract Planning Based Only on Trusted User Input",
+      "Concrete App Matching with Pairwise Independent Selection",
+      "Information-flow Control"
     ]
   },
   {
@@ -4282,6 +6948,31 @@
       "User Instruction Text",
       "Functional Prompt Context",
       "System Prompts"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "EAsafetyBench-Taxonomy",
+      "EAsafetyBench-Drone"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "F1",
+      "False Positive Rate",
+      "False Negative Rate"
+    ],
+    "attackMethods": [
+      "Malicious Embodied-Agent Instructions Embedded in Functional Prompts",
+      "Semantic Rephrasing and Subtle Concept Substitution to Make Harmful Instructions Less Obvious"
+    ],
+    "defenseMethods": [
+      "Input Moderation",
+      "Instruction Boundary Localization with Special Tokens",
+      "Masked Attention Over Instruction-Only Spans"
     ]
   },
   {
@@ -4323,6 +7014,32 @@
       "User Messages",
       "Databases",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Τ-Bench",
+      "BrowserGym"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Stealth Rate"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Malicious Catalog Attack to Extract PII Through Compromised Product or Database Content",
+      "Pop-Up Attack Using Malicious Webpage Overlays and Hidden Instructions"
+    ],
+    "defenseMethods": [
+      "LlamaGuard Classifier-Based Runtime Filtering",
+      "Runtime Monitoring",
+      "Guardrails"
     ]
   },
   {
@@ -4366,6 +7083,30 @@
       "User Prompts",
       "Visual Input",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Output"
+    ],
+    "benchmark": [
+      "CoEDIT",
+      "SST2"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Benign Performance",
+      "LLM-As-A-Judge Score"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Visual Latent Alignment Using Text-to-Image Generation and Adversarial Perturbation Transfer",
+      "Textual Guidance Enhancement Using Surrogate-LLM-Based Deceptive Command Optimization"
+    ],
+    "defenseMethods": [
+      "Sandwich Prompting",
+      "Gaussian Blur on Input Images"
     ]
   },
   {
@@ -4412,6 +7153,33 @@
       "Tool Outputs",
       "Web Content",
       "Issue Text"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "ASB"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Task Utility",
+      "Latency",
+      "Utility"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Memory or Knowledge-Base Poisoning",
+      "Malicious Tool Insertion"
+    ],
+    "defenseMethods": [
+      "Policy Enforcement",
+      "Access Control",
+      "Fine-Grained Tool-Call Argument Filtering"
     ]
   },
   {
@@ -4450,6 +7218,31 @@
       "Retrieved Content",
       "Tool Library",
       "Retrievers"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "MetaTool",
+      "ToolBench"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Attack Success Rate",
+      "Hit Rate",
+      "Attack Hit Rate"
+    ],
+    "attackMethods": [
+      "Malicious Tool-Document Injection to Hijack Tool Selection",
+      "Two-Phase Optimization Attack Targeting Retrieval and Selection",
+      "Tool-description Poisoning"
+    ],
+    "defenseMethods": [
+      "StruQ Structured-Query Fine-Tuning",
+      "SecAlign Preference-Optimization Defense",
+      "Known-Answer Detection"
     ]
   },
   {
@@ -4493,6 +7286,29 @@
       "User Prompts",
       "Retrieved Content",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Not-Specified"
+    ],
+    "evaluationMetrics": [
+      "Perplexity"
+    ],
+    "attackMethods": [
+      "Reasoning Path Hijacking Through Subtle Context Manipulation",
+      "Objective Function Corruption and Gradual Goal Drift",
+      "Memory Poisoning"
+    ],
+    "defenseMethods": [
+      "Segmentation and Workload-Level Isolation",
+      "Anomaly Detection",
+      "Integrity Verification for Code, Models, Memory, and Configuration"
     ]
   },
   {
@@ -4532,6 +7348,30 @@
       "Web Content",
       "Issue/Comment/Post Text",
       "URL Fragments"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "WASP",
+      "VisualWebArena Environments"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Goal Hijacking"
+    ],
+    "defenseMethods": [
+      "Instruction Hierarchy",
+      "Defensive System Prompt Discouraging Following Webpage Instructions",
+      "Claude Computer Use System Prompt Guidance About URL Handling"
     ]
   },
   {
@@ -4569,6 +7409,33 @@
       "Tool Metadata",
       "Capability Registration",
       "Prompt Assembly"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Simulated MCP Aggregator Platform",
+      "Three Attack Tasks: Privacy Steal, Result Manipulation, Cryptocurrency Theft"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Refusal Rate",
+      "Number of Malicious Servers Identified by Users",
+      "Platform Acceptance or Rejection"
+    ],
+    "attackMethods": [
+      "Tool Poisoning",
+      "Puppet Attack: Malicious Server Descriptions Manipulate or Piggyback on Trusted Tools From Another Server",
+      "Rug Pull Attack: Benign Server Later Updates Its Repository or Tool Description to Become Malicious"
+    ],
+    "defenseMethods": [
+      "Security Gateway At Client-Side Trust Boundaries",
+      "Cryptographic Signing of Tool Descriptions and Code",
+      "Resource Scanning Before Third-Party Access"
     ]
   },
   {
@@ -4607,6 +7474,33 @@
       "API Endpoints",
       "Web Application Routes",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "BountyBench",
+      "25 Real-World Open-Source Systems"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Bounty Total Awarded",
+      "Cost",
+      "Economic Impact"
+    ],
+    "attackMethods": [
+      "IDOR Project Deletion via Missing Authorization Checks",
+      "Unauthorized Organization Joining via Signup OrgId Misuse",
+      "Path Traversal"
+    ],
+    "defenseMethods": [
+      "Patching Authorization Checks",
+      "Patching Path Handling or Input Validation",
+      "Runtime Invariants for Server and Database Health"
     ]
   },
   {
@@ -4644,6 +7538,28 @@
       "User Query",
       "Simulated User Dialogue",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Multi-turn Communication"
+    ],
+    "benchmark": [
+      "CRMArena-Pro",
+      "CRMArena"
+    ],
+    "evaluationMetrics": [
+      "Task Completion Rate",
+      "Exact Match",
+      "F1",
+      "Confidentiality Awareness Refusal Rate"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Confidentiality-Aware System Prompt",
+      "Refusal Guidance for Sensitive Queries"
     ]
   },
   {
@@ -4687,7 +7603,30 @@
       "GUI Content",
       "HTML Overlays",
       "DOM Injections"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Four GUI Injection Scenarios Introduced for Evaluation: Pop-Up, Chat Link, Chat Payment, Email Confirmation",
+      "Static GLM-4v-Plus Baseline Prompt Generation Setup"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Failure Rate",
+      "Validity Rate",
+      "Persuasion-Strategy Frequency"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Phishing Link Injection",
+      "Chat-Based Payment Fraud Injection"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S076",
@@ -4731,6 +7670,33 @@
       "User Prompts",
       "External Web Content",
       "OSINT Sources"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "CS-Eval",
+      "AgentHarm"
+    ],
+    "evaluationMetrics": [
+      "Task Completion Rate",
+      "Attack Success Rate",
+      "Accuracy",
+      "F1"
+    ],
+    "attackMethods": [
+      "Autonomous Penetration Testing",
+      "Vulnerability Exploitation",
+      "Malware Generation"
+    ],
+    "defenseMethods": [
+      "LLM-Based Monitoring and Detection",
+      "Zero-Trust Architecture",
+      "Least-Privilege API Access"
     ]
   },
   {
@@ -4770,6 +7736,28 @@
       "Memory / Scratchpads",
       "Retrieved Demonstrations",
       "Agent Trajectories"
+    ],
+    "lifecycleStage": [
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Auditing"
+    ],
+    "benchmark": [
+      "Synthetic Regression Dataset Generated for RegAgent",
+      "MIMIC-III for EHRAgent"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Accuracy",
+      "Memory Size",
+      "Input Similarity"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Selective Memory Addition Using Trajectory Evaluators",
+      "History-Based Memory Deletion Using Downstream Utility",
+      "Combined Periodic and History-Based Deletion"
     ]
   },
   {
@@ -4812,6 +7800,33 @@
       "Retrieved Content",
       "Retrieved Calendar Content",
       "Prompt Construction Combining User Instructions and Retrieved Data"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Synthetic Email and Calendar Tool-Use Datasets",
+      "Passport Number, SSN, and Password Reset Token Exfiltration Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Number of Queries to The Target Model",
+      "False Positive Rate",
+      "True Positive Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Beam Search Attack Using Random Suffix Token Optimization",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "In-Context Learning Examples Describing Prompt Injection",
+      "Spotlighting with Control Tokens Around Untrusted Content",
+      "Paraphrasing of Retrieved Content"
     ]
   },
   {
@@ -4855,6 +7870,33 @@
       "User Prompts",
       "Tool Outputs",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Internal Direct Jailbreak Evaluation Dataset"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Task Utility",
+      "AUC",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Indirect Prompt Injection",
+      "Goal Hijacking"
+    ],
+    "defenseMethods": [
+      "PromptGuard 2 Lightweight Jailbreak Classifier",
+      "AlignmentCheck Runtime Chain-of-Thought and Action-Sequence Auditor",
+      "CodeShield Online Static Analysis with Semgrep and Regex Rules"
     ]
   },
   {
@@ -4900,6 +7942,32 @@
       "Tool Outputs",
       "External Service Response",
       "Prompt Injection in Returned Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Four Task Suites: Banking, Slack, Travel, Workspace"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Utility",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "PII Extraction Attack",
+      "Memory Poisoning"
+    ],
+    "defenseMethods": [
+      "Agent Isolation with Ephemeral Per-Task Agents",
+      "Access Control",
+      "I/O Firewall with Schema Validation and Policy Checks"
     ]
   },
   {
@@ -4940,6 +8008,31 @@
       "User Prompts",
       "Translated Instruction Text",
       "Adversarial Prompt Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MAPS",
+      "GAIA"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Success Rate",
+      "Attack Success Rate",
+      "Refusal Rate"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Hybrid Translation Pipeline with Machine Translation Plus LLM Refinement",
+      "Adequacy and Integrity Checks with Fallbacks",
+      "Native-Speaker Verification"
     ]
   },
   {
@@ -4980,6 +8073,33 @@
       "User Task Prompt",
       "System Prompts",
       "Inter-agent Channels"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "An Automatically Constructed MAS Dataset Spanning 25 Scenarios with 10 Construction Requests Per Subdomain",
+      "Seven Application Domains: Information Dissemination, Production, Data Management, Education, Research and Development, Healthcare, Financial Services"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Blackened Role Consistency",
+      "Harmful Teamwork Score",
+      "Average Inspection Count"
+    ],
+    "attackMethods": [
+      "Probing Stage Using Self-Introduction Prompts to Infer Roles and Neighboring Agents",
+      "Adaptive Trait Injection Using Domain Classification and Scenario-Specific Malicious Traits",
+      "Activation Stage Using Trigger-Based Prompts Plus Role and Topology Information to Elicit Coordinated Harmful Behavior"
+    ],
+    "defenseMethods": [
+      "Prompt Leakage Detection to Block System Prompt Exposure",
+      "Criticality-Based Hierarchical Monitoring with Different Inspection Probabilities by Agent Importance",
+      "Scenario-Aware Preemptive Defense That Configures Prompts Using Domain Classification Before Deployment"
     ]
   },
   {
@@ -5018,6 +8138,33 @@
       "User Prompts",
       "Client Prompt",
       "Function Parameters"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "MCIP-Bench",
+      "Glaiveai/Glaive-Function-Calling-V2"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "F1",
+      "Recall",
+      "Training Progress Curves Across Epochs"
+    ],
+    "attackMethods": [
+      "Server Name Overlapping",
+      "Installer Spoofing",
+      "Backdoor Triggering"
+    ],
+    "defenseMethods": [
+      "Structured Trajectory Logging of Information Flows",
+      "Contextual Integrity-Based Risk Analysis",
+      "Safety-Aware Guardian Model"
     ]
   },
   {
@@ -5060,6 +8207,33 @@
       "Forum Comments",
       "RocketChat Messages",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "RTC-BENCH",
+      "OSWorld As The OS Backbone"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Attempt Rate",
+      "Success Rate",
+      "Execution-Based Evaluation"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Text-Based Language Injection",
+      "Code-Formatted Injection"
+    ],
+    "defenseMethods": [
+      "Built-in Confirmation and Safety Checks in Operator",
+      "Defensive System Prompt Instructing The Agent to Ignore Malicious Webpage Instructions",
+      "LlamaFirewall PromptGuard 2 Detection"
     ]
   },
   {
@@ -5103,6 +8277,32 @@
       "Tool Outputs",
       "External Web Content",
       "Email Inbox Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Task Completion Rate",
+      "Overhead",
+      "Utility Split Across Task Categories"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Prompt Injection",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Information-flow Control",
+      "Dynamic Taint Tracking",
+      "Policy Enforcement"
     ]
   },
   {
@@ -5142,6 +8342,28 @@
       "Web Content",
       "Rendered Raw Pixel Values",
       "Screenshot Resizing Pipeline"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "10 Webpage Datasets Across Blog, Commerce, Education, Healthcare, and Portfolio Categories, Each with Real and Synthetic Webpages",
+      "Real Webpages Collected with SingleFile"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Cost"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Baseline Screenshot-Based Adversarial Perturbation Attacks"
+    ],
+    "defenseMethods": [
+      "Not-Applicable"
     ]
   },
   {
@@ -5186,6 +8408,33 @@
       "User Prompts",
       "Network Channel",
       "Session Protocol"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "A2A Samples",
+      "Public MCP Servers and Tools"
+    ],
+    "evaluationMetrics": [
+      "Attack Success or Failure",
+      "Whether Malicious Actions Were Executed",
+      "Whether Malicious Agent Was Selected",
+      "Qualitative Demonstration of Exploitability"
+    ],
+    "attackMethods": [
+      "Eavesdropping and Traffic Analysis",
+      "Man-in-The-Middle Modification",
+      "Replay Attacks"
+    ],
+    "defenseMethods": [
+      "HTTPS and End-to-End Encryption",
+      "Data Masking",
+      "Integrity Authentication and Replay Protection"
     ]
   },
   {
@@ -5229,6 +8478,27 @@
       "User Prompts",
       "Perception Module",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [
+      "Perplexity"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Memory Poisoning",
+      "Reward Hacking"
+    ],
+    "defenseMethods": [
+      "Input Sanitization",
+      "Adversarial Training",
+      "Memory Lifecycle Control and Auditing"
     ]
   },
   {
@@ -5275,6 +8545,29 @@
       "User Prompts",
       "Files / Code",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Ten Case Studies Described in Section 4"
+    ],
+    "evaluationMetrics": [
+      "Perplexity"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Indirect Prompt Injection",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Action-Selector Pattern",
+      "Plan-Then-Execute Pattern",
+      "LLM Map-Reduce Pattern"
     ]
   },
   {
@@ -5316,6 +8609,33 @@
       "Tool Outputs",
       "Web Content",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Memory",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "ASB"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Success Rate",
+      "Completion Rate",
+      "Total Tokens"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Important_instruction Attack on AgentDojo",
+      "OPI Attack on ASB"
+    ],
+    "defenseMethods": [
+      "Secure Planning with Minimal Function Trajectory Constraints",
+      "JSON-Schema Parameter Checklist Validation",
+      "Dynamic Policy Updating Based on Runtime Deviations"
     ]
   },
   {
@@ -5355,6 +8675,31 @@
       "User Prompts",
       "Multi-Turn Dialogue",
       "Policy Interpretation"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Τ-Bench",
+      "Τ-Break"
+    ],
+    "evaluationMetrics": [
+      "Pass@k",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Policy-Aware Deceptive Framing via False Premises Such As Assuming A Reservation Is Not Basic Economy",
+      "Strategic Avoidance of Disqualifying Details",
+      "Persistent Insistence Across Turns"
+    ],
+    "defenseMethods": [
+      "Hierarchical Prompting That Ranks Policy Above System and User Input",
+      "Full Policy Reminder Before Each Generation Step",
+      "Relevant Policy Fragment Reminder Before Each Generation Step"
     ]
   },
   {
@@ -5396,6 +8741,33 @@
       "Retrieved Content",
       "Email Subject Lines",
       "Prompt Formatting and Special Tokens"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "LLMail-Inject Challenge Dataset",
+      "Phase 1 Submissions"
+    ],
+    "evaluationMetrics": [
+      "Tool Call Rate",
+      "Attack Success Rate",
+      "Success Rate",
+      "Number of Submissions Before First Success"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Special-Token and Role-Tag Spoofing",
+      "Character-Level Obfuscation"
+    ],
+    "defenseMethods": [
+      "Spotlighting",
+      "Prompt Shield Classifier",
+      "LLM Judge"
     ]
   },
   {
@@ -5439,6 +8811,33 @@
       "User Prompts",
       "Training Corpus",
       "Fine-Tuning Data"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "PersonalReddit Dataset",
+      "WIKIMIA Benchmark"
+    ],
+    "evaluationMetrics": [
+      "Publication Counts by Year and Category",
+      "Attack Success Rate",
+      "Accuracy",
+      "Privacy Leakage Rate"
+    ],
+    "attackMethods": [
+      "Sensitive Query Leakage",
+      "Contextual Leakage",
+      "Personal Preference Leakage"
+    ],
+    "defenseMethods": [
+      "Data Cleaning and Deduplication",
+      "Federated Learning",
+      "Differential Privacy"
     ]
   },
   {
@@ -5481,6 +8880,33 @@
       "User Prompts",
       "Web Content",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "OS-HARM",
+      "OSWorld"
+    ],
+    "evaluationMetrics": [
+      "Unsafe Execution Rate",
+      "Task Completion Rate",
+      "Precision",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Deliberate User Misuse Tasks That Directly Request Harmful Actions",
+      "Prompt Injection",
+      "Jailbreak"
+    ],
+    "defenseMethods": [
+      "LLM-Based Semantic Judging for Safety Evaluation",
+      "AER-Style Trace Formatting for Evaluation",
+      "Human Annotation for Ground Truth Comparison"
     ]
   },
   {
@@ -5518,7 +8944,30 @@
       "Tool Inputs",
       "Tool Outputs",
       "External APIs"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "RAS-Eval Benchmark",
+      "80 Test Cases"
+    ],
+    "evaluationMetrics": [
+      "Task Completion Rate",
+      "Task Incompletion Rate",
+      "Task Fail Rate",
+      "Performance Score"
+    ],
+    "attackMethods": [
+      "Tool Input Manipulation",
+      "Tool Output Manipulation",
+      "Direct Injection Content"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S096",
@@ -5559,6 +9008,25 @@
       "Input Prompt",
       "Prompt Injection Content",
       "Model Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [],
+    "attackMethods": [
+      "Prompt Injection",
+      "Model Evasion",
+      "Model Poisoning"
+    ],
+    "defenseMethods": [
+      "Data Encryption",
+      "Access Control",
+      "Prompt Engineering and Sanitization"
     ]
   },
   {
@@ -5603,6 +9071,33 @@
       "User Prompts",
       "Planning Loop",
       "Orchestrator"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "HarmBench",
+      "JailbreakBench"
+    ],
+    "evaluationMetrics": [
+      "Trustworthiness Index",
+      "Explainability Coverage",
+      "Faithfulness",
+      "Stability"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Memory Poisoning",
+      "Tool Misuse"
+    ],
+    "defenseMethods": [
+      "Prompt Hygiene and Hardening",
+      "Secure System Prefixes",
+      "Plan-Then-Execute Design"
     ]
   },
   {
@@ -5643,7 +9138,30 @@
       "User Prompts",
       "Memory / Scratchpads",
       "Planning Loop"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MIMIC-III",
+      "Webshop"
+    ],
+    "evaluationMetrics": [
+      "Extracted Number",
+      "Extracted Efficiency",
+      "Retrieved Number",
+      "Complete Extracted Rate"
+    ],
+    "attackMethods": [
+      "Black-Box Memory Extraction Attack",
+      "Prompt-Based Retrieval Hijacking to Force The Agent to Reveal Retrieved Examples",
+      "Diverse Prompt Generation to Maximize Overlap Reduction Across Retrieved Memory Records"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S100",
@@ -5687,6 +9205,32 @@
       "Web Content",
       "Popup Advertisements",
       "Email Inbox Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "VPI-Bench",
+      "Pseudo-Authentic Amazon-Like, Booking-Like, BBC-Like, Email, and Messenger Environments"
+    ],
+    "evaluationMetrics": [
+      "Attempted Rate",
+      "Success Rate",
+      "Behavior Category Proportions",
+      "Accuracy"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Model Fine-Tuning Against Prompt Injection",
+      "Framework-Level Defense Layers in Anthropic's Computer-Use System",
+      "System Prompt Defense"
     ]
   },
   {
@@ -5729,6 +9273,33 @@
       "Web Content",
       "HTML and DOM",
       "Screenshots"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Simulated Blog Landing Page",
+      "Technical Forum Post Scenario"
+    ],
+    "evaluationMetrics": [
+      "Attack Success or Exploit Success",
+      "Observed Unsafe Action Occurrence",
+      "Human Evaluation",
+      "Data Leakage Occurrence"
+    ],
+    "attackMethods": [
+      "Clickjacking via Visual Overlay and Deceptive UI Alignment",
+      "Indirect Prompt Injection",
+      "End-to-End Remote Code Execution Through Chained Browser and File-System Actions"
+    ],
+    "defenseMethods": [
+      "Runtime UI Verification",
+      "Cryptographic Identity Tags for Agent Actions",
+      "Fresh User Reauthentication for Sensitive Operations"
     ]
   },
   {
@@ -5767,6 +9338,31 @@
       "Inter-agent Channels",
       "Network Topology",
       "Token Bandwidth Constraints"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Inter-agent Comms",
+      "Coordination",
+      "Planning"
+    ],
+    "benchmark": [
+      "JailbreakBench",
+      "AdversarialBench"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "F1",
+      "Iterations to Convergence"
+    ],
+    "attackMethods": [
+      "Graph-Optimized Prompt Propagation Attack",
+      "Jailbreak",
+      "Stochastic Permutation-Invariant Evasion Attack"
+    ],
+    "defenseMethods": [
+      "Llama-Guard-Based Edge Filtering",
+      "PromptGuard-Based Edge Filtering"
     ]
   },
   {
@@ -5808,6 +9404,33 @@
       "System Prompts",
       "User Prompts",
       "Tool Parameters"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Synthetic Attack Scenario Set of 3,250 Cases",
+      "Finance and Healthcare Domain Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Refusal Rate",
+      "Cohen's Kappa",
+      "Amplification Factor"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Indirect Prompt Injection",
+      "JSON Injection Against Function Names or Parameters"
+    ],
+    "defenseMethods": [
+      "Cloud Provider Safeguard Interception",
+      "Guardrails",
+      "Strict JSON Schema Validation"
     ]
   },
   {
@@ -5850,6 +9473,33 @@
       "User Prompts",
       "NPC Messages",
       "Web Browser Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "OPENAGENTSAFETY Tasks, 356 Executable Tasks Introduced by The Paper",
+      "OpenHands Agent Scaffold"
+    ],
+    "evaluationMetrics": [
+      "LLM-As-Judge Unsafe Behavior Rate",
+      "Rule-Based Unsafe Outcome Rate",
+      "Failure Rate",
+      "Disagreement Rate"
+    ],
+    "attackMethods": [
+      "Malicious User Instruction Embedded in Task Requests",
+      "Deceptive NPC Manipulation in Multi-Turn Interactions",
+      "Social Engineering to Induce Unauthorized File Sharing or Policy Changes"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "Rule-Based Post-Hoc Environment Checks",
+      "LLM-As-Judge Trajectory Review"
     ]
   },
   {
@@ -5892,6 +9542,32 @@
       "Inter-agent Channels",
       "Tool Outputs",
       "Prompt Context"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Proposed Benchmark Scenarios: Chain-of-Delegation Task, Peer Review with Adversary, Resource Access Escalation, Misinformation Propagation"
+    ],
+    "evaluationMetrics": [
+      "Compromise Rate",
+      "Maximum Chain Length",
+      "Detection/Containment Score",
+      "Harm Score"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Piggybacked Instruction Injection in Structured Data",
+      "Tool-Use Hijacking Through Malicious Tool Calls"
+    ],
+    "defenseMethods": [
+      "Strong Inter-Agent Authentication",
+      "Least-Privilege Access for Agents",
+      "Anomaly Detection"
     ]
   },
   {
@@ -5938,6 +9614,28 @@
       "User Prompts",
       "Web Content",
       "Environment State"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Memory",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Agent Security Bench",
+      "A-MemGuard"
+    ],
+    "evaluationMetrics": [],
+    "attackMethods": [
+      "Prompt Injection",
+      "Sensor Interference and Multimodal Input Manipulation",
+      "Memory Poisoning"
+    ],
+    "defenseMethods": [
+      "Input Validation and Sanitization",
+      "Source Authentication and Provenance Checks",
+      "Sandboxing"
     ]
   },
   {
@@ -5979,6 +9677,33 @@
       "User Prompts",
       "Tool Outputs",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "ASB"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility Without Attack",
+      "True Positive Rate",
+      "False Positive Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Parameter Manipulation Through Injected Text",
+      "Control Hijacking by Rewriting The Intended Action"
+    ],
+    "defenseMethods": [
+      "Runtime Monitoring",
+      "Program Dependence Graph Construction",
+      "Dependency Analysis for Control and Data Flow"
     ]
   },
   {
@@ -6022,6 +9747,31 @@
       "Inter-agent Channels",
       "Planning Loop",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "BAD-ACTS-CORE",
+      "BAD-ACTS-EXTENDED"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Standard Error Over Three Runs",
+      "False Positive Rate"
+    ],
+    "attackMethods": [
+      "Targeted Adversarial Agent Manipulation of Peer Agents Into Executing A Specific Harmful Action",
+      "Role-Preserving Social Engineering Through Inter-Agent Messages",
+      "Multi-Agent Persuasion to Trigger Unsafe Tool Use or Harmful Outputs"
+    ],
+    "defenseMethods": [
+      "Adversary-Aware Prompting",
+      "Guardian Agents for Runtime Message Monitoring and Episode Termination on Unsafe Behavior"
     ]
   },
   {
@@ -6064,6 +9814,33 @@
       "Agent Identity Registration",
       "Message Exchange Channel",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "Attack Taxonomy and Case Analysis in Section 2",
+      "Google A2A Instantiation Walkthrough in Section 6.2"
+    ],
+    "evaluationMetrics": [
+      "Latency",
+      "Average Response Time",
+      "Overhead",
+      "Storage Efficiency"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "Prompt Injection",
+      "Prompt Infection"
+    ],
+    "defenseMethods": [
+      "Decentralized Identity Verification with DIDs",
+      "Blockchain-Anchored Provenance and Audit Trails",
+      "Access Control"
     ]
   },
   {
@@ -6110,6 +9887,33 @@
       "Email Subject Lines",
       "Calendar Invitation Titles",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Controlled Real-World Gemini Account Experiments",
+      "14 Attack Demonstrations"
+    ],
+    "evaluationMetrics": [
+      "Impact Score",
+      "Likelihood Score",
+      "Risk Score",
+      "Residual Risk Category"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Short-Term Context Poisoning",
+      "Memory Poisoning"
+    ],
+    "defenseMethods": [
+      "Context Isolation",
+      "Agent and Tool Chaining Prevention",
+      "I/O Validation"
     ]
   },
   {
@@ -6151,6 +9955,32 @@
       "Tool Outputs",
       "Web Content",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Workspace"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Success Rate",
+      "Token Usage",
+      "Task Completion Time"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "InjecAgent",
+      "Tool Knowledge Attack"
+    ],
+    "defenseMethods": [
+      "Tool Dependency Graph Execution Constraint",
+      "Argument Estimation",
+      "Node Expansion for Query-Only Tool Calls"
     ]
   },
   {
@@ -6193,6 +10023,33 @@
       "User Prompts",
       "Tool Metadata",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MCPSECBENCH",
+      "Curated Adversarial Prompt Dataset"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Refusal Rate",
+      "Mitigation Probability",
+      "Token Consumption"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Tool/Service Misuse via Confused AI",
+      "Schema Inconsistencies Causing Configuration Failure"
+    ],
+    "defenseMethods": [
+      "MCIP-Guardian, A Dynamic MCP-Specific Protection Mechanism",
+      "Firewalled-Agentic-Networks, Adapted From Agent Security to MCP",
+      "Runtime Refusal and Detection by The Host or Model"
     ]
   },
   {
@@ -6233,7 +10090,29 @@
       "Tool Metadata",
       "MCP Server Registration Metadata",
       "System Prompts"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MCPTox",
+      "45 Real-World MCP Servers"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Refused Ratio",
+      "Failure Mode Distribution"
+    ],
+    "attackMethods": [
+      "Tool Poisoning",
+      "Explicit Trigger Function Hijacking",
+      "Implicit Trigger Function Hijacking"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S114",
@@ -6270,6 +10149,31 @@
       "Tool Outputs",
       "Environment State",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "TOCTOU-Bench",
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Number of Vulnerable Plans",
+      "True Positive Rate",
+      "AUC",
+      "Attack Window in Seconds"
+    ],
+    "attackMethods": [
+      "TOCTOU Exploitation via State Change Between A Read/Check Tool Call and A Later Write/Use Tool Call",
+      "Malicious Configuration Swap or Payload Injection During The Temporal Gap"
+    ],
+    "defenseMethods": [
+      "Prompt Rewriting to Discourage Vulnerable Multi-Step Plans",
+      "State Integrity Monitoring Using Labeled Vulnerable Tool Pairs and A Finite State Automaton",
+      "Tool Fusion to Execute Vulnerable Tool Pairs Atomically"
     ]
   },
   {
@@ -6308,6 +10212,29 @@
       "Challenge Description",
       "Files / Code",
       "Writeup Hints"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "CTF-DOJO",
+      "InterCode-CTF"
+    ],
+    "evaluationMetrics": [
+      "Pass@1",
+      "Solve Rate",
+      "Number of Solved Challenges",
+      "Number of Successful Trajectories"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Docker-Based Isolation of Challenge Environments",
+      "Automated Validation of Build and Service Behavior",
+      "Redaction of Flags From Writeups to Reduce Shortcut Learning"
     ]
   },
   {
@@ -6351,6 +10278,32 @@
       "Files / Code",
       "External Repositories",
       "MCP Server Configuration"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AIShellJack Payload Set with 314 Attack Payloads",
+      "70 MITRE ATT&CK Techniques"
+    ],
+    "evaluationMetrics": [
+      "Execution Rate",
+      "Attack Success Rate",
+      "Token Match Ratio",
+      "Cohen's Kappa"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Command Execution Hijacking",
+      "Credential Access Payloads"
+    ],
+    "defenseMethods": [
+      "Command Allowlists and Blocklists",
+      "Restricting Terminal Access",
+      "Input Sanitization"
     ]
   },
   {
@@ -6391,6 +10344,33 @@
       "Memory / Scratchpads",
       "Retrieved Memories",
       "Multi-Agent Misinformation Propagation"
+    ],
+    "lifecycleStage": [
+      "Memory",
+      "Planning",
+      "Decision",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "ReAct-StrategyQA",
+      "EHRAgent"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Accuracy",
+      "Final Score",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Memory Poisoning",
+      "Indirect Memory Injection Through Normal-Looking Interactions",
+      "Self-Reinforcing Error Cycle From Corrupted Outputs Becoming Future Memory"
+    ],
+    "defenseMethods": [
+      "Consensus-Based Validation Over Multiple Retrieved Memories",
+      "Structured Reasoning-Path Comparison",
+      "Dual-Memory Architecture with Separate Lesson Memory"
     ]
   },
   {
@@ -6433,6 +10413,33 @@
       "Tool Metadata",
       "Input Schema",
       "MCP Server Package Metadata"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Alpaca MCP Server",
+      "WhatsApp MCP Server"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Evasion Rate",
+      "Token Usage",
+      "Cost"
+    ],
+    "attackMethods": [
+      "Tool Poisoning",
+      "Incorrect Parameter Invocation",
+      "Output Results Misinterpretation"
+    ],
+    "defenseMethods": [
+      "Oracle-Based Prompt Injection Detection",
+      "LLM-Based Behavior Judging for Attack Effectiveness",
+      "Static Code Analysis-Based Package Modification"
     ]
   },
   {
@@ -6476,6 +10483,33 @@
       "Product Reviews",
       "Email Thread Content",
       "Issue or Pull Request Text"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "WebShop Environment",
+      "Custom Calendar Invitation Simulation with 200 Generated People and 100 Pairs"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Attack Success Rate",
+      "Pass@1 for Bug-Fixing Patches",
+      "Percentage of Successful Email Threads"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Prompt Injection",
+      "Goal Hijacking"
+    ],
+    "defenseMethods": [
+      "Information-Flow Restriction Through Typed Inter-Agent Communication",
+      "Quarantined and Privileged Agent Separation",
+      "Opaque Variables for Untrusted Free-Form Content"
     ]
   },
   {
@@ -6515,6 +10549,33 @@
       "Tool Outputs",
       "External Data Returned by Tools",
       "Chat Templates"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "AgentDojo"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Utility",
+      "Template Similarity",
+      "Mean / Std"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Role-tag Forgery",
+      "Multi-turn Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Prompt Injection Detection",
+      "Data Delimiters",
+      "User Instruction Repetition"
     ]
   },
   {
@@ -6555,6 +10616,33 @@
       "External Ingestion Tools",
       "Retrieved Web or Social Content",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Public MCP Servers From PulseMCP, MCP Market, and Awesome MCP Servers",
+      "1,360 MCP Servers"
+    ],
+    "evaluationMetrics": [
+      "Tool Count and Server Count with Risky Capabilities",
+      "Proportion of Tools and Servers Exposed to Each Capability",
+      "Attack Success Rate",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Parasitic Toolchain Attack via Malicious External Content",
+      "Indirect Prompt Injection",
+      "Privacy Collection Through File or History Access Tools"
+    ],
+    "defenseMethods": [
+      "Context-Tool Isolation",
+      "Privilege Minimization",
+      "Cross-Tool Auditing"
     ]
   },
   {
@@ -6596,6 +10684,33 @@
       "User Prompts",
       "Tool Metadata",
       "Tool Argument Generation"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Public Repository of Leaked System Prompts and Model Prompts Used As Reference Ground Truth",
+      "MCP-Zero Tool Descriptions for Perplexity Thresholding"
+    ],
+    "evaluationMetrics": [
+      "Semantic Similarity",
+      "Normalized Extended Edit Distance",
+      "Full Exfiltration Rate",
+      "Partial Exfiltration Rate"
+    ],
+    "attackMethods": [
+      "ToolLeak Prompt Exfiltration via Malicious Tool-Argument Generation",
+      "Prompt Injection",
+      "Indirect Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Output Filtering",
+      "Prompt Alignment Against Prompt Leakage in GPT-5",
+      "Llama-Prompt-Guard-2-86M Prompt-Injection Detection"
     ]
   },
   {
@@ -6634,6 +10749,33 @@
       "Task Understanding",
       "Environment Perception",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "SafeMindBench",
+      "SafeAgentBench"
+    ],
+    "evaluationMetrics": [
+      "Safety Rate",
+      "Success Rate",
+      "Effectiveness Rate",
+      "LLM-Judge Based Safe/Unsafe Labeling"
+    ],
+    "attackMethods": [
+      "Hazardous Instruction Following",
+      "Unsafe Environment-Conditioned Task Execution",
+      "Causal Order Violation in Multi-Step Plans"
+    ],
+    "defenseMethods": [
+      "Task-Level Safety Filtering with Retrieved Constraints",
+      "Plan-Level Safety Verification Against Scene Context",
+      "Action-Level Runtime Validation Before Execution"
     ]
   },
   {
@@ -6680,6 +10822,33 @@
       "User Prompts",
       "Web Content",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "ToolSword",
+      "Real-Interaction Benchmarks Such As AdvWeb, ARE, WASP, ST-WebAgentBench, SafeArena, Agent-SafetyBench, SafeAgentBench, SafeBench, OpenAgentSafety"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Safety Score",
+      "Refusal Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Jailbreak",
+      "Backdoor Triggering"
+    ],
+    "defenseMethods": [
+      "Instruction Hierarchy",
+      "Instruction Detection and Removal",
+      "Authentication-Based Defenses"
     ]
   },
   {
@@ -6716,6 +10885,32 @@
       "Server Metadata",
       "Server Configuration",
       "Initialization Logic"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "12 Proof-of-Concept Malicious MCP Servers",
+      "120 Generated Malicious MCP Servers"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Detection Rate",
+      "Qualitative Robustness Across Host-Model Combinations"
+    ],
+    "attackMethods": [
+      "Server Metadata Poisoning",
+      "Server Configuration Abuse",
+      "Initialization Logic Attack"
+    ],
+    "defenseMethods": [
+      "Pre-Release Auditing",
+      "Post-Release Monitoring",
+      "Safe Configuration Handling"
     ]
   },
   {
@@ -6757,6 +10952,31 @@
       "Web Content",
       "Image Captions",
       "Set-of-Mark Descriptions"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "VWA-Adv Benchmark",
+      "VisualWebArena"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "LPIPS Stealthiness Loss",
+      "LLM-Based Scorer Score",
+      "Human Evaluation"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Adaptive Prompt Optimization Using Attacker LLM, Scorer LLM, RAG, and Strategy Summarization",
+      "Indirect Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Caption-Model-Based Image Prompt Detection Using A Smaller Captioning Model Such As Qwen2.5"
     ]
   },
   {
@@ -6800,6 +11020,32 @@
       "Web Content",
       "Customer Reviews",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "VWA-Adv"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Average Coverage",
+      "Coverage Bonus",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Goal Hijacking",
+      "Phishing Link Injection"
+    ],
+    "defenseMethods": [
+      "Prompt Injection Detection",
+      "Repeat Defense That Repeats User Instructions After Each Function Call",
+      "Delimit Defense That Wraps Tool Outputs with Delimiters and Prioritizes User Instructions"
     ]
   },
   {
@@ -6844,6 +11090,33 @@
       "User Prompts",
       "Web Content",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "B3 Benchmark",
+      "194,331 Unique Crowdsourced Adversarial Attacks From Gandalf Agent Breaker"
+    ],
+    "evaluationMetrics": [
+      "Vulnerability Score",
+      "Confidence Interval",
+      "Exact Match Metric",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Direct Instruction Override",
+      "Indirect Instruction Override via Malicious Webpages, Documents, Files, Rule Files, or Memory Entries",
+      "Direct Tool Invocation"
+    ],
+    "defenseMethods": [
+      "Stronger System Prompts As A Weak Defense Level",
+      "LLM-As-Judge Self-Judging Defense Layer",
+      "No External Defense Beyond The Backbone Model Itself"
     ]
   },
   {
@@ -6886,6 +11159,30 @@
       "Tool Metadata",
       "Tool Parameters",
       "Tool Response"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MCP Security Bench",
+      "10 Task Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Performance Under Attack",
+      "Net Resilient Performance"
+    ],
+    "attackMethods": [
+      "Name Collision Attack on Tool Selection",
+      "Tool-description Poisoning",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "MCIP Detection-Based Defense for Risky Tool Interactions"
     ]
   },
   {
@@ -6926,6 +11223,33 @@
       "Tool Metadata",
       "System Prompts",
       "Internal Tool Definitions"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Command Injection Payload List",
+      "LMSYS-Chat-1M"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "LLM Judge Score From 0 to 100",
+      "Human Evaluation",
+      "Perplexity"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Tool Description Poisoning",
+      "Supply-Chain Style Tool Integration Attack"
+    ],
+    "defenseMethods": [
+      "Sandwich Defense",
+      "Spotlighting with Datamarking",
+      "Spotlighting with Delimiting"
     ]
   },
   {
@@ -6970,7 +11294,30 @@
       "User Prompts",
       "Web Content",
       "Pop-Up Overlays"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "SecureWebArena",
+      "Six Simulated Web Environments Adapted From WebArena and VisualWebArena"
+    ],
+    "evaluationMetrics": [
+      "Reasoning Vulnerability Rate",
+      "Behavioral Compromise Rate",
+      "Payload Delivery Rate",
+      "LLM-As-A-Judge Classification"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Jailbreak",
+      "Pop-Up Attack, Injecting Modal Overlays That Hijack Attention and Navigation"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S132",
@@ -7009,6 +11356,33 @@
       "Tool Metadata",
       "Execution Environment",
       "Server Implementation"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "PulseMCP Top 300 Servers, of Which 296 Were Analyzed",
+      "Developer Review Dataset of 96 GitHub Issues Created by The Authors"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "Permission Frequency Distribution"
+    ],
+    "attackMethods": [
+      "Tool Poisoning",
+      "Puppet Attack",
+      "Rug Pull Attack"
+    ],
+    "defenseMethods": [
+      "Access Control",
+      "Least-Privilege Permission Enforcement",
+      "Sandboxing"
     ]
   },
   {
@@ -7047,7 +11421,30 @@
       "Blackboard Messages",
       "Planning Loop",
       "Agent Private Preferences and Context"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Inter-agent Comms",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Meeting Scheduling",
+      "PersonalAssistant"
+    ],
+    "evaluationMetrics": [
+      "Normalized Joint-Utility Value",
+      "Utility Difference",
+      "Correctness",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Misalignment via Adversarial Agent Behavior",
+      "Communication Poisoning Through Blackboard Manipulation",
+      "Privacy Extraction by Eliciting Private Information From Another Agent"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S134",
@@ -7087,6 +11484,33 @@
       "Web Content",
       "Embedded Images",
       "Image Captions"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "WAInjectBench Text Dataset",
+      "WAInjectBench Image Dataset"
+    ],
+    "evaluationMetrics": [
+      "True Positive Rate",
+      "False Positive Rate",
+      "Cross-Attack Generalization TPR",
+      "Cross-Attack Generalization FPR"
+    ],
+    "attackMethods": [
+      "VWA-Adv: Perturbed Product Images That Induce Malicious Captions",
+      "EIA: Malicious HTML Elements with Injected Instructions",
+      "Pop-Up: Malicious Pop-Up Overlays and Auxiliary Accessibility Text"
+    ],
+    "defenseMethods": [
+      "KAD: Known-Answer Detection Using A Secret String in The Prompt",
+      "PromptArmor: Direct LLM-Based Malicious-Instruction Classification",
+      "Embedding-T: Text Embedding Plus Logistic Regression Classifier"
     ]
   },
   {
@@ -7127,6 +11551,32 @@
       "Visual Input",
       "Environmental Text in The Scene",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "SHAWSHANK-BENCH",
+      "AI2-THOR Simulation Environment"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Harm Risk Score",
+      "Success Rate",
+      "OCR Rate"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "Prompt Injection",
+      "Environmental Manipulation Through Wall, Ground, Table, or Camera Placement"
+    ],
+    "defenseMethods": [
+      "Qwen3Guard",
+      "SAP"
     ]
   },
   {
@@ -7173,6 +11623,33 @@
       "User Prompts",
       "Retrieved Content",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "CIAQA Dataset",
+      "Toxic-Chat"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "False Trigger Rate",
+      "Accuracy",
+      "Membership Inference Performance"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Prompt-to-SQL Injection",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Input Sanitization",
+      "Query Validation",
+      "Prompt/Schema Validation"
     ]
   },
   {
@@ -7215,6 +11692,33 @@
       "README or Markdown Ingestion",
       "Execution Environment",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Tool Execution",
+      "Memory",
+      "Planning",
+      "Output"
+    ],
+    "benchmark": [
+      "A Curated Seed Set of 110 Experience Records, Including 100 Benign and 10 Poisoned Seeds",
+      "12 Handcrafted Evaluation Queries for DataInterpreter-Style Tasks"
+    ],
+    "evaluationMetrics": [
+      "Poisoned Retrieval Proportion PRP",
+      "Total Retrieved Records",
+      "Total Poisoned Retrievals",
+      "Per-Query Poisoned Retrieval Count"
+    ],
+    "attackMethods": [
+      "Memory Poisoning",
+      "Indirect Injection of Malicious Successful Experiences Into Persistent RAG Memory",
+      "Trigger-Free Retrieval Poisoning Through Semantic Similarity"
+    ],
+    "defenseMethods": [
+      "Cryptographic Provenance Attestation",
+      "Constitutional Consistency Reranking",
+      "Retrieval-Time Risk Filtering"
     ]
   },
   {
@@ -7255,6 +11759,33 @@
       "User Prompts",
       "Tool Outputs",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Synthetic Request Dataset Over 10 Real Applications Introduced by The Paper",
+      "Google Workspace and Other Real Connector Configurations"
+    ],
+    "evaluationMetrics": [
+      "Permission Mismatch Rate",
+      "Overprivilege Ratio",
+      "Latency",
+      "Confirmation Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "In-Scope Attack That Tries to Steer The Agent Into Additional Tool Calls Within The Same Permission Group",
+      "Overprivileged Connector Deployment"
+    ],
+    "defenseMethods": [
+      "Credential Minimization",
+      "ILP-Based Least-Privilege Solver",
+      "Session-Based Permission Model"
     ]
   },
   {
@@ -7299,6 +11830,33 @@
       "User Prompts",
       "System Prompts",
       "Retrieved Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Literature Corpus of 81 Included Papers From 248 Candidates",
+      "MCP-Bench"
+    ],
+    "evaluationMetrics": [
+      "Safety Margin Ratio",
+      "Trust Capacity",
+      "Risk Load",
+      "Belief Trust Score"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Indirect Prompt Injection",
+      "Tool Poisoning"
+    ],
+    "defenseMethods": [
+      "Sanitization and Filtering",
+      "Neutralization by Rewriting",
+      "Memory Augmentation"
     ]
   },
   {
@@ -7341,6 +11899,31 @@
       "User Prompts",
       "Retrieved Content",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Not-Specified",
+      "Synthetic or Internal Multimodal Prompt Injection Scenarios Implied by The Evaluation"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Cross-Modal Trust Leakage"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Text Sanitization",
+      "Visual Sanitization",
+      "OCR and Metadata Scanning"
     ]
   },
   {
@@ -7381,6 +11964,32 @@
       "Entry Agent Prompt",
       "Inter-agent Channels",
       "Shared Chat History"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Inter-agent Comms",
+      "Coordination",
+      "Output"
+    ],
+    "benchmark": [
+      "Task-Driven AutoGen Multi-Agent Setups",
+      "Camel Multi-Agent Setups"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Peak Blocking Turn Number (PTN)",
+      "LLM Safety Checker Score",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "CORBA: Contagious Recursive Blocking Attack That Propagates A Blocking Prompt Through Neighboring Agents and Maintains It Recursively",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Direct LLM Safety Checking of Attack Prompts",
+      "LLM-Based Multi-Agent Monitor",
+      "Perplexity-Based Detection"
     ]
   },
   {
@@ -7418,6 +12027,33 @@
       "Inter-agent Channels",
       "Memory / Scratchpads",
       "Topology and Authorization Structure"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Decision",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "RIOH Dataset",
+      "WCEI Dataset"
+    ],
+    "evaluationMetrics": [
+      "Defense Rate",
+      "Cosine Similarity",
+      "Cosine Similarity Rate",
+      "Token Consumption"
+    ],
+    "attackMethods": [
+      "Information Acquisition Based on Topology, Where An Attacker Exploits Intermediary Agents to Reach Sensitive Information",
+      "Authorization Mixup, Where Mixed-Sensitivity Topics Are Used to Bypass Access Control",
+      "Information Interference, Where False or Irrelevant Information Is Injected Repeatedly Into Memory"
+    ],
+    "defenseMethods": [
+      "Permission Control Based on Security Levels",
+      "Message Legitimacy Evaluation and Identity Verification",
+      "Information-flow Control"
     ]
   },
   {
@@ -7459,6 +12095,33 @@
       "User Prompts",
       "Inter-agent Channels",
       "Agent Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Inter-agent Comms",
+      "Output"
+    ],
+    "benchmark": [
+      "MASD Synthetic Dataset of 810 MAS Instances",
+      "30 Tasks Across Software, Finance, and Medical Domains"
+    ],
+    "evaluationMetrics": [
+      "F1",
+      "Semantic Similarity for System Prompt Extraction",
+      "Accuracy",
+      "Semantic Similarity for Task Instruction Extraction"
+    ],
+    "attackMethods": [
+      "MASLEAK Black-Box IP Leakage Attack",
+      "Domain-Aware Hooking to Elicit Hidden Prompts and Tools",
+      "Query Propagation Through Inter-Agent Communication"
+    ],
+    "defenseMethods": [
+      "Delimiters",
+      "Sandwich Prevention",
+      "Instructional Prevention"
     ]
   },
   {
@@ -7497,6 +12160,33 @@
       "Inter-agent Channels",
       "Conversation History",
       "System Prompts"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "HumanEval",
+      "CIAR"
+    ],
+    "evaluationMetrics": [
+      "Pass@1",
+      "Accuracy",
+      "Personal Score",
+      "Collective Score"
+    ],
+    "attackMethods": [
+      "Self-Dealer: Manipulates Other Agents to Adopt A Preferred Tool or Behavior, Such As Steering Search Toward Bing",
+      "Free-Rider: Offloads The Malicious Agent's Assigned Work to Other Agents Through Fabricated System-Like Requests",
+      "Scapegoater: Fabricates Errors and Blames Another Agent to Lower That Agent's Evaluation"
+    ],
+    "defenseMethods": [
+      "Explicit Monitor Defense Prompt Describing Malicious Roles",
+      "LLM-Based Evaluator Monitoring",
+      "Exploratory Use of O3-Mini As A Stronger Judge"
     ]
   },
   {
@@ -7536,6 +12226,33 @@
       "Inter-agent Channels",
       "Planning Loop",
       "Decision/Delegation"
+    ],
+    "lifecycleStage": [
+      "Planning",
+      "Decision",
+      "Inter-agent Comms",
+      "Coordination",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "MMLU",
+      "MMLU-Pro"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Human Evaluation",
+      "Token Usage",
+      "Precision"
+    ],
+    "attackMethods": [
+      "Suboptimal Fixation: Persistently Advocates A Plausible But Inferior Solution",
+      "Reframing Misalignment: Subtly Shifts The Task Framing Toward A Different Objective",
+      "Fake Injection: Inserts Fabricated Information As If It Were Established Consensus"
+    ],
+    "defenseMethods": [
+      "HEXACO-Based Behavioral Profiling and Anomaly Monitoring",
+      "Reid-Technique-Inspired Progressive Interrogation",
+      "Cognitive Redirection Guide: Semantic Redirection Back to Intended Role and Task"
     ]
   },
   {
@@ -7573,6 +12290,33 @@
       "Inter-agent Channels",
       "Message Passing Links",
       "Intercepted Messages"
+    ],
+    "lifecycleStage": [
+      "Inter-agent Comms",
+      "Planning",
+      "Decision",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "MultiAgentBench Code Domain",
+      "MultiAgentBench Research Domain"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Stealthiness",
+      "Ablation Performance",
+      "Sensitivity"
+    ],
+    "attackMethods": [
+      "Intercept-and-Tamper Message Attack in LLM-MAS",
+      "Multi-Round Adaptive Stealthy Tampering",
+      "Goal Rephrasing and Shallow Rewriting to Disguise Malicious Intent"
+    ],
+    "defenseMethods": [
+      "Tamper Defender That Flags Policy-Violating Messages",
+      "Semantic Similarity Constraint for Stealthy Rewriting",
+      "Embedding Similarity Constraint for Stealthy Rewriting"
     ]
   },
   {
@@ -7619,6 +12363,33 @@
       "Files / Code",
       "Web Content",
       "Email Attachments"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "CFH-Hard Coding Dataset",
+      "CFH-Hard Computer-Use Dataset"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Accuracy",
+      "LLM-Judge Comparison Score"
+    ],
+    "attackMethods": [
+      "Control-Flow Hijacking via Fake Error Messages That Instruct Agents Which Downstream Agents to Invoke",
+      "Confused-Deputy Attack Through Trusted Inter-Agent Messages",
+      "Laundering Malicious Instructions Through Trusted Agents"
+    ],
+    "defenseMethods": [
+      "Alignment Checks Based on Whether Actions Are Related to and Likely to Further The Original Goal",
+      "Least Privilege Agent Restriction",
+      "Prompt-Injection Detectors Such As Azure Content Filters and PromptGuard"
     ]
   },
   {
@@ -7662,7 +12433,30 @@
       "User Prompts",
       "Tool Outputs",
       "External Environment Observations"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "TAMAS Benchmark",
+      "Five-Domain Synthetic Scenario Suite"
+    ],
+    "evaluationMetrics": [
+      "ARIA Attack Outcome Labels",
+      "Attack Success Rate",
+      "Benign Performance",
+      "Safety Score"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "Impersonation of An Authority Figure"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S209",
@@ -7702,6 +12496,33 @@
       "User Prompts",
       "Files / Code",
       "Design Phase"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Software Requirement Description Dataset (SRDD)",
+      "480 Constructed Test Cases Combining Benign Requirements and Malicious Behaviors"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Reject Rate",
+      "Reject Rate Under Defense",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Implicit Malicious Behavior Injection via Appended Malicious Prompt Components",
+      "Malicious User with Benign Agents Scenario",
+      "Benign User with Malicious Agents Scenario"
+    ],
+    "defenseMethods": [
+      "Adversarial Prompting At The User Interface for Compromised-Agent Scenarios",
+      "Adversarial Prompting in Agent Profiles for Malicious-User Scenarios",
+      "Targeted Phase-Specific Defense Focusing on Critical Agents"
     ]
   },
   {
@@ -7744,6 +12565,33 @@
       "External Environment",
       "Web Content",
       "Visual Interface Elements"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "Five MAS Topologies: Tree, Chain, Star, Ring, Mesh",
+      "180 Experimental Configurations"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Infection Integrity Score",
+      "Generalization Consistency Score",
+      "Detection Rate"
+    ],
+    "attackMethods": [
+      "Topology-Aware Multi-Hop Attack Through Inter-Agent Propagation",
+      "Environment Injection Into Edge Agents via Visual or Textual Payloads",
+      "Hierarchical Payload Encapsulation to Preserve Malicious Intent Across Hops"
+    ],
+    "defenseMethods": [
+      "Cross-Modal Validation of Visual and Textual Consistency",
+      "Topology-Based Trust Evaluation",
+      "Access Control"
     ]
   },
   {
@@ -7782,6 +12630,30 @@
       "Runtime Group Formation",
       "Inter-agent Channels",
       "Reward Feedback Loops"
+    ],
+    "lifecycleStage": [
+      "Decision",
+      "Inter-agent Comms",
+      "Coordination",
+      "Memory",
+      "Planning"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [
+      "Group Volatility",
+      "On-Boarding Trust",
+      "Policy Consistency",
+      "Collusion Risk"
+    ],
+    "attackMethods": [
+      "Malicious Agent Injection Into Dynamically Formed Teams",
+      "Plugin Collusion",
+      "Malicious Group Steering Through Conflicting Incentives"
+    ],
+    "defenseMethods": [
+      "Trust-Adaptive Dynamic Teaming with Trust Ledgers",
+      "Adversarial Multi-Agent Training for Collusion Resistance",
+      "Hierarchical Conflict Arbitration via A Meta-LLM Controller"
     ]
   },
   {
@@ -7820,6 +12692,33 @@
       "Inter-agent Channels",
       "Agent Responses",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "CSQA",
+      "MMLU"
+    ],
+    "evaluationMetrics": [
+      "AUC",
+      "AUROC",
+      "Attack Success Rate",
+      "Accuracy"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Memory Poisoning",
+      "Tool Exploitation via Malicious Plugin or Tool Inputs"
+    ],
+    "defenseMethods": [
+      "Hierarchical Graph Encoding of Agent, Neighborhood, and Global Context",
+      "Semantic-Space Corruption-Based Anomaly Simulation",
+      "Supervised Contrastive Learning on Normal and Pseudo-Abnormal Samples"
     ]
   },
   {
@@ -7857,6 +12756,33 @@
       "User or Adversary Queries",
       "Query History Across Turns",
       "Inter-agent Channels"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "Synthetic Multi-Agent Compositional Leakage Scenarios Introduced by The Paper",
+      "Balanced Set of 119 Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "PlanExec@m",
+      "Sensitive Blocked",
+      "Benign Succeeded"
+    ],
+    "attackMethods": [
+      "Multi-Agent Compositional Inference by Aggregating Benign Fragments Across Defenders",
+      "Sequential Adversarial Querying with A Precomputed Plan",
+      "Cross-Agent Information Stitching Using Auxiliary Knowledge"
+    ],
+    "defenseMethods": [
+      "Chain-of-Thought Prompting As A Baseline",
+      "Sensitive-Set Filtering",
+      "Query-History-Aware Blocking"
     ]
   },
   {
@@ -7899,6 +12825,33 @@
       "User Prompts",
       "Inter-agent Channels",
       "Message Injection Channel"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Inter-agent Comms",
+      "Coordination",
+      "Output"
+    ],
+    "benchmark": [
+      "NetSafe Evaluation Dataset",
+      "JailbreakBench"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Contagion Rate",
+      "Accuracy",
+      "Pass@1"
+    ],
+    "attackMethods": [
+      "NetSafe-Style Malicious Agent Manipulation via Dark Traits in Profiles",
+      "Prompt Injection",
+      "UserHijack-Style Manipulation of User Instructions to Insert Adversarial Content"
+    ],
+    "defenseMethods": [
+      "Attacker Warm-Up on Curated Jailbreak Prompts to Train Stronger Adversaries",
+      "Co-Evolutionary Defender Training Against Adaptive Attackers",
+      "Public Baseline for Group-Level Advantage Estimation"
     ]
   },
   {
@@ -7941,7 +12894,29 @@
       "Private Tools",
       "Public Tools",
       "Tool Outputs"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "AgentBench-MAS (DB), A MAS-Adapted Version of AgentBench Database Tasks",
+      "Multi-Role Collaboration Bench, Newly Constructed Multi-Role Collaborative Tasks"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Attack Success Rate",
+      "Trigger Probability"
+    ],
+    "attackMethods": [
+      "Backdoor Triggering",
+      "Tool Poisoning",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S217",
@@ -7979,6 +12954,32 @@
       "Inter-agent Channels",
       "Evaluator Agents",
       "Communication Edges in The MAS Graph"
+    ],
+    "lifecycleStage": [
+      "Inter-agent Comms",
+      "Coordination",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "MMLU",
+      "Alpaca"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "BLEURT Score",
+      "GPT-4 Judge Score",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Harmful Prompt Attack That Induces Logically Persuasive Wrong Answers",
+      "Suboptimal Choice Attack That Avoids The Correct Answer Covertly",
+      "Reframing Attack That Changes The Problem Interpretation"
+    ],
+    "defenseMethods": [
+      "Signed-Edge Contribution Scoring",
+      "Backward Propagation Over The MAS Graph",
+      "Malicious-Agent Detection by Extreme Total Contribution Scores"
     ]
   },
   {
@@ -8022,6 +13023,33 @@
       "User Prompts",
       "Planning Loop",
       "Orchestrator"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "RedCode",
+      "SafeArena"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Refusal Rate",
+      "ARIA Risk Levels",
+      "DHARMA Classes"
+    ],
+    "attackMethods": [
+      "Adversarial Prompting",
+      "Prompt Injection",
+      "Harmful Task Requests Embedded in Benchmark Scenarios"
+    ],
+    "defenseMethods": [
+      "Architecture-Aware Evaluation",
+      "Diagnostic Rejection Localization",
+      "Prompt-Based Mitigation Observations"
     ]
   },
   {
@@ -8065,6 +13093,33 @@
       "System Prompts",
       "User Prompts",
       "Assistant Prefill"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Single-Turn Violative Request Evaluations",
+      "Single-Turn Benign Request Evaluations"
+    ],
+    "evaluationMetrics": [
+      "Harmless Response Rate",
+      "Over-Refusal Rate",
+      "Bias Score",
+      "Accuracy"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Assistant Prefill Attacks",
+      "Jailbreak"
+    ],
+    "defenseMethods": [
+      "Harmlessness Training",
+      "ASL-3 Deployment Safeguards",
+      "Specialized Reinforcement Learning Against Prompt Injection"
     ]
   },
   {
@@ -8101,7 +13156,30 @@
       "Private Traitor Coordination Channel",
       "Public Dialogue Transcript",
       "Voting Decisions"
-    ]
+    ],
+    "lifecycleStage": [
+      "Memory",
+      "Planning",
+      "Decision",
+      "Output",
+      "Inter-agent Comms"
+    ],
+    "benchmark": [
+      "The Traitors Environment",
+      "10-Agent Social Deduction Simulations with 3 Traitors and 7 Faithful Agents"
+    ],
+    "evaluationMetrics": [
+      "Traitor Agreement Score",
+      "Faithful Agreement Score",
+      "Correctness",
+      "Traitor Survival Rate"
+    ],
+    "attackMethods": [
+      "Strategic Deception Through Natural-Language Misdirection",
+      "Coalition-Based Traitor Coordination",
+      "Narrative Manipulation to Redirect Suspicion"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S238",
@@ -8144,6 +13222,33 @@
       "Web Content",
       "Retrieved Content",
       "Screenshots and OCR"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Internal Harmful Tasks Evaluation Set",
+      "Standard Refusal Evaluation"
+    ],
+    "evaluationMetrics": [
+      "Refusal Rate",
+      "Not_unsafe",
+      "Not_overrefuse",
+      "Goodness@0.1"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Jailbreak",
+      "Harmful Task Requests From Users"
+    ],
+    "defenseMethods": [
+      "Model-Level Refusals for Harmful Tasks",
+      "Confirmation Prompts Before State-Changing Actions",
+      "Proactive Refusals for High-Risk Tasks"
     ]
   },
   {
@@ -8188,6 +13293,33 @@
       "User Prompts",
       "Web Content",
       "Visual Browser Tool"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Standard Disallowed Content Evaluation",
+      "Production Benchmarks"
+    ],
+    "evaluationMetrics": [
+      "Not_unsafe",
+      "Accuracy",
+      "Hallucination Rate",
+      "Net_bias"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Jailbreak",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Specialized Safety Training for Prompt Injection Robustness",
+      "Automated Monitors and Filters",
+      "User Confirmations Before State-Changing Actions"
     ]
   },
   {
@@ -8228,6 +13360,33 @@
       "User Prompts",
       "Web Content",
       "Screen Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Online-Mind2Web",
+      "WebVoyager"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Accuracy",
+      "Measured Benchmark Percentage",
+      "Human Evaluation"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Misleading or Unreliable on-Screen Instructions",
+      "Data Exfiltration"
+    ],
+    "defenseMethods": [
+      "Human Confirmation for High-Stakes Actions",
+      "Runtime Safety Monitoring and Filtering",
+      "Blocking Access to Illegal or Dangerous Sites"
     ]
   },
   {
@@ -8272,6 +13431,29 @@
       "User Prompts",
       "App UI Content",
       "API Responses"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [
+      "Human Evaluation",
+      "Borda-Count Ranking Scores",
+      "Qualitative Survey Synthesis"
+    ],
+    "attackMethods": [
+      "Adversarial Inputs",
+      "Backdoor Triggering",
+      "Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Local Processing",
+      "Homomorphic Encryption",
+      "Secure Multi-party Computation"
     ]
   },
   {
@@ -8316,6 +13498,32 @@
       "Tool Outputs",
       "Retrieved Content",
       "Environment Feedback"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "R-Judge",
+      "InjecAgent"
+    ],
+    "evaluationMetrics": [
+      "F1",
+      "Recall",
+      "Specificity",
+      "Effectiveness"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Unintended Unsafe Action Selection in Benign Multi-Turn Tasks"
+    ],
+    "defenseMethods": [
+      "LLM-Based Safety Monitoring",
+      "Risk-type Prompting",
+      "Few-shot Prompting"
     ]
   },
   {
@@ -8357,7 +13565,29 @@
       "Web Content",
       "Server-Side Templates",
       "Files / Code"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Custom Sandboxed Websites",
+      "Real-world Websites"
+    ],
+    "evaluationMetrics": [
+      "Pass@5",
+      "Success Rate",
+      "Average Number of Function Calls Per Successful Hack",
+      "Detection Rate"
+    ],
+    "attackMethods": [
+      "SQL Injection",
+      "SQL Union Attack",
+      "Blind SQL Injection for Schema Extraction"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S007",
@@ -8397,7 +13627,30 @@
       "User Prompts",
       "Jailbreak Prompt",
       "Tool Metadata"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "MaliciousInstruct",
+      "Jailbreak Instances From Prior Work and Jailbreak Websites"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Tool Selection Error Rate",
+      "Unsafe Output Rate",
+      "Accuracy"
+    ],
+    "attackMethods": [
+      "Malicious Queries",
+      "Jailbreak",
+      "Tool-name Spoofing"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S008",
@@ -8438,6 +13691,30 @@
       "Web Content",
       "Tool Outputs",
       "System Prompts"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Cloned Webpages",
+      "Prompt Payload Dataset"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Readout Rate",
+      "Detection Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Web Redirect Injection",
+      "Phishing Link Injection"
+    ],
+    "defenseMethods": [
+      "User Confirmation",
+      "Webpage Scanning"
     ]
   },
   {
@@ -8482,6 +13759,32 @@
       "Tool Outputs",
       "Retrieved Content",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "Prior Tool Set"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Validity Rate",
+      "Sensitivity",
+      "Conversion Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Harmful Tool Calls",
+      "Data Theft"
+    ],
+    "defenseMethods": [
+      "None",
+      "Prompt Guardrails",
+      "Fine-tuned Agents"
     ]
   },
   {
@@ -8527,6 +13830,33 @@
       "User Prompts",
       "Plugin / API Interfaces",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "LangChain Benchmarks"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Permission Dialog Rate",
+      "Warning Rate",
+      "Correctness"
+    ],
+    "attackMethods": [
+      "Cross-app Compromise",
+      "Memory Data Theft",
+      "Indirect Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Process Isolation",
+      "Trusted Hub",
+      "Per-app Model Isolation"
     ]
   },
   {
@@ -8569,7 +13899,29 @@
       "CVE Description",
       "Web Content",
       "Execution Environment"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Real-world 1-day Vulnerabilities",
+      "CVE Reproductions"
+    ],
+    "evaluationMetrics": [
+      "Pass@5",
+      "Success Rate",
+      "Number of Actions Taken",
+      "Cost"
+    ],
+    "attackMethods": [
+      "1-day Exploitation",
+      "SQL Injection Exploitation",
+      "Cross-Site Scripting Exploitation"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S012",
@@ -8606,6 +13958,31 @@
       "Third-Party Question",
       "Conversation History",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Output"
+    ],
+    "benchmark": [
+      "Synthetic User Profiles",
+      "Synthetic Context Profiles"
+    ],
+    "evaluationMetrics": [
+      "Utility Score",
+      "Privacy Score",
+      "Accuracy",
+      "Open-Ended Containment Match"
+    ],
+    "attackMethods": [
+      "Context Hijacking",
+      "Phishing Link Injection"
+    ],
+    "defenseMethods": [
+      "Data Minimization",
+      "Context Isolation",
+      "User Escalation"
     ]
   },
   {
@@ -8644,6 +14021,31 @@
       "Runtime Query Prompt",
       "Physical Environment Scenario",
       "Databases"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Memory"
+    ],
+    "benchmark": [
+      "HighwayEnv",
+      "NuScenes"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Accuracy",
+      "Benign Distinguishability Rate",
+      "False Alarm Rate"
+    ],
+    "attackMethods": [
+      "Backdoor Triggering"
+    ],
+    "defenseMethods": [
+      "In-context Defense",
+      "ONION",
+      "Random Word Augmentation"
     ]
   },
   {
@@ -8680,7 +14082,29 @@
       "User Prompts",
       "Prompt Suffix",
       "Planning Loop"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Output",
+      "Auditing"
+    ],
+    "benchmark": [
+      "EIRAD",
+      "AI2-THOR Scenes"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Success Rate",
+      "Cost",
+      "Cosine Similarity"
+    ],
+    "attackMethods": [
+      "Untargeted Adversarial Suffix",
+      "Targeted Adversarial Suffix",
+      "GCG-style Suffix Optimization"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S015",
@@ -8723,6 +14147,32 @@
       "Tool Outputs",
       "Retrieved Content",
       "Web Page Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Workspace Environment"
+    ],
+    "evaluationMetrics": [
+      "Utility",
+      "Attack Success Rate",
+      "Confidence Interval"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Adaptive Max Attack Selecting The Best Prompt Per Task",
+      "Indirect Prompt Injection"
+    ],
+    "defenseMethods": [
+      "Data Delimiters",
+      "Prompt Injection Detection with A BERT Classifier",
+      "Prompt Sandwiching"
     ]
   },
   {
@@ -8769,6 +14219,27 @@
       "User Prompts",
       "External Context",
       "Retrieved Web Pages"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [],
+    "evaluationMetrics": [
+      "Perplexity"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Indirect Prompt Injection",
+      "Goal Hijacking"
+    ],
+    "defenseMethods": [
+      "Instruction Hierarchy",
+      "Context Distillation",
+      "Intention Analysis"
     ]
   },
   {
@@ -8810,6 +14281,28 @@
       "User Prompts",
       "Environment Content",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentInstruct Dataset",
+      "Operating System Task"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Follow Step Ratio"
+    ],
+    "attackMethods": [
+      "Backdoor Triggering"
+    ],
+    "defenseMethods": [
+      "Clean-Data Fine-Tuning Defense Using QLoRA",
+      "Layer-Prior and No-Layer-Prior Defense Settings"
     ]
   },
   {
@@ -8848,6 +14341,29 @@
       "Target-Agent Input Query",
       "Target-Agent Output Log",
       "Auth / Permission Flows"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "EICU-AC",
+      "Mind2Web-SC"
+    ],
+    "evaluationMetrics": [
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "Executable Rate"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Policy Enforcement",
+      "Access Control",
+      "Safety-Rule Checking"
     ]
   },
   {
@@ -8890,6 +14406,32 @@
       "User Prompts",
       "Tool Metadata",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentBench Security Tasks",
+      "Synthetic String Tasks"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "LLM Generation Rate of Attacking Actions",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Chat-history Poisoning",
+      "Fine-tuning Privacy Leakage"
+    ],
+    "defenseMethods": [
+      "Session Isolation",
+      "Sandboxing",
+      "Allow / Deny Lists"
     ]
   },
   {
@@ -8932,6 +14474,31 @@
       "Web Pages",
       "Admin Endpoints",
       "Login Forms"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Zero-day Web Vulnerabilities",
+      "Sandboxed Vulnerability Reproductions"
+    ],
+    "evaluationMetrics": [
+      "Pass@5",
+      "Pass At 1",
+      "Success Rate",
+      "Cost"
+    ],
+    "attackMethods": [
+      "Privilege Escalation",
+      "Multi-Step Autonomous Exploration and Backtracking to Discover Exploitable Endpoints"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "HTML Simplification to Reduce Token Cost"
     ]
   },
   {
@@ -8975,6 +14542,33 @@
       "Memory / Scratchpads",
       "Knowledge Base",
       "Retrieval Embeddings"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Agent-Driver Dataset",
+      "StrategyQA"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "ACC",
+      "Perplexity",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Memory Poisoning",
+      "Backdoor Triggering",
+      "Spurious Correlation Poisoning for Agent-Driver"
+    ],
+    "defenseMethods": [
+      "Perplexity Filter",
+      "Query Rephrasing",
+      "Robust RAG"
     ]
   },
   {
@@ -9015,6 +14609,33 @@
       "User Prompts",
       "System Prompts",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Physical-action Query Benchmark",
+      "Wild Jailbreak Prompts"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Harmfulness Score",
+      "MSR",
+      "Standard Deviation Across Models for Attack Stability"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "Safety Misalignment: Suffix Instructions That Preserve Safe Language Refusal But Still Elicit Unsafe Structured Action Outputs",
+      "Conceptual Deception: Semantic Rephrasing of Malicious Commands Into Less Overt Language While Preserving Harmful Action Intent"
+    ],
+    "defenseMethods": [
+      "Cross-modal Consistency",
+      "World-model Fine-tuning",
+      "Human Oversight"
     ]
   },
   {
@@ -9056,6 +14677,32 @@
       "User Prompts",
       "Tool Outputs",
       "Files / Code"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "Prior Tool Set",
+      "144 Test Cases Across 36 Toolkits"
+    ],
+    "evaluationMetrics": [
+      "Task Failure Rate",
+      "Attack Success Rate",
+      "Detection Rate",
+      "False-Positive Rate"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Adversarial Perturbation Using SCPN, VIPER, and GCG to Disrupt Reasoning",
+      "Adversarial Demonstration with Manipulated Examples in The Prompt or Memory"
+    ],
+    "defenseMethods": [
+      "Self-Examination Prompt for Policy-Violation Detection",
+      "Modified Self-Examination Prompt for Malfunction Detection"
     ]
   },
   {
@@ -9102,6 +14749,33 @@
       "User Prompts",
       "Instruction Component",
       "Interface"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "SafeAgentBench",
+      "AgentSafetyBench"
+    ],
+    "evaluationMetrics": [
+      "Safety Score",
+      "Attack Success Rate",
+      "Success Rate",
+      "Privacy Protection Rate"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "Prompt Injection",
+      "Data Extraction From Memorized Training Data or Prompts"
+    ],
+    "defenseMethods": [
+      "Self-reflection",
+      "Catastrophic Forgetting Mitigation Through Self-Synthesized Rehearsal, Learning-Rate Adjustment, Complementary Layered Learning, and Weight Averaging",
+      "Misunderstanding Mitigation Through Construction-Grammar-Based Representations, Sequential Instruction Tuning, and Active Inquiry"
     ]
   },
   {
@@ -9142,6 +14816,32 @@
       "Files / Code",
       "Remote Task Servers",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "Cybench",
+      "HackTheBox Cyber-Apocalypse-2024"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Subtask Completion",
+      "First-solve Time",
+      "Submission Rate"
+    ],
+    "attackMethods": [
+      "CTF-Style Exploitation Tasks Spanning Web, Crypto, Reverse Engineering, Forensics, and Pwn",
+      "Multi-Step Vulnerability Discovery and Exploit Execution"
+    ],
+    "defenseMethods": [
+      "Task Verifiability via Solution Scripts and CI",
+      "Environment Isolation Between Agent and Task Server",
+      "Automated Probes for Server Liveness"
     ]
   },
   {
@@ -9180,6 +14880,26 @@
       "Task Instruction",
       "Scene Observation",
       "Planning Loop"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Output",
+      "Auditing"
+    ],
+    "benchmark": [
+      "EARDataset",
+      "Seven-Domain Embodied Risk Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Task Risk Rate",
+      "Task Effectiveness Rate",
+      "Cohen's Kappa"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Implicit Risk Mitigation Prompting with Generic Safety Reminders",
+      "Explicit Risk Mitigation Prompting with Scene-Specific Safety Tips"
     ]
   },
   {
@@ -9223,6 +14943,33 @@
       "User Prompts",
       "Tool Outputs",
       "Memory / Scratchpads"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Agent Security Bench (ASB",
+      "10 Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Refuse Rate",
+      "Benign Performance",
+      "False Negative Rate"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "Memory Poisoning"
+    ],
+    "defenseMethods": [
+      "Delimiters Around User Input",
+      "Instructional Prevention",
+      "Dynamic Prompt Rewriting"
     ]
   },
   {
@@ -9263,6 +15010,30 @@
       "User Prompts",
       "Conversation History",
       "Prompt Marketplace Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "ShareGPT Conversation Dataset",
+      "WildChat Dataset"
+    ],
+    "evaluationMetrics": [
+      "Correctness",
+      "Perplexity",
+      "Precision",
+      "Word Extraction GPT Score"
+    ],
+    "attackMethods": [
+      "Obfuscated Adversarial Prompt Optimization for Tool Misuse",
+      "Information Exfiltration via URL Embedding in Tool Calls",
+      "PII Exfiltration via URL Embedding in Tool Calls"
+    ],
+    "defenseMethods": [
+      "Disabling Markdown Rendering of External Images"
     ]
   },
   {
@@ -9307,6 +15078,31 @@
       "User Prompts",
       "Tool Calling Interface",
       "Tool Outputs"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AgentHarm",
+      "Benign Counterpart Dataset"
+    ],
+    "evaluationMetrics": [
+      "Harm Score",
+      "Refusal Rate",
+      "Non-refusal Score",
+      "Best-of-N"
+    ],
+    "attackMethods": [
+      "Jailbreak"
+    ],
+    "defenseMethods": [
+      "Refusal Prompt As A Prompting-Based Safeguard Baseline",
+      "Chain-of-Thought Prompting",
+      "ReAct Prompting"
     ]
   },
   {
@@ -9348,6 +15144,33 @@
       "Tool Outputs",
       "External Retrieved Content",
       "Agent Thought Generation"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Monitoring",
+      "Output"
+    ],
+    "benchmark": [
+      "InjectAgent Benchmark",
+      "Direct Harm Attack Set From InjectAgent"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Valid Output Rate",
+      "False-Positive Rate",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Thought Injection That Embeds Malicious Intent Directly Into The Agent's Thought",
+      "Harmless Thought Injection That Embeds Only A Benign Precursor Request"
+    ],
+    "defenseMethods": [
+      "Self-reflection",
+      "Hesitation Reflection Using An External Reflector to Detect Hesitation or Reluctance",
+      "Safe Reflection Using An External Reflector to Judge Whether Proceeding Is Appropriate"
     ]
   },
   {
@@ -9383,6 +15206,32 @@
       "User Query",
       "Web Content",
       "Mobile UI / Notifications"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "CASA",
+      "WEBARENA-Style Web Environments"
+    ],
+    "evaluationMetrics": [
+      "Awareness Coverage Rate",
+      "Educational Rate",
+      "Helpfulness",
+      "Violation Rate"
+    ],
+    "attackMethods": [
+      "Misleading Web Content That Induces Norm-Violating Selections",
+      "Norm-Violating User Queries"
+    ],
+    "defenseMethods": [
+      "Prompting with Sensitive in-Context Examples",
+      "Updated Agent Role Descriptions Emphasizing Cultural and Social Awareness",
+      "Updated Completion-Action Instructions for Norm-Violating Tasks"
     ]
   },
   {
@@ -9424,6 +15273,30 @@
       "User Prompts",
       "Shared Prompt Text",
       "Conversation History"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "ShareGPT Conversation Dataset",
+      "WildChat Dataset"
+    ],
+    "evaluationMetrics": [
+      "Correctness",
+      "Perplexity",
+      "Precision",
+      "Word Extraction GPT Score"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Context-Dependent Information Exfiltration From Conversation History",
+      "PII Exfiltration From User Conversations"
+    ],
+    "defenseMethods": [
+      "Disabling Markdown Rendering of External Images"
     ]
   },
   {
@@ -9462,7 +15335,30 @@
       "System Prompts",
       "Inter-agent Channels",
       "Incoming Neighbor Messages"
-    ]
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Inter-agent Comms",
+      "Coordination",
+      "Output"
+    ],
+    "benchmark": [
+      "Fact Dataset",
+      "CSQA Dataset"
+    ],
+    "evaluationMetrics": [
+      "Network Efficiency",
+      "Eigenvector Centrality",
+      "Attack-path Vulnerability",
+      "Accuracy"
+    ],
+    "attackMethods": [
+      "Misinformation Injection",
+      "Bias Induction",
+      "Harmful-Info Elicitation"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S034",
@@ -9505,6 +15401,33 @@
       "Retrieved Content",
       "Web Content",
       "Downstream Agent Messages"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "Synthetic User Instructions",
+      "Synthetic Prompt Injections"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Failure Reasons",
+      "Importance Score",
+      "Infection Spread"
+    ],
+    "attackMethods": [
+      "Prompt Injection",
+      "Data Theft via Coordinated Multi-Agent Exfiltration",
+      "Malware Spread Through Malicious URL Instruction"
+    ],
+    "defenseMethods": [
+      "LLM Tagging",
+      "Delimiting Data",
+      "Random Sequence Enclosure"
     ]
   },
   {
@@ -9550,6 +15473,33 @@
       "User Prompts",
       "System Prompts",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "InjecAgent",
+      "InjectBench"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Hallucination Rate",
+      "Bias Score",
+      "Membership Inference Success"
+    ],
+    "attackMethods": [
+      "Adversarial Examples",
+      "Goal Hijacking",
+      "Prompt Leakage and Prompt Stealing"
+    ],
+    "defenseMethods": [
+      "Input Purification",
+      "Prompt Engineering",
+      "Prompt Standardization"
     ]
   },
   {
@@ -9587,6 +15537,28 @@
       "User Instruction",
       "Tool Outputs",
       "Environment Parameters"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "AGENT-SAFETYBENCH",
+      "R-Judge"
+    ],
+    "evaluationMetrics": [
+      "Safety Score",
+      "Behavior Safety",
+      "Content Safety",
+      "Category Safety"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Defense Prompts That Enumerate Failure Modes and Instruct The Agent to Avoid Them",
+      "Enhanced Defense Prompts with More Detailed Descriptions and Examples"
     ]
   },
   {
@@ -9624,6 +15596,33 @@
       "Planning Loop",
       "History Compression",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Memory",
+      "Output"
+    ],
+    "benchmark": [
+      "PicoCTF Benchmark Introduced in This Paper",
+      "OverTheWire Benchmark Introduced in This Paper"
+    ],
+    "evaluationMetrics": [
+      "Challenge Completion Rate",
+      "Number of Completed Challenges",
+      "Average Time Per Challenge",
+      "Command Error Rate"
+    ],
+    "attackMethods": [
+      "Unsafe Autonomous Command Execution",
+      "Out-of-Scope Network Scanning From Hallucinated Targets",
+      "Environment Destabilization Through Excessive Resource Use"
+    ],
+    "defenseMethods": [
+      "Sandboxing",
+      "Firewall Whitelist Restricting Network Access to The Designated Target",
+      "Observation Truncation via A New Observation Window Size"
     ]
   },
   {
@@ -9664,6 +15663,33 @@
       "User Instruction",
       "Adversarial Suffix Appended to Instruction",
       "System Prompts"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "RLBench",
+      "Real-World Tabletop Robot Experiments"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Acceptance Rate",
+      "Attack Success Rate",
+      "Recall"
+    ],
+    "attackMethods": [
+      "Jailbreak",
+      "POEX Adversarial Suffix Optimization for Harmful Yet Executable Robot Policies",
+      "Black-Box Transfer of Optimized Suffixes Across Models"
+    ],
+    "defenseMethods": [
+      "Prompt-Based Defense Using A Safeguard System Prompt with Human-Object-Environment Safety Constraints",
+      "Safety Classifiers",
+      "Pre-Checks on Instructions and Post-Checks on Generated Policies"
     ]
   },
   {
@@ -9700,6 +15726,29 @@
       "User Instruction",
       "Planning Loop",
       "High-Level Plan Generation"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "SafeAgentBench",
+      "SafeAgentEnv"
+    ],
+    "evaluationMetrics": [
+      "Rejection Rate",
+      "Risk Rate",
+      "Execution Rate",
+      "Usage Time"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Rejection of Hazardous Instructions",
+      "Deliberate Failure As A Form of Passive Defense",
+      "Compositional Agent Design Combining Reasoning, Skill Sets, and Scene Descriptions"
     ]
   },
   {
@@ -9738,6 +15787,33 @@
       "Web Content",
       "Tool Outputs",
       "Assistant-Generated Tool Calls"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "AgentDojo",
+      "Travel Task Suite"
+    ],
+    "evaluationMetrics": [
+      "Clean Utility",
+      "Utility",
+      "Attack Success Rate",
+      "Latency"
+    ],
+    "attackMethods": [
+      "Important Instructions Attack: Malicious High-Priority Instructions Embedded in External Content",
+      "Injecagent Attack: Conflicting Objectives Injected Into The Environment",
+      "Ignore Previous Attack: Instructions That Attempt to Nullify Prior Context"
+    ],
+    "defenseMethods": [
+      "Task Alignment Verification",
+      "Instruction Extraction",
+      "Tool-Output Alignment Checking"
     ]
   },
   {
@@ -9774,6 +15850,33 @@
       "Communication Channels",
       "Shared Common Knowledge",
       "External Knowledge Repositories"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Memory",
+      "Planning",
+      "Decision",
+      "Tool Execution"
+    ],
+    "benchmark": [
+      "OpenAI Schelling Point Evals",
+      "CASE Benchmark Scenarios"
+    ],
+    "evaluationMetrics": [
+      "Coordination Rate",
+      "Successful Reconstruction Rate",
+      "Success Rate",
+      "Maximum Coupling Dimension"
+    ],
+    "attackMethods": [
+      "Plugin Collusion",
+      "Covertext Modification Steganography",
+      "Information-Theoretic Steganography Using Minimum Entropy Coupling"
+    ],
+    "defenseMethods": [
+      "Monitoring and Penalization",
+      "Anomaly Detection",
+      "Grounding-Function-Based Detection"
     ]
   },
   {
@@ -9813,7 +15916,30 @@
       "Memory / Scratchpads",
       "Retrievers",
       "Inter-agent Channels"
-    ]
+    ],
+    "lifecycleStage": [
+      "Memory",
+      "Planning",
+      "Output",
+      "Inter-agent Comms",
+      "Coordination"
+    ],
+    "benchmark": [
+      "TMCHT",
+      "Synthetic Town-topic Questions"
+    ],
+    "evaluationMetrics": [
+      "Retrieval Score",
+      "Misleading Rate",
+      "Attack Success Rate",
+      "Attack Speed"
+    ],
+    "attackMethods": [
+      "Memory Poisoning",
+      "Jailbreak",
+      "Jailbreak Propagation"
+    ],
+    "defenseMethods": []
   },
   {
     "id": "S240",
@@ -9833,7 +15959,12 @@
     "agentType": [],
     "taskScenario": [],
     "threatModel": [],
-    "attackSurface": []
+    "attackSurface": [],
+    "lifecycleStage": [],
+    "benchmark": [],
+    "evaluationMetrics": [],
+    "attackMethods": [],
+    "defenseMethods": []
   },
   {
     "id": "S243",
@@ -9875,6 +16006,32 @@
       "User Prompts",
       "Tool Outputs",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "TensorTrust Prompt Hijacking Dataset",
+      "TensorTrust Robustness Dataset"
+    ],
+    "evaluationMetrics": [
+      "Robustness Percentage",
+      "Refusal Rate",
+      "Non-Refusal Rate",
+      "Attack Success Rate"
+    ],
+    "attackMethods": [
+      "Direct Prompt Injection",
+      "Indirect Prompt Injection",
+      "System Prompt Extraction"
+    ],
+    "defenseMethods": [
+      "Instruction Hierarchy",
+      "Context Synthesis for Aligned Lower-Priority Instructions",
+      "Context Ignorance for Misaligned Lower-Priority Instructions"
     ]
   },
   {
@@ -9916,6 +16073,29 @@
       "User Prompts",
       "Retrieved Content",
       "Web Content"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Output"
+    ],
+    "benchmark": [
+      "Synthetic Corpus of 1000 Documents Containing Prompt Injection Attacks",
+      "Document Summarization Task"
+    ],
+    "evaluationMetrics": [
+      "Attack Success Rate",
+      "Accuracy",
+      "Success Rate"
+    ],
+    "attackMethods": [
+      "Indirect Prompt Injection",
+      "Keyword Payload Attack That Tries to Force The Model to Output A Single Special Keyword Such As Canary"
+    ],
+    "defenseMethods": [
+      "Delimiting Trusted and Untrusted Text with Special Boundary Tokens",
+      "Datamarking by Interleaving A Special Marker Throughout The Input Text",
+      "Encoding The Input Text, Especially with Base64, So The Model Can Distinguish and Decode It While Treating It As Data"
     ]
   },
   {
@@ -9958,6 +16138,32 @@
       "Underspecified Instructions",
       "Tool Inputs",
       "Execution Environment"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "ToolEmu",
+      "Custom Toolkits"
+    ],
+    "evaluationMetrics": [
+      "Precision",
+      "Failure Incidence",
+      "Critical-issue-free Ratio",
+      "Cohen's Kappa"
+    ],
+    "attackMethods": [
+      "Adversarial Emulation",
+      "Instruction Underspecification"
+    ],
+    "defenseMethods": [
+      "Tool-use Emulation",
+      "Safety Evaluation",
+      "Helpfulness Evaluation"
     ]
   },
   {
@@ -9999,6 +16205,32 @@
       "Plugin / API Interfaces",
       "User Prompts",
       "Auth / Permission Flows"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Output"
+    ],
+    "benchmark": [
+      "OpenAI Plugin Store",
+      "268 Plugins Analyzed"
+    ],
+    "evaluationMetrics": [
+      "Plugin Count Exhibiting Each Risky Behavior",
+      "Qualitative Feasibility of Attack Mechanisms",
+      "Human Evaluation"
+    ],
+    "attackMethods": [
+      "Credential Exfiltration",
+      "Account Hijacking",
+      "Data Harvesting"
+    ],
+    "defenseMethods": [
+      "Credential Minimization",
+      "Context Isolation",
+      "Source Review"
     ]
   },
   {
@@ -10038,6 +16270,27 @@
       "Safety Constraints",
       "Planning Loop",
       "Action Generation"
+    ],
+    "lifecycleStage": [
+      "Input",
+      "Planning",
+      "Decision",
+      "Tool Execution",
+      "Monitoring"
+    ],
+    "benchmark": [
+      "VirtualHome",
+      "Four Room"
+    ],
+    "evaluationMetrics": [
+      "Success Rate",
+      "Safety Rate"
+    ],
+    "attackMethods": [],
+    "defenseMethods": [
+      "Runtime Monitoring",
+      "Action Pruning",
+      "Violation Explanation"
     ]
   }
 ]
