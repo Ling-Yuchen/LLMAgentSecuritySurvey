@@ -17,7 +17,6 @@ const state = {
 
 const els = {
   title: document.querySelector("#survey-title"),
-  subtitle: document.querySelector("#survey-subtitle"),
   paperLink: document.querySelector("#paper-link"),
   codeLink: document.querySelector("#code-link"),
   authorsGrid: document.querySelector("#authors-grid"),
@@ -57,7 +56,6 @@ async function loadData() {
 function renderHero() {
   const { siteData } = state;
   els.title.textContent = siteData.title;
-  els.subtitle.textContent = siteData.subtitle;
   els.paperLink.href = siteData.paperUrl;
   els.codeLink.href = siteData.codeUrl;
 }
@@ -345,7 +343,7 @@ async function init() {
     renderLiterature();
   } catch (error) {
     els.title.textContent = "Failed to load survey content.";
-    els.subtitle.textContent = String(error.message || error);
+    console.error(error);
   }
 }
 
