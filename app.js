@@ -18,7 +18,6 @@ const state = {
 const els = {
   title: document.querySelector("#survey-title"),
   paperLink: document.querySelector("#paper-link"),
-  codeLink: document.querySelector("#code-link"),
   authorsGrid: document.querySelector("#authors-grid"),
   backgroundCopy: document.querySelector("#background-copy"),
   abstractCopy: document.querySelector("#abstract-copy"),
@@ -57,7 +56,6 @@ function renderHero() {
   const { siteData } = state;
   els.title.textContent = siteData.title;
   els.paperLink.href = siteData.paperUrl;
-  els.codeLink.href = siteData.codeUrl;
 }
 
 function renderAuthors() {
