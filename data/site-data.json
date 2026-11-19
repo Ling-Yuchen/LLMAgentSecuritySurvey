@@ -32,7 +32,7 @@
       "email": "zychen@nju.edu.cn"
     }
   ],
-  "abstract": "Large language model (LLM) agents are rapidly moving from conversational interfaces to software components that plan, invoke tools, maintain memory, and act on external environments. This transition changes the nature of security risk. In agentic settings, failures are no longer limited to unsafe text generation. Untrusted content may redirect control flow, misuse tool privileges, corrupt persistent state, leak sensitive information, or trigger harmful external actions. At the same time, research on LLM agent security is expanding quickly but remains fragmented across attack families, defense layers, application domains, and evaluation settings. This survey synthesizes 247 papers through a lifecycle-based, systems-oriented framework that models agent security around the interaction of information flow, delegated authority, and persistent state. We organize the literature around four questions: how LLM agent security should be modeled, which threat surfaces and attack families dominate, what defenses have been proposed and with what tradeoffs, and how security claims are evaluated. We find that prompt injection and tool-mediated control-flow hijacking still dominate the field, while persistent state corruption and multi-agent propagation are becoming central emerging concerns. We further find that current defenses provide useful building blocks but remain weakly compositional, and that existing benchmarks still underrepresent long-horizon, stateful, and deployment-sensitive risks. We argue that secure LLM agents require explicit trust boundaries, principled privilege control, provenance-aware state management, and evaluation practices aligned with realistic operational settings.",
+  "abstract": "This survey synthesizes 247 papers on LLM agent security through a lifecycle framework linking information flow, delegated authority, and persistent state. We compare attack mechanisms, defense assumptions and tradeoffs, and benchmark capabilities. The analysis guides control selection and composition across browser, coding, memory-augmented, and multi-agent systems, and connects security evidence to task utility, delayed effects, and propagation.",
   "background": [
     "Recent advances in large language models (LLMs) have shifted research attention from passive text generation toward action-oriented systems that can reason, use tools, access external environments, and pursue multi-step goals . Early work on reasoning-acting integration and tool use already showed that LLMs can serve not only as conversational interfaces but also as decision-making components in interactive software systems . That shift has since accelerated through the emergence of web agents, coding agents, memory-augmented assistants, embodied agents, and multi-agent workflows, where LLMs are used to interpret instructions, plan actions, execute tasks, revise intermediate results, and coordinate subtasks .",
     "LLM agent security should therefore be understood as a systems problem. It arises when language-mediated reasoning is coupled with action selection, state management, and externally consequential execution. Unlike content-level safety, which is primarily concerned with prompts and responses, agent security concerns how user instructions, retrieved content, tool outputs, memory updates, and inter-agent messages can alter control flow, misuse privileges, corrupt state, or trigger harmful operations."
@@ -73,25 +73,25 @@
       "id": "RQ1",
       "question": "How should LLM agent security be scoped and modeled as a software and systems problem?",
       "shortTitle": "Scope and Modeling",
-      "answer": "LLM agent security should be modeled as the interaction of information flow, delegated authority, and persistent state across the agentic loop. This formulation is more specific than simply calling the problem ``system-level.'' It helps unify strands of the literature that might otherwise appear disconnected: prompt injection is often a planning and execution problem, memory poisoning is a delayed control-flow problem, and multi-agent coordination is also a trust and propagation problem."
+      "answer": "The lifecycle framework connects operational stages through transfers of information, state, and authority. Separating stages from threat surfaces helps trace attack paths, locate controls, and identify the observations needed to assess protection."
     },
     {
       "id": "RQ2",
       "question": "Which threat surfaces and attack families dominate current research on LLM agent security?",
       "shortTitle": "Threat Surfaces and Attacks",
-      "answer": "Current LLM agent security research is still dominated by prompt injection and indirect control-flow hijacking, but the field is already moving toward a broader threat model centered on persistence, authority abuse, and propagation. The most important conceptual shift is from thinking in terms of isolated malicious inputs to thinking in terms of cross-stage compromise and concrete consequence realization."
+      "answer": "Representative attacks are compared by attacker control, propagation mechanisms, demonstrated effects, and operating conditions. The comparison reveals shared paths across threat families and shows how memory reuse and delegation introduce distinct intervention points."
     },
     {
       "id": "RQ3",
       "question": "What defense strategies have been proposed, and what tradeoffs remain unresolved?",
       "shortTitle": "Defenses and Tradeoffs",
-      "answer": "The field does not lack defenses. Rather, it has many defense components but not yet a stable compositional logic. Current work offers meaningful building blocks, especially around access control, runtime monitoring, information-flow control, and containment. What remains missing is a principled answer to which layers are necessary for which agent architectures, threat environments, and deployment stakes."
+      "answer": "Defense comparisons connect enforcement mechanisms and trusted components to protection, utility costs, and residual risks. Scenario guidance explains control choices and interface dependencies for browser, coding, memory-augmented, and multi-agent systems, distinguishing tested combinations from design recommendations."
     },
     {
       "id": "RQ4",
       "question": "How are security claims evaluated today, and where do current benchmarks still fall short?",
       "shortTitle": "Evaluation and Gaps",
-      "answer": "The evaluation ecosystem is active but not yet sufficiently standardized for deployment assurance. A stronger agenda should satisfy at least five conditions. It should cover multiple threat surfaces rather than only prompt-level compromise. It should jointly report safety and utility rather than treat them as separate concerns. It should model longer horizons so that memory corruption and delayed activation become visible. It should include privilege-sensitive scenarios where external effects matter. It should also report latency, cost, and oversight burden more consistently across studies."
+      "answer": "Benchmarks are compared by threats, attacker access, state persistence, interaction horizon, utility measures, and environmental limitations. This analysis separates resource mentions from tested capabilities and explains how reset boundaries and communication traces affect measurement of delayed and cross-agent harm."
     }
   ],
   "stats": {
